@@ -1,25 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter , Router , Route , Switch} from 'react-router-dom' ; 
+import {createBrowserHistory} from 'history' ; 
+import { Fragment } from 'react';
+
+// set up redux
+import {store} from './redux/confgStore' ; 
+import {Provider} from 'react-redux' ; 
 
 function App() {
   return (
+    <Provider store={store} >
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className='text-center text-success'>Hello Anh Em !</h1>
     </div>
+    </Provider>
   );
 }
 
 export default App;
+
+/**
+ * axios , redux , redux-thunk , formik , yup , react-router-dom , react-boostrap , react-icon , history
+ */
