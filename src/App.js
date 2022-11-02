@@ -1,8 +1,11 @@
-import logo from './logo.svg';
+
 import './App.css';
 import {BrowserRouter , Router , Route , Switch} from 'react-router-dom' ; 
 import {createBrowserHistory} from 'history' ; 
 import { Fragment } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import Header from './components/Header';
 
 // set up redux
 // import {store} from './redux/confgStore' ; 
@@ -11,8 +14,9 @@ import { Fragment } from 'react';
 function App() {
   return (
     
-    <div className="App">
-      <h1 className='text-center text-success'>Hello Anh Em !</h1>
+    <div>
+
+      <Header/>
     </div>
     
   );
