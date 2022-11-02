@@ -5,16 +5,16 @@ import {createBrowserHistory} from 'history' ;
 import { Fragment } from 'react';
 
 // set up redux
-import {store} from './redux/confgStore' ; 
-import {Provider} from 'react-redux' ; 
+// import {store} from './redux/confgStore' ; 
+// import {Provider} from 'react-redux' ; 
 
 function App() {
   return (
-    <Provider store={store} >
+    
     <div className="App">
       <h1 className='text-center text-success'>Hello Anh Em !</h1>
     </div>
-    </Provider>
+    
   );
 }
 
