@@ -6,6 +6,7 @@ import { Fragment } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 // set up redux
 // import {store} from './redux/confgStore' ; 
@@ -16,6 +17,7 @@ function App() {
     
     <div>
       <Header/>
+      <Footer/>
     </div>
     
   );
