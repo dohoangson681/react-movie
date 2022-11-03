@@ -7,6 +7,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import SliderComponent from './components/Slider';
+import FormBooking from './components/Form/FormBooking';
 
 // set up redux
 // import {store} from './redux/confgStore' ; 
@@ -17,6 +19,8 @@ function App() {
     
     <div>
       <Header/>
+      <SliderComponent/>  
+      <FormBooking/>
       <Footer/>
     </div>
     
