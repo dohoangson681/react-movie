@@ -3,16 +3,17 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { BiUserCircle, BiUserPlus, BiMoviePlay, BiCameraMovie } from "react-icons/bi";
-import { FaNewspaper } from "react-icons/fa";
-import { FaUserCircle } from "react-icons/fa";
+import { FaNewspaper,FaUserCircle } from "react-icons/fa";
 import { FiSmartphone } from "react-icons/fi";
 import { AiOutlinePoweroff } from "react-icons/ai";
 import './index.css';
 
 export default function Header() {
-  const user = true
+  const user = false;
+  // nào có banner gắn lại navbar là fixed top
+  // fixed="top" 
   return (
-    <Navbar expand="md" fixed="top"  >
+    <Navbar expand="md"  >
       <Container fluid >
         <Navbar.Brand href="/" className='img-logo px'>
           <img className="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Sky_Cinema_-_Logo_2020.svg/1200px-Sky_Cinema_-_Logo_2020.svg.png" alt="" />
@@ -33,13 +34,13 @@ export default function Header() {
             <Nav className="d-flex flex-row justify-content-around align-items-center menu fw-bold">
               <button className='d-flex align-items-center btn-header'><FaUserCircle className='mx-1 fs-4' />Hello User</button>
               <div className='navbar__link-separator d-none d-md-block'></div>
-              <button className='d-flex align-items-center btn-header'>Đăng Xuất<AiOutlinePoweroff className='mx-1 fs-4' /></button>
+              <button className='d-flex align-items-center btn-header'>Đăng Xuất<AiOutlinePoweroff className='mx-1 fs-4 icon-header' /></button>
             </Nav>
             :
             <Nav className="d-flex flex-row justify-content-around align-items-center menu fw-bold">
               <button className='d-flex align-items-center btn-header'><BiUserCircle className='mx-1 fs-4' />Đăng Nhập</button>
               <div className='navbar__link-separator d-none d-md-block'></div>
-              <button className='d-flex align-items-center btn-header'><BiUserPlus className='mx-1 fs-4' />Đăng Ký</button>
+              <button className='d-flex align-items-center btn-header'><BiUserPlus className='mx-1 fs-4 icon-header' />Đăng Ký</button>
             </Nav>
           }
         </Navbar.Collapse>
