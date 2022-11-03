@@ -11,6 +11,9 @@ import Footer from './components/Footer' ;
 import RegisterPage from './pages/Register';
 import AdminPage from './pages/admin';
 
+import SliderComponent from './components/Slider';
+import FormBooking from './components/Form/FormBooking';
+
 // set up redux
 // import {store} from './redux/confgStore' ; 
 // import {Provider} from 'react-redux' ; 
@@ -25,6 +28,9 @@ function App() {
         <Route path='/admin' component={AdminPage} />
       </BrowserRouter>
       
+      <SliderComponent/>  
+      <FormBooking/>
+      <Footer/>
     </div>
     
   );

@@ -1,5 +1,5 @@
 #root .navbar {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    box-shadow: rgba(16, 16, 30, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/ESO_-_Milky_Way.jpg/700px-ESO_-_Milky_Way.jpg');
     background-position: top;
     max-height: 70px;
@@ -29,9 +29,6 @@
     transition: ease-in-out .3s;
 }
 
-#root .navbar-collapse {
-    /* background-color: white; */
-}
 
 #root .navbar-toggler {
     border: none;
@@ -41,22 +38,25 @@
 .navbar__link-separator {
     border-right: 2px solid white;
     height: 1.5rem;
-    margin:0 6px;
+    margin: 0 6px;
 }
-.btn-header{
+
+.btn-header {
     border: none;
     background-color: transparent;
     font-weight: 500;
     color: white;
 }
-.btn-header:hover{
+
+.btn-header:hover {
     color: #fb0b3d;
     transition: ease-in .2s;
 }
 .icon-header{
     color: white;
 }
-#root .container-fluid .navbar-toggler-icon{
+
+#root .container-fluid .navbar-toggler-icon {
     background-color: white;
 }
 
@@ -64,17 +64,20 @@
     svg {
         margin-right: 10px;
     }
-    #root .navbar-nav{
+
+    #root .navbar-nav {
         background-color: white;
         color: black;
         padding-bottom: 10px;
     }
-    
-    #root .navbar-nav a{
+
+    #root .navbar-nav a {
         color: #4a4a4a;
-       padding-left: 20px;
+        padding-left: 20px;
     }
-    .btn-header{
+    
+
+    .btn-header {
         color: #4a4a4a;
 
     }
