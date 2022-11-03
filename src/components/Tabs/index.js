@@ -1,0 +1,30 @@
+import React from 'react'
+import Tab from 'react-bootstrap/Tab';
+import Tabs from 'react-bootstrap/Tabs';
+import TestContent from './testcnt';
+import TestTwo from './testTwo';
+import './index.css'
+
+
+export default function TabsMovie() {
+    return (
+        <div className='container-tabs pt-5'>
+            <div className="container">
+                <Tabs
+                    defaultActiveKey="dangChieu"
+                    transition={false}
+                    id="noanim-tab-example"
+                    className="mb-3"
+                >
+                    <Tab eventKey="dangChieu" title="Phim Đang Chiếu">
+                        <TestContent />
+                    </Tab>
+                    <Tab eventKey="sapChieu" title="Phim Sắp Chiếu">
+                        <TestTwo />
+                    </Tab>
+                </Tabs>
+            </div>
+
+        </div>
+    )
+}

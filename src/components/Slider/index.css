@@ -1,5 +1,6 @@
 #root .carousel{
     position: relative;
+    margin-top: 70px;
 }
 #root .carousel .carousel-indicators button{
     border-radius: 50%;

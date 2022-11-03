@@ -32,8 +32,7 @@ export default function Header() {
   const handleCloseSignIn = () => setShowSignIn(false);
   const handleShowSignIn = () => setShowSignIn(true);
   const user = false;
-  // nào có banner gắn lại navbar là fixed top
-  // fixed="top"
+
   const loginSuccess = () => {
     setLogin(true);
   };
@@ -45,7 +44,7 @@ export default function Header() {
   if(api){
     return (
       <Fragment>
-      <Navbar expand="md"  >
+      <Navbar expand="md" fixed="top"  >
         <Container fluid >
           <Navbar.Brand href="/" className='img-logo px'>
             <img className="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Sky_Cinema_-_Logo_2020.svg/1200px-Sky_Cinema_-_Logo_2020.svg.png" alt="" />
