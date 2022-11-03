@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import { GrFacebook } from "react-icons/gr";
 import { BsInstagram, BsYoutube } from "react-icons/bs";
 import { AiFillApple, AiFillAndroid, AiOutlineDoubleRight } from "react-icons/ai";
-import './index.css';
+import './index.css'
 export default function Footer() {
   return (
     <Container fluid className='footer '>
