@@ -1,0 +1,64 @@
+.form-booking {
+    width: 100%;
+   background-color: rgba(0, 0, 0, 0.954);
+}
+
+.form-booking .booking-movie {
+    width: 90%;
+    margin: 0 auto;
+    padding: 6px;
+    border-radius: 4px;
+}
+
+.form-booking .form-select {
+    border-radius: 0;
+}
+
+.form-booking .booking-movie .form-select:focus {
+    border-color: black;
+    box-shadow: none;
+}
+
+.btn-book-ticket {
+    border: none;
+    background-color: #f5222d;
+    color: white;
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.btn-book-ticket:hover {
+    color: rgb(37, 32, 32);
+    background-color: #cf1322;
+    transition: .2s ease-in;
+}
+
+.btn-oder-none {
+    border: none;
+    background-color: #f66169;
+    color: black;
+    font-weight: 500;
+    width: 100%;
+    height: 100%;
+    cursor: no-drop;
+}
+
+@media (min-width: 992px) {
+    .form-booking .booking-movie {
+        width: 80%;
+        margin: 0 auto;
+        padding: 6px;
+        border-radius: 4px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .form-booking .booking-movie {
+        width: 70%;
+        margin: 0 auto;
+        padding: 6px;
+        border-radius: 4px;
+    }
+}
