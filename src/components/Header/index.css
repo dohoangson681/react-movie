@@ -54,7 +54,7 @@
     transition: ease-in .2s;
 }
 .icon-header{
-    color: red;
+    color: white;
 }
 #root .container-fluid .navbar-toggler-icon{
     background-color: white;
@@ -75,8 +75,11 @@
        padding-left: 20px;
     }
     .btn-header{
- 
         color: #4a4a4a;
+
+    }
+    .btn-header:hover {
+        background: transparent !important;
     }
 
 }

@@ -1,7 +1,10 @@
-import React from 'react'
-import './index.css'
+import React from 'react' ; 
+import FormSignUp from '../../components/Form/FormSignUp';
+import './index.css' ; 
 export default function RegisterPage() {
   return (
-    <div>RegisterPage</div>
+    <div className='register-page d-flex align-item'>
+      <FormSignUp /> 
+    </div>
   )
 }
