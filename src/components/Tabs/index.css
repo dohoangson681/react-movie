@@ -1,9 +1,9 @@
 .container-tabs{
-    background-color: white;
+    background-color: #080a1b;
 }
 
 .container-tabs .nav-item button{
-    color: black;
+    color: white;
     font-weight: bold;
 }
 #root .nav-tabs .nav-link.active{

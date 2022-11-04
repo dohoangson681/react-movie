@@ -1,0 +1,130 @@
+.tabs-img {
+    width: 100%;
+}
+
+.tabs-img img {
+    width: 100%;
+    max-height: 320px;
+}
+
+.card-body {
+    padding: 0;
+}
+
+.card-body-text {
+    padding: 0 6px;
+}
+
+.card .card-body p {
+    margin-bottom: 0.5rem;
+}
+
+.card-movie {
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-backdrop.show {
+    opacity: 0.3;
+}
+
+.overlay1 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.538);
+    transform: translateX(-100%);
+    transition: all .5s;
+}
+
+.overlay2 {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.538);
+    transform: translateX(100%);
+    transition: all .5s;
+}
+
+.btn-play-icon {
+    font-size: 50px;
+    display: inline-block;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.553);
+    opacity: 0;
+    transition: all 2s;
+}
+
+.btn-play-icon:hover {
+    transition: all 1s;
+    color: white;
+}
+
+.btn-tabs-booking {
+    display: inline-block;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    width: 50%;
+    height: 8%;
+    border-radius: 6px;
+    background-color: #f5222d;
+    font-weight: 600;
+    border: none;
+    opacity: 0;
+    transition: all 2s;
+}
+
+.btn-tabs-booking:hover {
+    color: rgb(37, 32, 32);
+    background-color: #b91623;
+    transition: .1s ease-in;
+}
+
+.card-movie:hover .overlay1,
+.card-movie:hover .overlay2 {
+    transform: translateX(0);
+}
+
+.card-movie:hover .btn-play-icon,
+.card-movie:hover .btn-tabs-booking {
+    opacity: 0.9;
+}
+
+@media only screen and (min-width: 1200px) {
+
+    .tabs-one,
+    .tabs-two {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .card .card-body {
+        padding: 0;
+    }
+
+    .card .card-body .h5 {
+        font-size: 18px;
+    }
+
+    .card .card-body p {
+        font-size: 12px;
+    }
+
+    .btn-tabs-booking {
+        width: 70%;
+        height: 10%;
+    }
+}

@@ -1,9 +1,9 @@
 import React from 'react'
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import TestContent from './testcnt';
-import TestTwo from './testTwo';
 import './index.css'
+import TabsOne from './TabsOne';
+import TabsTwo from './TabsTwo';
 
 
 export default function TabsMovie() {
@@ -17,10 +17,10 @@ export default function TabsMovie() {
                     className="mb-3"
                 >
                     <Tab eventKey="dangChieu" title="Phim Đang Chiếu">
-                        <TestContent />
+                        <TabsOne />
                     </Tab>
                     <Tab eventKey="sapChieu" title="Phim Sắp Chiếu">
-                        <TestTwo />
+                        <TabsTwo/>
                     </Tab>
                 </Tabs>
             </div>
