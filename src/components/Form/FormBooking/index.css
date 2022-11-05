@@ -1,6 +1,6 @@
 .form-booking {
     width: 100%;
-    background-color: #080a1b;
+    /* background-color: #080a1b; */
 }
 
 .form-booking .booking-movie {
@@ -8,7 +8,6 @@
     margin: 0 auto;
     padding: 6px;
     border-radius: 4px;
-    
 }
 
 .form-booking .form-select {
