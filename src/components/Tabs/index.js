@@ -8,7 +8,7 @@ import TabsTwo from './TabsTwo';
 
 export default function TabsMovie() {
     return (
-        <div className='container-tabs pt-5'>
+        <div className='container-tabs pt-5' id='movie'>
             <div className="container">
                 <Tabs
                     defaultActiveKey="dangChieu"

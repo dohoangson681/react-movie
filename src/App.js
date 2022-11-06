@@ -15,6 +15,8 @@ import SliderComponent from './components/Slider';
 import FormBooking from './components/Form/FormBooking';
 import TabsMovie from './components/Tabs';
 import TabCinema from './components/TabsCinema';
+import News from './components/News';
+import Promotion from './components/Promotion';
 
 // set up redux
 // import {store} from './redux/confgStore' ; 
@@ -33,6 +35,8 @@ function App() {
       <FormBooking/>
       <TabsMovie/>
       <TabCinema/>
+      <News/>
+      <Promotion/>
       <Footer/>
     </div>
     

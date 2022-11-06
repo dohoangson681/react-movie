@@ -22,7 +22,6 @@ export default function TabsOne() {
                             <Card.Text>
                                 Ngày Chiếu
                             </Card.Text>
-
                             <Card.Text>
                                 3-11-2022
                             </Card.Text>
@@ -63,7 +62,6 @@ export default function TabsOne() {
                             <Card.Text>
                                 Ngày Chiếu
                             </Card.Text>
-
                             <Card.Text>
                                 3-11-2022
                             </Card.Text>
@@ -104,7 +102,6 @@ export default function TabsOne() {
                             <Card.Text>
                                 Ngày Chiếu
                             </Card.Text>
-
                             <Card.Text>
                                 3-11-2022
                             </Card.Text>
@@ -145,7 +142,6 @@ export default function TabsOne() {
                             <Card.Text>
                                 Ngày Chiếu
                             </Card.Text>
-
                             <Card.Text>
                                 3-11-2022
                             </Card.Text>
@@ -186,7 +182,6 @@ export default function TabsOne() {
                             <Card.Text>
                                 Ngày Chiếu
                             </Card.Text>
-
                             <Card.Text>
                                 3-11-2022
                             </Card.Text>
@@ -212,7 +207,6 @@ export default function TabsOne() {
                                     title="trailer "></iframe>
                             </Modal.Body>
                         </Modal>
-
                     </Card.Body>
                 </Card>
             </Col>

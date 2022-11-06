@@ -8,7 +8,7 @@ import "./index.css"
 
 export default function TabCinema() {
     return (
-        <div className='container-tabs__cinema'>
+        <div className='container-tabs__cinema' id='theater'>
             <div className='empty-area'>
             </div>
             <div className='tabs-cinema my-4'>
