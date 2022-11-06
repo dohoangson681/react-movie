@@ -1,6 +1,6 @@
 .form-booking {
     width: 100%;
-   background-color: rgba(0, 0, 0, 0.954);
+    /* background-color: #080a1b; */
 }
 
 .form-booking .booking-movie {
@@ -12,6 +12,7 @@
 
 .form-booking .form-select {
     border-radius: 0;
+    cursor: pointer;
 }
 
 .form-booking .booking-movie .form-select:focus {

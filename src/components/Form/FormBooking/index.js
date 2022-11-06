@@ -2,9 +2,9 @@ import React from 'react'
 import Form from 'react-bootstrap/Form';
 import './index.css';
 export default function FormBooking() {
-    const hours = true;
+    const hours = false;
     return (
-        <div className='form-booking '>
+        <div className='form-booking py-2'>
             <div className="booking-movie d-flex flex-column flex-lg-row">
                 <div className="col-12 col-md-12 col-lg-6 ">
                     <Form className='d-flex flex-column flex-md-row  '>

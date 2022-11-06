@@ -13,6 +13,8 @@ import AdminPage from './pages/admin';
 
 import SliderComponent from './components/Slider';
 import FormBooking from './components/Form/FormBooking';
+import TabsMovie from './components/Tabs';
+import TabCinema from './components/TabsCinema';
 
 // set up redux
 // import {store} from './redux/confgStore' ; 
@@ -27,9 +29,10 @@ function App() {
       <BrowserRouter>
         <Route path='/admin' component={AdminPage} />
       </BrowserRouter>
-      
       <SliderComponent/>  
       <FormBooking/>
+      <TabsMovie/>
+      <TabCinema/>
       <Footer/>
     </div>
     
