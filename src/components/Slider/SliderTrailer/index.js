@@ -16,7 +16,7 @@ export default function SliderTrailer(props) {
             <Modal.Body>
                 <AiOutlineCloseCircle className='trailer-icon__close' onClick={props.onHide} />
                 {/* gắn tạm link để test */}
-                <iframe src='https://www.youtube.com/embed/x20O9HWN910'
+                <iframe src='https://www.youtube.com/embed/2Qcg6ZaSj8A'
                     allowFullScreen
                     frameBorder="0"
                     allow="autoplay"

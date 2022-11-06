@@ -37,11 +37,21 @@
 .title-movie p {
     color: white;
 }
+.title-movie .rating{
+    color: #c2c0c0;
+}
 
 .date-movie {
     color: white;
+    font-weight: bold;
 }
-
+.movie-list__time{
+    font-weight: 400;
+}
+.movie-list__time:hover{
+    cursor: pointer;
+    color: #fb0b3d;
+}
 .tab-content .btn-hour {
     display: block;
     padding: 0 12px;

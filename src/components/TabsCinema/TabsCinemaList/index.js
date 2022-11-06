@@ -7,7 +7,7 @@ import './index.css'
 
 export default function TabsTheater() {
     return (
-        <Tab.Container id="left-tabs-example" defaultActiveKey="second">
+        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
             <Row>
                 <Col sm={7}>
                     <Nav variant="pills" className="flex-column">
@@ -39,16 +39,16 @@ export default function TabsTheater() {
                     <Tab.Content>
                         <Tab.Pane eventKey="first">
                             <div className='movie-list'>
-                                <div className='d-flex pb-1'>
+                                <div className='d-flex py-2'>
                                     <img style={{ width: "60px", height: "60px" }} src='https://movie0706.cybersoft.edu.vn/hinhanh/scoob-_gp09.jpg' alt="" />
                                     <div className='title-movie'>
                                         <h6 className='fw-bold' >Cá Mập Siêu Bạo Chúa</h6>
-                                        <p>Rating Cao</p>
+                                        <p className='rating'>Rating Cao</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div>
-                                        <span className='date-movie'><span style={{ color: '#fb0b3d', paddingRight: '4px', fontWeight: 'bold' }}>Ngày Chiếu:</span> 20 tháng 11, 2022</span>
+                                        <span className='date-movie'>Ngày Chiếu:<span className='movie-list__time'> 20 tháng 11, 2022</span></span>
                                         <button className='btn-hour'>
                                             15:15
                                         </button>
@@ -58,16 +58,16 @@ export default function TabsTheater() {
                         </Tab.Pane>
                         <Tab.Pane eventKey="second">
                             <div className='movie-list'>
-                                <div className='d-flex p-1'>
+                                <div className='d-flex py-2'>
                                     <img style={{ width: "60px", height: "60px" }} src='https://movie0706.cybersoft.edu.vn/hinhanh/jurassicworld_gp09.jpg' alt="" />
                                     <div className='title-movie'>
                                         <h6 className='fw-bold' >Jurassic World</h6>
-                                        <p>Rating Cao</p>
+                                        <p className='rating'>Rating Cao</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div>
-                                        <span className='date-movie'><span style={{ color: '#fb0b3d', paddingRight: '4px', fontWeight: 'bold' }}>Ngày Chiếu:</span> 8 tháng 11, 2022</span>
+                                        <span className='date-movie'>Ngày Chiếu:<span className='movie-list__time'> 8 tháng 11, 2022</span></span>
                                         <button className='btn-hour'>
                                             15:40
                                         </button>
@@ -77,16 +77,16 @@ export default function TabsTheater() {
                         </Tab.Pane>
                         <Tab.Pane eventKey="first">
                             <div className='movie-list'>
-                                <div className='d-flex pb-1'>
+                                <div className='d-flex py-2'>
                                     <img style={{ width: "60px", height: "60px" }} src='https://movie0706.cybersoft.edu.vn/hinhanh/scoob-_gp09.jpg' alt="" />
                                     <div className='title-movie'>
                                         <h6 className='fw-bold' >Cá Mập Siêu Bạo Chúa</h6>
-                                        <p>Rating Cao</p>
+                                        <p className='rating'>Rating Cao</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div>
-                                        <span className='date-movie'><span style={{ color: '#fb0b3d', paddingRight: '4px', fontWeight: 'bold' }}>Ngày Chiếu:</span> 20 tháng 11, 2022</span>
+                                        <span className='date-movie'>Ngày Chiếu:<span className='movie-list__time'> 20 tháng 11, 2022</span></span>
                                         <button className='btn-hour'>
                                             15:15
                                         </button>
@@ -96,16 +96,16 @@ export default function TabsTheater() {
                         </Tab.Pane>
                         <Tab.Pane eventKey="first">
                             <div className='movie-list'>
-                                <div className='d-flex pb-1'>
+                                <div className='d-flex py-2'>
                                     <img style={{ width: "60px", height: "60px" }} src='https://movie0706.cybersoft.edu.vn/hinhanh/scoob-_gp09.jpg' alt="" />
                                     <div className='title-movie'>
                                         <h6 className='fw-bold' >Cá Mập Siêu Bạo Chúa</h6>
-                                        <p>Rating Cao</p>
+                                        <p className='rating'>Rating Cao</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div>
-                                        <span className='date-movie'><span style={{ color: '#fb0b3d', paddingRight: '4px', fontWeight: 'bold' }}>Ngày Chiếu:</span> 20 tháng 11, 2022</span>
+                                        <span className='date-movie'>Ngày Chiếu:<span className='movie-list__time'> 20 tháng 11, 2022</span></span>
                                         <button className='btn-hour'>
                                             15:15
                                         </button>
@@ -115,16 +115,16 @@ export default function TabsTheater() {
                         </Tab.Pane>
                         <Tab.Pane eventKey="first">
                             <div className='movie-list'>
-                                <div className='d-flex pb-1'>
+                                <div className='d-flex py-2'>
                                     <img style={{ width: "60px", height: "60px" }} src='https://movie0706.cybersoft.edu.vn/hinhanh/scoob-_gp09.jpg' alt="" />
                                     <div className='title-movie'>
                                         <h6 className='fw-bold' >Cá Mập Siêu Bạo Chúa</h6>
-                                        <p>Rating Cao</p>
+                                        <p className='rating'>Rating Cao</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div>
-                                        <span className='date-movie'><span style={{ color: '#fb0b3d', paddingRight: '4px', fontWeight: 'bold' }}>Ngày Chiếu:</span> 20 tháng 11, 2022</span>
+                                        <span className='date-movie'>Ngày Chiếu:<span className='movie-list__time'> 20 tháng 11, 2022</span></span>
                                         <button className='btn-hour'>
                                             15:15
                                         </button>
@@ -134,16 +134,16 @@ export default function TabsTheater() {
                         </Tab.Pane>
                         <Tab.Pane eventKey="first">
                             <div className='movie-list'>
-                                <div className='d-flex pb-1'>
+                                <div className='d-flex py-2'>
                                     <img style={{ width: "60px", height: "60px" }} src='https://movie0706.cybersoft.edu.vn/hinhanh/scoob-_gp09.jpg' alt="" />
                                     <div className='title-movie'>
                                         <h6 className='fw-bold' >Cá Mập Siêu Bạo Chúa</h6>
-                                        <p>Rating Cao</p>
+                                        <p className='rating'>Rating Cao</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div>
-                                        <span className='date-movie'><span style={{ color: '#fb0b3d', paddingRight: '4px', fontWeight: 'bold' }}>Ngày Chiếu:</span> 20 tháng 11, 2022</span>
+                                        <span className='date-movie'>Ngày Chiếu:<span className='movie-list__time'> 20 tháng 11, 2022</span></span>
                                         <button className='btn-hour'>
                                             15:15
                                         </button>
@@ -153,92 +153,16 @@ export default function TabsTheater() {
                         </Tab.Pane>
                         <Tab.Pane eventKey="first">
                             <div className='movie-list'>
-                                <div className='d-flex pb-1'>
+                                <div className='d-flexpy-2'>
                                     <img style={{ width: "60px", height: "60px" }} src='https://movie0706.cybersoft.edu.vn/hinhanh/scoob-_gp09.jpg' alt="" />
                                     <div className='title-movie'>
                                         <h6 className='fw-bold' >Cá Mập Siêu Bạo Chúa</h6>
-                                        <p>Rating Cao</p>
+                                        <p className='rating'>Rating Cao</p>
                                     </div>
                                 </div>
                                 <div>
                                     <div>
-                                        <span className='date-movie'><span style={{ color: '#fb0b3d', paddingRight: '4px', fontWeight: 'bold' }}>Ngày Chiếu:</span> 20 tháng 11, 2022</span>
-                                        <button className='btn-hour'>
-                                            15:15
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="first">
-                            <div className='movie-list'>
-                                <div className='d-flex pb-1'>
-                                    <img style={{ width: "60px", height: "60px" }} src='https://movie0706.cybersoft.edu.vn/hinhanh/scoob-_gp09.jpg' alt="" />
-                                    <div className='title-movie'>
-                                        <h6 className='fw-bold' >Cá Mập Siêu Bạo Chúa</h6>
-                                        <p>Rating Cao</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <span className='date-movie'><span style={{ color: '#fb0b3d', paddingRight: '4px', fontWeight: 'bold' }}>Ngày Chiếu:</span> 20 tháng 11, 2022</span>
-                                        <button className='btn-hour'>
-                                            15:15
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="first">
-                            <div className='movie-list'>
-                                <div className='d-flex pb-1'>
-                                    <img style={{ width: "60px", height: "60px" }} src='https://movie0706.cybersoft.edu.vn/hinhanh/scoob-_gp09.jpg' alt="" />
-                                    <div className='title-movie'>
-                                        <h6 className='fw-bold' >Cá Mập Siêu Bạo Chúa</h6>
-                                        <p>Rating Cao</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <span className='date-movie'><span style={{ color: '#fb0b3d', paddingRight: '4px', fontWeight: 'bold' }}>Ngày Chiếu:</span> 20 tháng 11, 2022</span>
-                                        <button className='btn-hour'>
-                                            15:15
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="first">
-                            <div className='movie-list'>
-                                <div className='d-flex pb-1'>
-                                    <img style={{ width: "60px", height: "60px" }} src='https://movie0706.cybersoft.edu.vn/hinhanh/scoob-_gp09.jpg' alt="" />
-                                    <div className='title-movie'>
-                                        <h6 className='fw-bold' >Cá Mập Siêu Bạo Chúa</h6>
-                                        <p>Rating Cao</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <span className='date-movie'><span style={{ color: '#fb0b3d', paddingRight: '4px', fontWeight: 'bold' }}>Ngày Chiếu:</span> 20 tháng 11, 2022</span>
-                                        <button className='btn-hour'>
-                                            15:15
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="first">
-                            <div className='movie-list'>
-                                <div className='d-flex pb-1'>
-                                    <img style={{ width: "60px", height: "60px" }} src='https://movie0706.cybersoft.edu.vn/hinhanh/scoob-_gp09.jpg' alt="" />
-                                    <div className='title-movie'>
-                                        <h6 className='fw-bold' >Cá Mập Siêu Bạo Chúa</h6>
-                                        <p>Rating Cao</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <span className='date-movie'><span style={{ color: '#fb0b3d', paddingRight: '4px', fontWeight: 'bold' }}>Ngày Chiếu:</span> 20 tháng 11, 2022</span>
+                                        <span className='date-movie'>Ngày Chiếu:<span className='movie-list__time'> 20 tháng 11, 2022</span></span>
                                         <button className='btn-hour'>
                                             15:15
                                         </button>

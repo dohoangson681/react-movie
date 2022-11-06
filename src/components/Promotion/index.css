@@ -1,0 +1,62 @@
+.promotion {
+    width: 82%;
+    margin: 0 auto;
+}
+.promotion .card{
+    border-color: none;
+}
+
+.promotion-title {
+    color: white;
+    border-left: 4px solid #f5222d;
+    padding-left: 8px;
+}
+.promotion-img{
+    cursor: pointer;
+    background-color: #080a1bf9;
+}
+.promotion-img img{
+    
+    transition: 1.90s;
+    -webkit-transition: 1.90s;
+    -moz-transition: 1.90s;
+    -ms-transition: 1.90s;
+    -o-transition: 1.90s;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.promotion-img img:hover {
+    transition: 1.90s;
+    -webkit-transition: 1.90s;
+    -moz-transition: 1.90s;
+    -ms-transition: 1.90s;
+    -o-transition: 1.90s;
+    -webkit-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -o-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+}
+
+@media (min-width: 768px) {
+    .promotion {
+        width: 88%;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .promotion {
+        width: 78%;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .promotion {
+        width: 70%;
+        margin: 0 auto;
+    }
+}

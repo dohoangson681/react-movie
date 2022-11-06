@@ -56,10 +56,10 @@ export default function Header() {
               style={{ maxHeight: '260px' }}
               navbarScroll
             >
-              <Nav.Link href="#action1" className='d-flex flex-md-column align-items-center px-lg-3 '> <BiMoviePlay className='fs-4'/>Phim</Nav.Link>
-              <Nav.Link href="#action2" className='d-flex flex-md-column align-items-center px-lg-3'><BiCameraMovie className='fs-4'/>Cụm Rạp</Nav.Link>
-              <Nav.Link href="#action3" className='d-flex flex-md-column align-items-center px-lg-3'><FaNewspaper className='fs-4'/>Tin Tức</Nav.Link>
-              <Nav.Link href="#action4" className='d-flex flex-md-column align-items-center px-lg-3'><FiSmartphone className='fs-4'/>Ứng Dụng</Nav.Link>
+              <Nav.Link href="#movie" className='d-flex flex-md-column align-items-center px-lg-3 '> <BiMoviePlay className='fs-4'/>Phim</Nav.Link>
+              <Nav.Link href="#theater" className='d-flex flex-md-column align-items-center px-lg-3'><BiCameraMovie className='fs-4'/>Cụm Rạp</Nav.Link>
+              <Nav.Link href="#news" className='d-flex flex-md-column align-items-center px-lg-3'><FaNewspaper className='fs-4'/>Tin Tức</Nav.Link>
+              <Nav.Link href="#promotion" className='d-flex flex-md-column align-items-center px-lg-3'><FiSmartphone className='fs-4'/>Khuyến Mãi</Nav.Link>
             </Nav>
             {isLogin ?
               <Nav className="d-flex flex-row justify-content-around align-items-center menu fw-bold">

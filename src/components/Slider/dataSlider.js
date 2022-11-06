@@ -1,23 +1,24 @@
 export const dataImg = [
     {
-        hinhAnh: "https://s3img.vcdn.vn/123phim/2020/07/ban-dao-15954792351353.jpg",
-        trailer: "https://www.youtube.com/embed/x20O9HWN910",
-        tenPhim: "Bán Đảo Peninsula",
-        biDanh: "ban-dao",
+        hinhAnh: "https://cdn.galaxycine.vn/media/2022/11/3/2048x682_1667485469196.jpg",
+        trailer: "https://www.youtube.com/embed/2Qcg6ZaSj8A",
+        tenPhim: "Black Panther: Wakanda Forever",
+        biDanh: "black-pather",
         maPhim: 1,
     },
     {
-        hinhAnh: "https://s3img.vcdn.vn/123phim/2020/07/yeu-nhau-mua-e-15949150603140.png",
-        trailer: "https://www.youtube.com/embed/gSSaTepQXGU",
-        tenPhim: "HẬU DUỆ THẦN SẤM",
+        hinhAnh: "https://cdn.galaxycine.vn/media/2022/11/1/1111111_1667275116008.jpg",
+        trailer: "https://www.youtube.com/embed/J14BfxOUxIs",
+        tenPhim: "Cá Sấu Biết Hát",
         biDanh: "hau-due-than-sam",
         maPhim: 2,
     },
     {
-        hinhAnh: "https://s3img.vcdn.vn/123phim/2020/05/vi-anh-deo-tin-15906776637571.png",
-        trailer: "https://www.youtube.com/embed/pSiYvjBXW2E",
-        tenPhim: "Kẻ Đào Tẩu Giấc Mơt",
-        biDanh: "ke-dao-tau-giac-mo",
+     
+        hinhAnh: "https://cdn.galaxycine.vn/media/2022/11/4/111_1667572093456.jpg",
+        trailer: "https://www.youtube.com/embed/DIYklwQ9jgw",
+        tenPhim: "Lời Nguyền Tâm Da",
+        biDanh: "loi-nguyen-tam-da",
         maPhim: 3,
     },
 ]
