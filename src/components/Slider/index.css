@@ -9,7 +9,7 @@
     margin: 0 10px;
 }
 #root .carousel .carousel-indicators .active{
-    background-color: red;
+    background-color: #7fae06;
 }
 .icon-play{
     position: absolute;

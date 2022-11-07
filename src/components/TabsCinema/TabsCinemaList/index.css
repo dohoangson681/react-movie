@@ -5,7 +5,7 @@
 }
 
 .title-cinema h6 {
-    color: #fb0b3d;
+    color: #a0d911;
     font-weight: bold;
 }
 
@@ -29,11 +29,12 @@
 .tabs-cinema .nav-pills .nav-link.active {
     opacity: 1;
     background-color: transparent;
-    border-right: 4px solid #fb0b3d;
+    border-right: 4px solid #7fae06;
     border-radius: 0;
 }
-
-.title-movie h6,
+.title-movie h6{
+    color: #a0d911;
+}
 .title-movie p {
     color: white;
 }
@@ -49,8 +50,7 @@
     font-weight: 400;
 }
 .movie-list__time:hover{
-    cursor: pointer;
-    color: #fb0b3d;
+    color: #7fae06;
 }
 .tab-content .btn-hour {
     display: block;
@@ -63,8 +63,8 @@
 }
 
 .tab-content .btn-hour:hover {
-    color: #1f0bfb;
-    border-color: #1f0bfb;
+    color: #bae637;
+    border-color: transparent;
     transition: color .12s ease-in-out;
 }
 

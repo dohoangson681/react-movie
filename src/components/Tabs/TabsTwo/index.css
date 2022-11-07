@@ -20,7 +20,7 @@
     color: white;
 }
 .card-movie .card-body .card-title{
-    color: white;
+    color: #a0d911;
 }
 
 .card-movie {
@@ -82,17 +82,17 @@
     width: 50%;
     height: 8%;
     border-radius: 6px;
-    background-color: #f5222d;
+    background-color: #a0d911;
     font-weight: 600;
     border: none;
     opacity: 0;
-    transition: all 2s;
+    transition: all .2s;
 }
 
 .btn-tabs-booking:hover {
     color: rgb(37, 32, 32);
-    background-color: #b91623;
-    transition: .1s ease-in;
+    background-color: #7cb305;
+    transition: .2s ease-in-out;
 }
 
 .card-movie:hover .overlay1,
