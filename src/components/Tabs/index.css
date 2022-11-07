@@ -12,8 +12,9 @@
 }
 
 #root .nav-tabs .nav-link.active {
-    background-color: #fb0b3d;
-    color: white;
+    background-color: #a0d911;
+    color: black;
+    font-weight: bold;
 }
 
 @media only screen and (max-width: 1024px) {

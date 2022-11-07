@@ -47,7 +47,7 @@ export default function Header() {
       <Navbar expand="md" fixed="top"  >
         <Container fluid >
           <Navbar.Brand href="/" className='img-logo px'>
-            <img className="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Sky_Cinema_-_Logo_2020.svg/1200px-Sky_Cinema_-_Logo_2020.svg.png" alt="" />
+            <img className="img-fluid" src="https://cdn.theatertoolkit.com/cdn/wwwroot/themes/custom/smittyscinema/images/CinemaSafe_Logo_horizontal_reverse.png" alt="" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll" className='px-3 px-md-0'>

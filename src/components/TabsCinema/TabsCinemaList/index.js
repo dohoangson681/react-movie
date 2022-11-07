@@ -153,7 +153,7 @@ export default function TabsTheater() {
                         </Tab.Pane>
                         <Tab.Pane eventKey="first">
                             <div className='movie-list'>
-                                <div className='d-flexpy-2'>
+                                <div className='d-flex py-2'>
                                     <img style={{ width: "60px", height: "60px" }} src='https://movie0706.cybersoft.edu.vn/hinhanh/scoob-_gp09.jpg' alt="" />
                                     <div className='title-movie'>
                                         <h6 className='fw-bold' >Cá Mập Siêu Bạo Chúa</h6>

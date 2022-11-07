@@ -5,7 +5,7 @@
 }
 
 .new-title{
-   border-left: 4px solid #f5222d;
+   border-left: 4px solid #7fae06;
    padding-left: 8px;
 }
 .news-content {
@@ -32,7 +32,7 @@
 }
 .new-title-movie:hover{
     cursor: pointer;
-    color: red;
+    color: #a0d911;
     transition: ease-in-out .19s;
 }
 .news-content p{

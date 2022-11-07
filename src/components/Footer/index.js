@@ -12,7 +12,7 @@ export default function Footer() {
       <Row className='py-5 px-3 px-md-5 px-lg-0 '>
         <Col xs={12} md={12} lg={5} className=' px-2 px-lg-5 pb-md-3 pb-lg-0 '>
           <div className='footer-logo pb-4 px-3'>
-            <img className='img-img-fluid' src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Sky_Cinema_-_Logo_2020.svg/1200px-Sky_Cinema_-_Logo_2020.svg.png" alt="" />
+            <img className='img-img-fluid' src="https://cdn.theatertoolkit.com/cdn/wwwroot/themes/custom/smittyscinema/images/CinemaSafe_Logo_horizontal_reverse.png" alt="" />
           </div>
           <div className="footer-contact">
             <p>Công Ty Cổ Phần Phim Ba Thành Viên, Tầng 3, Toà Nhà Số 1, 89 Võ Văn Tần, P. Võ Thị Sáu, Quận Hải Châu, Tp. Đà Nẵng</p>

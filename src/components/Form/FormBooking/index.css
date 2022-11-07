@@ -22,7 +22,7 @@
 
 .btn-book-ticket {
     border: none;
-    background-color: #f5222d;
+    background-color: #a0d911;
     color: white;
     font-weight: 600;
     width: 100%;
@@ -32,13 +32,13 @@
 
 .btn-book-ticket:hover {
     color: rgb(37, 32, 32);
-    background-color: #cf1322;
+    background-color: #7cb305;
     transition: .2s ease-in;
 }
 
 .btn-oder-none {
     border: none;
-    background-color: #f66169;
+    background-color: #d3f261;
     color: black;
     font-weight: 500;
     width: 100%;
