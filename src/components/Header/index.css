@@ -1,8 +1,6 @@
 #root .navbar {
-    box-shadow: rgba(16, 16, 30, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    /* background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/ESO_-_Milky_Way.jpg/700px-ESO_-_Milky_Way.jpg');
-    background-position: top; */
-    background-color: rgba(0, 0, 0, 0.847);
+    box-shadow: rgba(255, 255, 255, 0.8) 0px -40px 20px -33px inset;
+    background-color: rgba(0, 0, 0, 0.905);
     max-height: 70px;
     min-height: 70px;
 }

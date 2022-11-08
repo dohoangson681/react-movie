@@ -16,7 +16,7 @@ export default function Footer() {
           </div>
           <div className="footer-contact">
             <p>Công Ty Cổ Phần Phim Ba Thành Viên, Tầng 3, Toà Nhà Số 1, 89 Võ Văn Tần, P. Võ Thị Sáu, Quận Hải Châu, Tp. Đà Nẵng</p>
-            <p>Call us: <span style={{ color: 'white', cursor: 'pointer' }}>(+84)39 999 1919</span> </p>
+            <p className='pb-4 pb-lg-0'>Call us: <span style={{ color: 'white', cursor: 'pointer' }}>(+84)39 999 1919</span> </p>
           </div>
         </Col>
         <Col xs={6} md={4} lg={2}>

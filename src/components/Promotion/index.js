@@ -24,8 +24,6 @@ export default function Promotion() {
             <Row className='py-4'>
                {renderImg()}
             </Row>
-
-
         </div>
     )
 }
