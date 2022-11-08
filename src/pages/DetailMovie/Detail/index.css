@@ -1,0 +1,106 @@
+.detail {
+    width: 100%;
+    background: url(https://icdn.dantri.com.vn/thumb_w/640/2020/09/21/vu-tru-1600663081743.jpg);
+    background-size: cover;
+}
+
+.detail-movies {
+    width: 70%;
+    margin: 70px auto 0;
+}
+
+.img-movie {
+    width: 100%;
+}
+
+.img-movie img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.detail-title,
+.detail-director h5,
+.detail-cast h5,
+.detail-trailer h5 {
+    color: white;
+    font-weight: bold;
+    border-left: 4px solid #a0d911;
+    padding-left: 8px;
+}
+
+.detail-title:hover,
+.detail-director span:hover {
+    color: #a0d911;
+    transition: ease-in .2s;
+    cursor: pointer;
+    opacity: 0.9;
+}
+.detail-span{
+    width: 100%;
+}
+
+.detail-span span {
+    border: 2px solid white;
+    color: white;
+    border-radius: 20px;
+    padding: 4px 10px;
+    /* margin: 0 10px; */
+    font-weight: 500;
+}
+
+.detail-span span:hover {
+    cursor: pointer;
+    background-color: #a0d911;
+    transition: ease-in .2s;
+}
+
+.description-movie,
+.detail-cast p {
+    color: white;
+}
+
+.detail-director img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.detail-trailer iframe {
+    border-radius: 10px;
+    max-height: 300px;
+}
+
+.btn-detail {
+    margin: 10px 0;
+    background-color: #a0d911;
+    padding: 4px 10px;
+    border-radius: 8px;
+    color: white;
+    font-weight: 700;
+}
+
+.btn-detail:hover {
+    opacity: 0.8;
+    transition: ease-in .2s;
+}
+@media (max-width:600px) {
+    .detail-movies{
+        width:100%; 
+    }
+}
+@media (min-width:768px) {
+    .detail-movies{
+        width:100%;
+    }
+}
+@media (min-width: 1024px) {
+    .detail-movies{
+        width:100%;
+    }
+}
+@media (min-width: 1200px) {
+    .tabs-cinema{
+        width: 70%;
+        margin: 70px auto 0;
+    }
+}
