@@ -17,8 +17,12 @@ import TabsMovie from './components/Tabs';
 import TabCinema from './components/TabsCinema';
 import News from './components/News';
 import Promotion from './components/Promotion';
-import BackToTop from "react-back-to-top-button";
+// import BackToTop from "react-back-to-top-button";
 import { BsFillArrowUpSquareFill } from "react-icons/bs";
+import DetailMoviePage from './pages/DetailMovie';
+import ScrollToTop from './components/ScrollToTop';
+
+
 
 // set up redux
 // import {store} from './redux/confgStore' ; 
@@ -29,7 +33,6 @@ function App() {
 
     <div>
       <Header />
-      {/* <Footer/> */}
       <BrowserRouter>
         <Route path='/admin' component={AdminPage} />
       </BrowserRouter>
@@ -40,14 +43,8 @@ function App() {
       <News />
       <Promotion />
       <Footer />
-      <BackToTop
-        showOnScrollUp
-        showAt={100}
-        speed={1500}
-        easing="easeInOutQuint"
-      >
-        <span><BsFillArrowUpSquareFill style={{color:'#a0d911'}}/></span>
-      </BackToTop>
+      <ScrollToTop/>
+      {/* <DetailMoviePage/> */}
     </div>
 
   );

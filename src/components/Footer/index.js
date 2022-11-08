@@ -9,7 +9,7 @@ import './index.css'
 export default function Footer() {
   return (
     <Container fluid className='footer '>
-      <Row className='py-5 px-3 px-md-5 px-lg-0 '>
+      <Row className='py-5 px-1 px-md-5 px-lg-0 '>
         <Col xs={12} md={12} lg={5} className=' px-2 px-lg-5 pb-md-3 pb-lg-0 '>
           <div className='footer-logo pb-4 px-3'>
             <img className='img-img-fluid' src="https://cdn.theatertoolkit.com/cdn/wwwroot/themes/custom/smittyscinema/images/CinemaSafe_Logo_horizontal_reverse.png" alt="" />

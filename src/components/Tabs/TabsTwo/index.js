@@ -18,7 +18,7 @@ export default function TabsTwo(props) {
             <Col xs={6} md={4} lg={3} className='pb-4'>
                 <Card className='card-movie' >
                     <div className='tabs-img'>
-                        <img className='img-fluid' src="https://p.w3layouts.com/demos/aug-2016/24-08-2016/one_movies/web/images/m22.jpg" alt="môta" />
+                        <img src="https://p.w3layouts.com/demos/aug-2016/24-08-2016/one_movies/web/images/m22.jpg" alt="môta" />
                     </div>
                     <Card.Body>
                         <Card.Title className='text-center mt-2'>Central Intelligence</Card.Title>
@@ -59,7 +59,7 @@ export default function TabsTwo(props) {
             <Col xs={6} md={4} lg={3} className='pb-4'>
                 <Card className='card-movie' >
                     <div className='tabs-img'>
-                        <img className='img-fluid' src="https://p.w3layouts.com/demos/aug-2016/24-08-2016/one_movies/web/images/m22.jpg" alt="môta" />
+                        <img src="https://p.w3layouts.com/demos/aug-2016/24-08-2016/one_movies/web/images/m22.jpg" alt="môta" />
                     </div>
                     <Card.Body>
                         <Card.Title className='text-center mt-2'>Central Intelligence</Card.Title>
@@ -99,7 +99,7 @@ export default function TabsTwo(props) {
             <Col xs={6} md={4} lg={3} className='pb-4'>
                 <Card className='card-movie' >
                     <div className='tabs-img'>
-                        <img className='img-fluid' src="https://p.w3layouts.com/demos/aug-2016/24-08-2016/one_movies/web/images/m22.jpg" alt="môta" />
+                        <img src="https://p.w3layouts.com/demos/aug-2016/24-08-2016/one_movies/web/images/m22.jpg" alt="môta" />
                     </div>
                     <Card.Body>
                         <Card.Title className='text-center mt-2'>Central Intelligence</Card.Title>
@@ -139,7 +139,7 @@ export default function TabsTwo(props) {
             <Col xs={6} md={4} lg={3} className='pb-4'>
                 <Card className='card-movie' >
                     <div className='tabs-img'>
-                        <img className='img-fluid' src="https://p.w3layouts.com/demos/aug-2016/24-08-2016/one_movies/web/images/m22.jpg" alt="môta" />
+                        <img src="https://p.w3layouts.com/demos/aug-2016/24-08-2016/one_movies/web/images/m22.jpg" alt="môta" />
                     </div>
                     <Card.Body>
                         <Card.Title className='text-center mt-2'>Central Intelligence</Card.Title>
@@ -179,7 +179,7 @@ export default function TabsTwo(props) {
             <Col xs={6} md={4} lg={3} className='pb-4'>
                 <Card className='card-movie' >
                     <div className='tabs-img'>
-                        <img className='img-fluid' src="https://p.w3layouts.com/demos/aug-2016/24-08-2016/one_movies/web/images/m22.jpg" alt="môta" />
+                        <img src="https://p.w3layouts.com/demos/aug-2016/24-08-2016/one_movies/web/images/m22.jpg" alt="môta" />
                     </div>
                     <Card.Body>
                         <Card.Title className='text-center mt-2'>Central Intelligence</Card.Title>
