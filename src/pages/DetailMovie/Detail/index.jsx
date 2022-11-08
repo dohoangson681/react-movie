@@ -1,51 +1,74 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { GiTicket } from "react-icons/gi";
+import { AiOutlinePlayCircle } from "react-icons/ai";
+
 import './index.css'
+import DetailTrailer from './DetailTrailer';
 
 export default function Detail() {
     // api https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=10484
+    const [modalShow, setModalShow] = useState(false);
     return (
         <div className="detail">
             <div className="detail-movies">
-                <Container className='pt-5'>
+                <Container className='pt-3'>
                     <Row >
-                        <Col xs={12} md={5}>
-                            <div className='img-movie'>
-                                <img src="https://movienew.cybersoft.edu.vn/hinhanh/the-shawshank-redemption_gp01.jpg" alt="" />
-                            </div>
-                            <div className='detail-trailer mt-3'>
-                                <h5 className='mb-2'>Trailer</h5>
-                                <iframe src="https://www.youtube.com/embed/xqY59FOcUy8" frameBorder="0"></iframe>
+                        <Col xs={1} lg={2}>
+                            <div className='baner-detail d-none d-lg-block'>
+                                <img src="https://media.lottecinemavn.com/Media/WebAdmin/3cf13edeab134619886185a3e582d951.jpg" alt="" />
                             </div>
                         </Col>
-                        <Col xs={12} md={7}>
-                            <h4 className='detail-title'>The Shawshank Redemption</h4>
-                            <div className='detail-span py-3'>
-                                <span>Phim Đang Chiếu</span>
-                                <span>IMDb: 9.3/10</span>
-                                <span>C18</span>
-                                <span>Tâm lý</span>
-                            </div>
-                            <p className='description-movie'>Todd Hewwitt (Tom Holland) tình cờ phát hiện ra Viola (Daisy Ridley)- một cô gái sống sót sau khi phi thuyền của cô gặp nạn và rơi xuống hành tinh của cậu. Hành tinh này không hề có bóng dáng phụ nữ, còn đàn ông thì bị ảnh hưởng bởi 'Tiếng Ồn' - một thế lực thể hiện toàn bộ suy nghĩ của họ ra bên ngoài. Vì là cô gái duy nhất trên hành tinh kì lạ này, tính mạng của Viola bị đe dọa. Todd quyết tâm bảo vệ Viola và cả hai bị cuốn vào cuộc phiêu lưu nguy hiểm. Từ đó, Todd dần khám phá ra năng lực đặc biệt của mình, và phát hiện ra những bí mật đen tối của hành tinh mà cậu đang sống.</p>
-                            <div className='detail-director py-3'>
-                                <h5 className='mb-3'>Đạo Diễn: <span >Frank Darabont</span></h5>
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Frank_Darabont_at_the_PaleyFest_2011_-_The_Walking_Dead_panel.jpg/300px-Frank_Darabont_at_the_PaleyFest_2011_-_The_Walking_Dead_panel.jpg" alt="" />
-                            </div>
-                            <div className='detail-cast'>
-                                <h5 >Diễn Viên:</h5>
-                                <p className='py-2'>Al Pacino, Marlon Brando,James Caan, Richard S. Castellano,…</p>
-                            </div>
+                        <Col xs={12} lg={8}>
+                            <Row>
+                                <Col xs={12} md={4}>
+                                    <div className='img-movie mt-3'>
+                                        <img src="https://cdn.galaxycine.vn/media/2022/11/1/300x450_1667287461064.jpg" alt="" />
+                                        <div className="icon-play d-none d-sm-block">
+                                            <AiOutlinePlayCircle onClick={() => setModalShow(true)} />
+                                            <DetailTrailer
+                                                show={modalShow}
+                                                onHide={() => setModalShow(false)}
+                                            />
+                                        </div>
+                                    </div>
+                                </Col>
+                                <Col xs={12} md={8}>
+                                    <h4 className='detail-title mt-3'>BLACK PANTHER: WAKANDA FOREVER</h4>
+                                    <div className='detail-span py-3'>
+                                        <span>IMDb: 9.3/10</span>
+                                        <span>C18</span>
+                                        <span>Tâm lý</span>
+                                    </div>
+                                    <div className='detail-director py-2'>
+                                        <h5>Đạo Diễn: <span >Frank Darabont</span></h5>
+                                    </div>
+                                    <div className='detail-cast py-3'>
+                                        <h5 >Diễn Viên:</h5>
+                                        <p>Al Pacino, Marlon Brando,James Caan, Richard S. Castellano,…</p>
+                                    </div>
+                                    <div className='detail-cast'>
+                                        <h5 >Thể Loại:</h5>
+                                        <p>Hành Động</p>
+                                    </div>
 
-                            <div>
-                                <button className='btn-detail' style={{ marginLeft: '20px' }}><GiTicket />MUA VÉ NGAY</button>
-                            </div>
 
+                                    <div>
+                                        <button className='btn-detail'><GiTicket />MUA VÉ NGAY</button>
+                                    </div>
+                                </Col>
+                            </Row>
+                            <p className='description-movie my-5'>Dường như Black Panther/ T’Challa đã qua đời trong một sự kiện nào đó. Shuri (Letitia Wright), Okoye (Danai Gurira) lẫn nữ hoàng Ramonda (Angela Bassett) đều đau đớn và không cầm được nước mắt. Sau sự ra đi của Chadwick Boseman, Kevin Feige quyết định không chọn diễn viên mới cho nhân vật này mà chọn một người khác kế tục danh hiệu Black Panther. </p>
+
+                        </Col>
+                        <Col xs={1} lg={2}>
+                            <div className='baner-detail d-none d-lg-block'>
+                                <img src="https://media.lottecinemavn.com/Media/WebAdmin/3cf13edeab134619886185a3e582d951.jpg" alt="" />
+                            </div>
                         </Col>
                     </Row>
-
                 </Container>
             </div>
         </div>

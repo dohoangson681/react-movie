@@ -1,7 +1,4 @@
-/* .detail-tabs{
-    width: 50%;
-    margin: 50px auto;
-} */
+
 @media (max-width:600px) {
     .detail-tabs{
         width:90%; 
