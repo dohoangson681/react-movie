@@ -17,7 +17,7 @@ import TabsMovie from './components/Tabs';
 import TabCinema from './components/TabsCinema';
 import News from './components/News';
 import Promotion from './components/Promotion';
-import BackToTop from "react-back-to-top-button";
+// import BackToTop from "react-back-to-top-button";
 import { BsFillArrowUpSquareFill } from "react-icons/bs";
 
 // set up redux
@@ -40,14 +40,14 @@ function App() {
       <News />
       <Promotion />
       <Footer />
-      <BackToTop
+      {/* <BackToTop
         showOnScrollUp
         showAt={100}
         speed={1500}
         easing="easeInOutQuint"
       >
         <span><BsFillArrowUpSquareFill style={{color:'#a0d911'}}/></span>
-      </BackToTop>
+      </BackToTop> */}
     </div>
 
   );

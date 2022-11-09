@@ -61,7 +61,49 @@
 .navbar-collapse{
     z-index: 4;
 }
-/* modal  */
+/* modal sign up */
+.myModalBodySignUp {
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: all 1s ;
+}
+.myModalBodySignUp:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.modal-header {
+    border-bottom : transparent
+}
+.modal-header .btn-close {
+    margin: 0px;
+}
+.modal-title {
+    margin-left: 40%;
+    color: #7cb305;
+}
+/* modal sign in */
+.modalBodySignIn , .modalHeaderSignIn {
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    opacity : 0.9 ;
+    
+}
+
+.modalBodySignIn {
+    border-radius: 0px 0px 8px 8px;
+}   
+.modal-content {
+    margin-top: 20%;
+}
+.modalHeaderSignIn .modal-title {
+    color: white;
+} 
+.modalHeaderSignIn .btn-close {
+    color: white;
+}
+
+
+
+
+
 
 
 #root .container-fluid .navbar-toggler-icon {

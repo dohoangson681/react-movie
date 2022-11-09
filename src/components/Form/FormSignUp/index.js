@@ -114,7 +114,7 @@ export default function FormSignUp(props) {
         {formikProps.errors.hoTen || formikProps.touched.hoTen ? <ErrorMessage name="hoTen" /> : ''}
       </div>
       <div className="text-center col-12 ">
-      <button type="submit" className="btn btn-outline-danger text-center">
+      <button type="submit" className="btn btn-outline-primary text-center">
         Đăng kí
       </button>
       </div>
