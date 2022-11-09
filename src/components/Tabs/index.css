@@ -1,6 +1,4 @@
-/* .container-tabs{
-    background-color: #080a1b;
-} */
+
 .container-tabs {
     width: 70%;
     margin: 0 auto;
@@ -17,6 +15,7 @@
     font-weight: bold;
 }
 
+
 @media only screen and (max-width: 1024px) {
     .container-tabs {
         width: 80%;
@@ -32,6 +31,10 @@
 }
 
 @media only screen and (max-width: 600px) {
+    .container-tabs {
+        width: 100%;
+        margin: 0 auto;
+    }
     .container-tabs .container .nav {
         justify-content: space-between;
         --bs-nav-link-padding-x: 0.3rem;

@@ -1,0 +1,25 @@
+
+@media (max-width:600px) {
+    .detail-tabs{
+        width:90%; 
+        margin: 50px auto;
+    }
+}
+@media (min-width:768px) {
+    .detail-tabs{
+        width:70%;
+        margin: 50px auto;
+    }
+}
+@media (min-width: 1024px) {
+    .detail-tabs{
+        width:60%;
+        margin: 50px auto;
+    }
+}
+@media (min-width: 1200px) {
+    .detail-tabs{
+        width: 50%;
+        margin: 50px auto;
+    }
+}

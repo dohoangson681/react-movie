@@ -1,5 +1,5 @@
 .news {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     color: white;
 }
@@ -18,9 +18,11 @@
 
 .btn-news__like {
     align-items: center;
-    background-color: blue;
+    background-color: #7fae06;
     color: white;
+    font-weight: 400;
     padding: 0 6px;
+    border-radius: 6px;
 }
 
 .new-eye {
@@ -33,7 +35,7 @@
 .new-title-movie:hover{
     cursor: pointer;
     color: #a0d911;
-    transition: ease-in-out .19s;
+    transition: ease .3s;
 }
 .news-content p{
     color: darkgrey;

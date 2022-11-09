@@ -1,7 +1,13 @@
 import React from 'react'
+import Detail from './Detail'
 import './index.css'
+import TabsDetailCinema from './TabDetail'
+
 export default function DetailMoviePage() {
   return (
-    <div>DetailMoviePage</div>
+    <div >
+      <Detail/>
+      <TabsDetailCinema/>
+    </div>
   )
 }

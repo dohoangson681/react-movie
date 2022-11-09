@@ -7,18 +7,25 @@ import { Fragment } from 'react';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-
-import RegisterPage from './pages/Register';
-import AdminPage from './pages/admin';
-
 import SliderComponent from './components/Slider';
 import FormBooking from './components/Form/FormBooking';
 import TabsMovie from './components/Tabs';
 import TabCinema from './components/TabsCinema';
 import News from './components/News';
 import Promotion from './components/Promotion';
+import RegisterPage from './pages/Register';
+import AdminPage from './pages/admin';
 // import BackToTop from "react-back-to-top-button";
+import DetailMoviePage from './pages/DetailMovie';
+import HomePage from './pages/Home';
+import { HomeTemplate } from './template/HomeTemplate';
+import UserTemplate from './template/UserTemplate';
 import { BsFillArrowUpSquareFill } from "react-icons/bs";
+export const history = createBrowserHistory()
+
+
+// import BackToTop from "react-back-to-top-button";
+
 
 // set up redux
 // import {store} from './redux/confgStore' ; 
@@ -48,6 +55,15 @@ function App() {
       >
         <span><BsFillArrowUpSquareFill style={{color:'#a0d911'}}/></span>
       </BackToTop> */}
+      <Router history={history} >
+        <Switch>
+          <HomeTemplate exact path="/" component={HomePage}></HomeTemplate>
+          <Route exact path="/admin" component={AdminPage}></Route>
+          <HomeTemplate exact path="/home" component={HomePage}></HomeTemplate>
+          {/* Detai và Đặt vé xài chung userTemplate */}
+          <UserTemplate exact path="/detail" component={DetailMoviePage}></UserTemplate>
+        </Switch>
+      </Router>
     </div>
 
   );

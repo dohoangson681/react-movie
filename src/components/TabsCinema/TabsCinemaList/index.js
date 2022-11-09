@@ -9,7 +9,7 @@ export default function TabsTheater() {
     return (
         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
             <Row>
-                <Col sm={7}>
+                <Col sm={7} className='pb-5 pb-md-0 scroll-y-tabs'>
                     <Nav variant="pills" className="flex-column">
                         <Nav.Item>
                             <Nav.Link eventKey="first">
