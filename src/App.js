@@ -16,8 +16,9 @@ import DetailMoviePage from './pages/DetailMovie';
 import HomePage from './pages/Home';
 import { HomeTemplate } from './template/HomeTemplate';
 import UserTemplate from './template/UserTemplate';
-export const history = createBrowserHistory()
+import BookingPage from './pages/Booking';
 
+export const history = createBrowserHistory()
 
 // set up redux
 // import {store} from './redux/confgStore' ; 
@@ -34,6 +35,7 @@ function App() {
           <HomeTemplate exact path="/home" component={HomePage}></HomeTemplate>
           {/* Detai và Đặt vé xài chung userTemplate */}
           <UserTemplate exact path="/detail" component={DetailMoviePage}></UserTemplate>
+          <UserTemplate exact path="/ticketroom" component={BookingPage}></UserTemplate>
         </Switch>
       </Router>
     </div>
