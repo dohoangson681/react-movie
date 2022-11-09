@@ -1,0 +1,29 @@
+.form-ticket{
+    border: 1px solid white;
+    border-radius: 8px;
+    /* padding: 10px 8px; */
+}
+#root  #show-susscer .modal-content{
+    background-color: red !important;
+    color: white;
+}
+.form-ticket__item{
+    border-bottom: 2px dashed gray;
+}
+.form-ticket .btn-booking{
+    width: 100%;
+    padding: 4px 0;
+    border-radius: 4px;
+    border: 2px solid #7fae06;
+    font-weight: bold;
+    color:#7fae06 ;
+}
+.form-ticket .btn-booking:hover{
+    background-color:#7fae06 ;
+    color: white;
+    transition: .2s ease-in;
+}
+.ticket-color{
+    color: #98cc15;
+    cursor: pointer;
+}
