@@ -1,19 +1,9 @@
-import axios from "axios";
-import { accessToken } from "../redux/types/UserType";
+export const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCDEkMOgIE7hurVuZyAwNCIsIkhldEhhblN0cmluZyI6IjA0LzA0LzIwMjMiLCJIZXRIYW5UaW1lIjoiMTY4MDU2NjQwMDAwMCIsIm5iZiI6MTY1MjYzNDAwMCwiZXhwIjoxNjgwNzE0MDAwfQ.XE8uuSrZpBccfaHjIzdPXm7QejmcAjIWEkG8333amBU';
 
-export const http = axios.create({
-    baseURL: 'https://movienew.cybersoft.edu.vn/api',
-    timeout: 30000
-})
-http.interceptors.request.use((config) => {
-    config.headers = {
-        ...config.headers,
-        'TokenCybersoft': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y2FtcCDEkMOgIE7hurVuZyAwNCIsIkhldEhhblN0cmluZyI6IjExLzA0LzIwMjMiLCJIZXRIYW5UaW1lIjoiMTY4MTE3MTIwMDAwMCIsIm5iZiI6MTY1MjYzNDAwMCwiZXhwIjoxNjgxMzE4ODAwfQ.gSqRPtAGanL6NGpTCUadxaDv8iCWNHz1-5NHHkRP43A',
-        'Authorization': 'Bearer ' + localStorage.getItem(accessToken),
-    }
-    return config
-}, (errors) => {
-    return Promise.reject(errors)
-})
+export const URL_API = 'https://movienew.cybersoft.edu.vn/api';
 
+export const GP_ID = 'GP09';
 
+export const ACCESS_TOKEN = 'access_token';
+
+export const USER_LOGIN = 'userLogin'
