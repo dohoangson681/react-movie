@@ -1,0 +1,41 @@
+.scren {
+    width: 100%;
+    height: 80px;
+}
+
+.scren img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.chair {
+    width: 100%;
+    height: 500px;
+    background-color: white;
+}
+
+.ghe-content {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+.ghe{
+    font-size: 28px;
+    margin-right: 4px;
+    cursor: pointer;
+}
+.gheVip {
+    color: gold;
+
+}
+
+.gheDangChon {
+    color: chartreuse;
+}
+
+.gheDaDuocChon {
+    color: blue;
+}

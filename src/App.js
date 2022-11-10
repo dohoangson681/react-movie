@@ -20,11 +20,10 @@ import DetailMoviePage from './pages/DetailMovie';
 import HomePage from './pages/Home';
 import { HomeTemplate } from './template/HomeTemplate';
 import UserTemplate from './template/UserTemplate';
+import BookingPage from './pages/Booking';
+
 import { BsFillArrowUpSquareFill } from "react-icons/bs";
 export const history = createBrowserHistory()
-
-
-// import BackToTop from "react-back-to-top-button";
 
 
 // set up redux
@@ -62,6 +61,7 @@ function App() {
           <HomeTemplate exact path="/home" component={HomePage}></HomeTemplate>
           {/* Detai và Đặt vé xài chung userTemplate */}
           <UserTemplate exact path="/detail" component={DetailMoviePage}></UserTemplate>
+          <UserTemplate exact path="/ticketroom" component={BookingPage}></UserTemplate>
         </Switch>
       </Router>
     </div>
