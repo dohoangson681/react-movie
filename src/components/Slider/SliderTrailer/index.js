@@ -5,7 +5,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import './index.css'
 
 export default function SliderTrailer(props) {
-    console.log(props);
+    // console.log(props);
     return (
         <Modal
             {...props}
