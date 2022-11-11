@@ -34,18 +34,18 @@ function App() {
   return (
 
     <div>
-      <Header />
+      {/* <Header /> */}
       {/* <Footer/> */}
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Route path='/admin' component={AdminPage} />
-      </BrowserRouter>
-      <SliderComponent />
+      </BrowserRouter> */}
+      {/* <SliderComponent />
       <FormBooking />
       <TabsMovie />
       <TabCinema />
       <News />
       <Promotion />
-      <Footer />
+      <Footer /> */}
       {/* <BackToTop
         showOnScrollUp
         showAt={100}

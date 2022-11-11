@@ -20,7 +20,7 @@ import FormSignIn from "../Form/FormSIgnIn";
 
 export default function Header() {
   // fake get api
-  const[api , setApi] = useState(false) ; 
+  const[api , setApi] = useState(true) ; 
   // userlogin
   const [isLogin, setLogin] = useState(true);
   // modal
@@ -36,11 +36,11 @@ export default function Header() {
   const loginSuccess = () => {
     setLogin(true);
   };
-  useEffect(()=>{
-    setTimeout(()=>{
-      setApi(true) ; 
-    },2000)
-  } , [])
+  // useEffect(()=>{
+  //   setTimeout(()=>{
+  //     setApi(true) ; 
+  //   },2000)
+  // } , [])
   if(api){
     return (
       <Fragment>
