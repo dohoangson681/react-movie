@@ -41,7 +41,9 @@ export default function FormBooking() {
                 console.log('fail', err);
             })
         }
-    }, [maPhim]);
+    }, [maPhim]);// à
+    // cậu viết thêm code r thì phải push lên nhánh c đã r ms kéo đc về . hiểu k
+    // nảy t có push lên nhánh ta rồi nhìn nó vẫn còn hiện chữ M kìa tức là có thay đổi => push lên nhánh của c
 
     let hours = false;
     let renderDSPhim = () => {
@@ -55,17 +57,14 @@ export default function FormBooking() {
     };
     let renderDSRap = () => {
         console.log(danhSachRap)
-        if (danhSachRap.length !== 0) {
-            // return danhSachRap.map((rap, index) => {
-            //     console.log(rap);
-            //     return (
-            //         <option key={index} value={rap.maHeThongRap}>
-            //             {rap.tenHeThongRap}
-            //         </option>
-            //     );
-            // });
-
-        }
+        return danhSachRap.map((rap, index) => {
+            console.log(rap);
+            return (
+                <option key={index} value={rap.maHeThongRap}>
+                    {rap.tenHeThongRap}
+                </option>
+            );
+        });
     };
     return (
         <div className="form-booking pt-4">
