@@ -42,7 +42,7 @@ function App() {
           <HomeTemplate exact path="/home" component={HomePage}></HomeTemplate>
           {/* Detai và Đặt vé xài chung userTemplate */}
           <UserTemplate exact path="/detail" component={DetailMoviePage}></UserTemplate>
-          <UserTemplate exact path="/ticketroom" component={BookingPage}></UserTemplate>
+          <UserTemplate exact path="/ticketroom/:maLichChieu" component={BookingPage}></UserTemplate>
         </Switch>
       </Router>
     </div>
