@@ -1,12 +1,25 @@
 import React from 'react'
-import Carousel from 'react-bootstrap/Carousel';
 import './dataSlider'
+import { useDispatch } from 'react-redux';
+import Carousel from 'react-bootstrap/Carousel';
 import { dataImg } from './dataSlider';
-import { AiOutlinePlayCircle } from "react-icons/ai";
-import './index.css';
 import SliderTrailer from './SliderTrailer';
+import { AiOutlinePlayCircle } from "react-icons/ai";
+import { OPEN_VIDEO } from '../../redux/type/movie-type/SliderType';
+import './index.css';
+
+
 export default function SliderComponent() {
-  const [modalShow, setModalShow] = React.useState(false);
+  let dispacth = useDispatch()
+  let openVideo = (link) => {
+    dispacth({
+      type: OPEN_VIDEO,
+      payload: {
+        open: true,
+        linkYouTube: link
+      }
+    })
+  }
   return (
     <Carousel >
       {dataImg.map((img) => {
@@ -17,10 +30,8 @@ export default function SliderComponent() {
             alt={img.biDanh}
           />
           <div className="icon-play d-none d-sm-block">
-            <AiOutlinePlayCircle onClick={() => setModalShow(true)} />
-            <SliderTrailer
-              show={modalShow}
-              onHide={() => setModalShow(false)} />
+            <AiOutlinePlayCircle onClick={() => openVideo(img.trailer)} />
+            <SliderTrailer />
           </div>
         </Carousel.Item>
       })}

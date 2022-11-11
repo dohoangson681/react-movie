@@ -2,9 +2,17 @@ import React from 'react'
 import Modal from 'react-bootstrap/Modal';
 
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { useDispatch, useSelector } from 'react-redux';
+import { CLOSE_VIDEO } from '../../../redux/type/movie-type/SliderType';
 import './index.css'
 
+
 export default function SliderTrailer(props) {
+    const link = useSelector((state) => state.slideReducer)
+    const dispatch = useDispatch();
+    const handleClose = () => {
+        dispatch({ type: CLOSE_VIDEO, payload: { open: false } });
+    };
     // console.log(props);
     return (
         <Modal
@@ -12,11 +20,12 @@ export default function SliderTrailer(props) {
             size="lg"
             aria-labelledby="contained-modal-title-vcenter"
             centered
-        >
+            show={link.open}
+            onHide={handleClose}
+            >
             <Modal.Body>
-                <AiOutlineCloseCircle className='trailer-icon__close' onClick={props.onHide} />
-                {/* gắn tạm link để test */}
-                <iframe src='https://www.youtube.com/embed/2Qcg6ZaSj8A'
+                <AiOutlineCloseCircle className='trailer-icon__close' onClick={handleClose} />
+                <iframe src={link.linkYouTube}
                     allowFullScreen
                     frameBorder="0"
                     allow="autoplay"

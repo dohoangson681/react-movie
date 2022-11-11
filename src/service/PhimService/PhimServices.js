@@ -3,13 +3,6 @@ import { http } from '../../util/config';
 
 export default class PhimServices {
     layDanhSachPhim = () => {
-        // return axios({
-        //     url: `${URL_API}/QuanLyPhim/LayDanhSachPhim?maNhom=${GP_ID}`,
-        //     method: "get",
-        //     headers: {
-        //         'TokenCybersoft': TOKEN
-        //     }
-        // });
         return http.get(`/api/QuanLyPhim/LayDanhSachPhim?maNhom=${GP_ID}`)
     };
     layDanhSachBanner = () => {
