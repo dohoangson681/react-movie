@@ -34,26 +34,7 @@ function App() {
   return (
 
     <div>
-      {/* <Header /> */}
-      {/* <Footer/> */}
-      {/* <BrowserRouter>
-        <Route path='/admin' component={AdminPage} />
-      </BrowserRouter> */}
-      {/* <SliderComponent />
-      <FormBooking />
-      <TabsMovie />
-      <TabCinema />
-      <News />
-      <Promotion />
-      <Footer /> */}
-      {/* <BackToTop
-        showOnScrollUp
-        showAt={100}
-        speed={1500}
-        easing="easeInOutQuint"
-      >
-        <span><BsFillArrowUpSquareFill style={{color:'#a0d911'}}/></span>
-      </BackToTop> */}
+     
       <Router history={history} >
         <Switch>
           <HomeTemplate exact path="/" component={HomePage}></HomeTemplate>
