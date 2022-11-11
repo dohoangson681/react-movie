@@ -4,6 +4,8 @@ import Form from "react-bootstrap/Form";
 // import { rapService } from "../../../service/RapService/RapServices";
 import "./index.css";
 import { phimService, rapService } from "../../../service";
+import axios from 'axios'
+
 
 
 
@@ -11,6 +13,10 @@ export default function FormBooking() {
     const [danhSachPhim, setDanhSachPhim] = useState([]);
     let [maPhim, setMaPhim] = useState(0);
     let [danhSachRap, setDanhSachRap] = useState([]);
+    console.log('danhSachRap', danhSachRap);
+    // console.log('maPhim' , maPhim);
+
+
 
 
 
@@ -18,32 +24,33 @@ export default function FormBooking() {
         let promise = phimService.layDanhSachPhim();
         promise.then(res => {
             console.log('res', res.data.content);
-            setDanhSachPhim(res.data.content)
+            setDanhSachPhim(res.data.content);
         }).catch(err => {
-            console.log('fail', err);
+            console.log('fail');
         })
     }, []);
 
 
-    let handleInputPhim = (e) => {
-        let maPhim = parseInt(e.target.value);
-        console.log(maPhim);
+
+    let handleSelectPhim = (e) => {
+        let maPhim = Number(e.target.value);
         setMaPhim(maPhim);
     };
 
+
     useEffect(() => {
+        console.log('ma phim update');
         if (maPhim !== 0) {
             let promise = rapService.layThongTinLichChieuPhim(maPhim);
             promise.then(res => {
-                // console.log('res', res.data.content);
-                setDanhSachRap(res.data.content)
+                console.log(res.data.content.heThongRapChieu);
+                setDanhSachRap(res.data.content.heThongRapChieu);
             }).catch(err => {
-                console.log('fail', err);
+                console.log(err);
             })
         }
-    }, [maPhim]);// à
-    // cậu viết thêm code r thì phải push lên nhánh c đã r ms kéo đc về . hiểu k
-    // nảy t có push lên nhánh ta rồi nhìn nó vẫn còn hiện chữ M kìa tức là có thay đổi => push lên nhánh của c
+    }, [maPhim]);
+
 
     let hours = false;
     let renderDSPhim = () => {
@@ -55,8 +62,8 @@ export default function FormBooking() {
             );
         });
     };
+
     let renderDSRap = () => {
-        console.log(danhSachRap)
         return danhSachRap.map((rap, index) => {
             console.log(rap);
             return (
@@ -76,7 +83,7 @@ export default function FormBooking() {
                                 id="disabledSelect"
                                 defaultValue={"default"}
                                 className="fw-bold"
-                                onChange={handleInputPhim}
+                                onChange={handleSelectPhim}
                             >
                                 <option value={"default"}>Chọn Phim</option>
                                 {renderDSPhim()}
@@ -129,5 +136,7 @@ export default function FormBooking() {
                 </div>
             </div>
         </div>
+
+
     );
 }
