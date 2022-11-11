@@ -24,10 +24,10 @@ export default function FormSignIn(props) {
       
     >
         {(formikProps) => (
-        <Form  onSubmit={formikProps.handleSubmit} className="row">
+        <Form  onSubmit={formikProps.handleSubmit} className="row w-50 mx-auto">
             {/* email  */}
           <div className="mb-3 col-12">
-            <label htmlFor="taiKhoan" className="form-label">
+            <label htmlFor="taiKhoan" className="form-label text-white">
               Tài khoản
             </label>
             <Field
@@ -36,7 +36,7 @@ export default function FormSignIn(props) {
           </div>
           {/* password  */}
           <div className="mb-3 col-12">
-            <label htmlFor="matKhau" className="form-label">
+            <label htmlFor="matKhau" className="form-label text-white">
               Mật khẩu
             </label>
             <Field 
@@ -44,7 +44,7 @@ export default function FormSignIn(props) {
             {formikProps.errors.matKhau || formikProps.touched.matKhau ? <ErrorMessage name="matKhau" /> : ''}
           </div>
           <div className="mb-3 text-center col-12">
-            <button type="submit" className="btn btn-outline-warning">
+            <button type="submit" className="btn btnSignIn text-white fw-bold ">
               Đăng nhập
             </button>
           </div>

@@ -10,7 +10,7 @@ export default function UserTemplate(props) {
         return <Fragment>
             <HeaderDetail/>
             <props.component {...propsRoute} />
-            <Footer/>
+            {/* <Footer/> */}
             <ScrollToTop/>
         </Fragment>
     }
