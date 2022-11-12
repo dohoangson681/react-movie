@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
-// import { phimService } from "../../../service/PhimService/PhimServices";
-// import { rapService } from "../../../service/RapService/RapServices";
 import "./index.css";
 import { phimService, rapService } from "../../../service";
 import { history } from "../../../App";
-
 
 export default function FormBooking() {
     let moment = require("moment");
@@ -57,11 +54,15 @@ export default function FormBooking() {
 
     let renderDSPhim = () => {
         return danhSachPhim.map((phim, index) => {
-            return (
-                <option key={index} value={phim.maPhim}>
-                    {phim.tenPhim}
-                </option>
-            );
+            // console.log(phim);
+            if (phim.dangChieu) {
+                return (
+                    <option key={index} value={phim.maPhim}>
+                        {phim.tenPhim}
+                    </option>
+                );
+            }
+            return null
         });
     };
 
@@ -160,10 +161,10 @@ export default function FormBooking() {
                         </Form.Group>
                         <div className="col-12 col-md-4 col-lg-4 ">
                             {gioChieu ? (
-                                <button onClick={() => { 
+                                <button onClick={() => {
                                     history.push(`tickroom/${maLichChieu}`)
-                                 }}
-                                 className=" btn-book-ticket py-1 py-md-0 ">
+                                }}
+                                    className=" btn-book-ticket py-1 py-md-0 ">
                                     Đặt Vé
                                 </button>
                             ) : (

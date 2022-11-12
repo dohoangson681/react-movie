@@ -5,7 +5,7 @@ import TabsDetailCinema from './TabDetail'
 
 export default function DetailMoviePage() {
   return (
-    <div >
+    <div className='detail-container' >
       <Detail/>
       <TabsDetailCinema/>
     </div>

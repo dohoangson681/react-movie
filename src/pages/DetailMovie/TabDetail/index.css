@@ -1,4 +1,6 @@
-
+.detail-tabs{
+    background-color: #18191a;
+}
 @media (max-width:600px) {
     .detail-tabs{
         width:90%; 
@@ -7,7 +9,7 @@
 }
 @media (min-width:768px) {
     .detail-tabs{
-        width:70%;
+        width:60%;
         margin: 50px auto;
     }
 }

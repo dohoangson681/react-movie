@@ -3,7 +3,6 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
-import Pagination from 'react-bootstrap/Pagination';
 import { AiFillPlayCircle } from "react-icons/ai";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
@@ -44,7 +43,10 @@ export default function TabsOne() {
                             <div className="overlay1"></div>
                             <div className="overlay2"></div>
                             <AiFillPlayCircle className="btn-play-icon" onClick={() => { setModalShow(true) }} />
-                            <button onClick={() => { history.push(`detail/${phim.maPhim}`) }} className='btn-tabs-booking' >Chi Tiết Phim</button>
+                            <button onClick={() => {
+                                history.push(`detail/${phim.maPhim}`)
+                            }}
+                                className='btn-tabs-booking' >Chi Tiết Phim</button>
                             <Modal
                                 show={modalShow}
                                 onHide={() => setModalShow(false)}
