@@ -49,9 +49,6 @@ export default function BookingPage(props) {
     const notify = () => toast("Đặt Vé Thành Công !", {
         position: toast.POSITION.TOP_CENTER
     });
-
-
-
     return (
         <div className='booking'>
             <Container>
@@ -63,23 +60,22 @@ export default function BookingPage(props) {
                             </div>
                             {renderGhe()}
                         </div>
-                        <div>
-                            <div className='ghe-content pt-5'>
-                                <h6 > <MdChair className='gheThuong' />Ghế Thường</h6>
-                                <h6> <MdChair className=' gheVip' />Ghế Vip</h6>
-                                <h6> <MdChair className=' gheDangChon' />Ghế Đang Chọn</h6>
-                                <h6> <MdChair className=' gheDaDuocChon' />Ghế Đã Được Chọn</h6>
+                        <div className='type-ghe mt-4'>
+                            <div className='ghe-content py-4'>
+                                <h6> <MdChair className=' gheThuong' /> Ghế Thường</h6>
+                                <h6> <MdChair className=' gheVip' /> Ghế Vip</h6>
+                                <h6> <MdChair className=' gheDangChon' /> Ghế Đang Chọn</h6>
+                                <h6> <MdChair className=' gheDaDuocChon' /> Ghế Đã Được Chọn</h6>
                             </div>
                         </div>
-
                     </Col>
                     <Col md={12} lg={3}>
                         <div className='form-ticket px-3 mt-2 py-3'>
-                            <h4 className='text-center py-2'>{thongTinPhim?.tenPhim}</h4>
+                            <h4 className='text-center py-2 ticket-color fw-bold'>{thongTinPhim?.tenPhim}</h4>
                             <div className='d-flex justify-content-between py-3 form-ticket__item '>
                                 <h6>Ngày Giờ Chiếu:</h6>
                                 <div className='d-flex'>
-                                    <h6>{thongTinPhim?.ngayChieu}-</h6><h6 className='ticket-color'>{thongTinPhim?.gioChieu}</h6>
+                                <h6 className='ticket-color'>{thongTinPhim?.gioChieu}</h6> <h6>-{thongTinPhim?.ngayChieu}</h6>
                                 </div>
                             </div>
                             <div className='d-flex justify-content-between py-3 form-ticket__item'>
@@ -104,19 +100,14 @@ export default function BookingPage(props) {
                             </div>
                             <div className='d-flex justify-content-between py-3 form-ticket__item'>
                                 <h6>Tổng tiền:</h6>
-                                <h6 className='ticket-color'>{danhSachGheDangDat.reduce((tongTien, ghe, index) => {
-                                    return tongTien += ghe.giaVe
-                                }, 0).toLocaleString()}</h6>
+                                <h6 className='ticket-color'>{danhSachGheDangDat.reduce((total, ghe) => {
+                                    return total += ghe.giaVe
+                                }, 0).toLocaleString()} vnđ</h6>
                             </div>
-                            <div className='d-flex justify-content-between py-3 form-ticket__item'>
-                                <h6>Email:</h6>
-                                <h6>abc123@gmail.com</h6>
+                            <div className='d-flex justify-content-between form-ticket__item'>
+                                <h6 className='py-1 text-danger'>Mã QR Vào Rạp Thay Thế Vé</h6>
                             </div>
-                            <div className='d-flex justify-content-between py-3 form-ticket__item'>
-                                <h6>Phone:</h6>
-                                <h6>09999999</h6>
-                            </div>
-                            <h6 className='py-3 text-danger'>Thanh Toán Và Nhận Vé Tại Quầy</h6>
+                            <img src="https://images.viblo.asia/f96109f8-e2b2-4944-88ef-071ce79a50a8.png" alt="" />
                             <div>
                                 <button className='btn-booking' onClick={notify}>BOOKING TICKET</button>
                                 <ToastContainer />

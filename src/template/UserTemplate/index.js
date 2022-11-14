@@ -6,7 +6,7 @@ import HeaderDetail from '../../pages/DetailMovie/Header'
 
 export default function UserTemplate(props) {
     return <Route exact path={props.path} render={(propsRoute) => {
-        return <Fragment>
+        return <Fragment >
             <HeaderDetail/>
             <props.component {...propsRoute} />
             <ScrollToTop/>

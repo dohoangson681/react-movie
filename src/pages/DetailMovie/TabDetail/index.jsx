@@ -44,7 +44,9 @@ export default function TabsDetailCinema(props) {
                                             return <div key={index} className='my-2 me-3'>
                                                 <button className='btn-detail' onClick={() => {
                                                     history.push(`/ticketroom/${lichChieu.maLichChieu}`)
-                                                }}> {moment(lichChieu.ngayChieuGioChieu).format("HH:mm ")}</button>
+                                                }}>
+                                                    <span style={{color:'red'}}>{moment(lichChieu.ngayChieuGioChieu).format("LT")}</span> ~ 
+                                                    <span> {moment(lichChieu.ngayChieuGioChieu).add(`${lichChieu.thoiLuong}`, 'minute').format("LT")}</span>  </button>
                                             </div>
                                         })}
                                     </div>

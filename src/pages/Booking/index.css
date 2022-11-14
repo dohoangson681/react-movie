@@ -1,7 +1,8 @@
 .booking {
-    margin-top: 80px;
     color: white;
     width: 100%;
+    background-color: #18191a;
+    padding: 100px 0 30px;
 }
 
 .scren {
@@ -18,18 +19,27 @@
 .chair {
     background-color: white;
     margin: 0 auto;
+    border-radius: 12px;
 }
 
 .chair svg {
     font-size: 30px;
 }
-
+.type-ghe{
+    border: 2px solid white;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
 .ghe-content {
     display: flex;
     justify-content: space-between;
     width: 60%;
     margin: 0 auto;
     padding: 10px 0;
+}
+.ghe-content h6{
+    font-weight: bold;
 }
 
 .ghe-content svg {
@@ -43,15 +53,14 @@
     cursor: pointer;
     border: none;
     border-radius: 10px;
-    color: rgb(141, 140, 140);
+    color: rgb(106, 105, 105);
     background-color: white;
 }
 .gheThuong{
-    color:rgb(141, 140, 140) ;
+    color:rgb(106, 105, 105);
 }
 .gheVip {
     color: rgb(255, 217, 0);
-
 }
 
 .gheDangChon {
@@ -64,16 +73,10 @@
 }
 
 .form-ticket {
-    border: 1px solid white;
     border-radius: 8px;
-    /* padding: 10px 8px; */
+    background-color: white;
+    box-shadow: rgba(255, 251, 254, 0.4) 5px 5px, rgba(255, 255, 255, 0.3) 10px 10px, rgba(236, 247, 240, 0.2) 15px 15px, rgba(231, 237, 233, 0.1) 20px 20px, rgba(2, 19, 8, 0.05) 25px 25px;
 }
-
-#root #show-susscer .modal-content {
-    background-color: red !important;
-    color: white;
-}
-
 .form-ticket__item {
     border-bottom: 2px dashed gray;
 }
@@ -82,22 +85,22 @@
     width: 100%;
     padding: 6px 0;
     border-radius: 4px;
-    border: 2px solid #7fae06;
+    border: 2px solid #abe31c;
+    background-color: white;
     font-weight: bold;
-    color: #7fae06;
+    color: #abe31c;
 }
 
 .form-ticket .btn-booking:hover {
-    background-color: #7fae06;
+    background-color: #abe31c;
     color: white;
     transition: .2s ease-in;
 }
 
-.ticket-color {
-    color: #98cc15;
+.form-ticket  .ticket-color {
+    color: #abe31c;
     cursor: pointer;
 }
-
 
 
 @media (min-width: 1200px) {
@@ -132,18 +135,7 @@
     .ghe-content {
         display: flex;
         flex-direction: column;
-        width: 60%;
+        width: 70%;
         margin: 0 auto;
     }
-
-    /* .ghe {
-        width: 12px;
-        height: 10px;
-        margin: 10px 3px;
-        border-radius: 2px;
-    }
-
-    .chair svg {
-        font-size: 20px;
-    } */
 }
