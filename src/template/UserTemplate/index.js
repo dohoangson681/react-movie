@@ -1,7 +1,6 @@
 import React from 'react'
 import { Fragment } from 'react'
 import { Route } from 'react-router-dom'
-import Footer from '../../components/Footer'
 import ScrollToTop from '../../components/ScrollToTop'
 import HeaderDetail from '../../pages/DetailMovie/Header'
 
@@ -10,7 +9,6 @@ export default function UserTemplate(props) {
         return <Fragment>
             <HeaderDetail/>
             <props.component {...propsRoute} />
-            {/* <Footer/> */}
             <ScrollToTop/>
         </Fragment>
     }

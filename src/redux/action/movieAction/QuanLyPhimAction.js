@@ -1,5 +1,5 @@
 import { phimService } from "../../../service"
-import { LAY_DS_PHIM } from "../../type/movie-type/MovieType"
+import {  LAY_DS_PHIM } from "../../type/movie-type/MovieType"
 
 
 
@@ -18,3 +18,4 @@ export const layDsPhimAction = () => {
         })
     }
 }
+

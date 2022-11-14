@@ -8,6 +8,8 @@ export default class PhimServices {
     layDanhSachBanner = () => {
         return http.get('/api/QuanLyPhim/LayDanhSachBanner') ; 
     } ; 
+
+
 }
 
 export const phimService = new PhimServices();

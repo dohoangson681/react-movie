@@ -1,23 +1,18 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
 import Card from 'react-bootstrap/Card';
-import { AiFillPlayCircle } from "react-icons/ai";
-import { AiOutlineCloseCircle } from "react-icons/ai";
 import Modal from 'react-bootstrap/Modal';
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import "./index.css"
+import { AiFillPlayCircle, AiOutlineCloseCircle } from "react-icons/ai";
 import { layDsPhimAction } from '../../../redux/action/movieAction/QuanLyPhimAction';
+import "./index.css"
 
 export default function TabsTwo() {
-    let moment = require("moment");
+    const [url, setUrl] = useState('')
     const [modalShow, setModalShow] = useState(false);
-
     const { mangPhim } = useSelector(state => state.quanLyPhimReducer)
     const dispatch = useDispatch()
-
     useEffect(() => {
         const action = layDsPhimAction()
         dispatch(action)
@@ -32,37 +27,11 @@ export default function TabsTwo() {
                             <img src={phim.hinhAnh} alt="hinhAnh" />
                         </div>
                         <Card.Body>
-                            <Card.Title className='text-center mt-2'>{phim.tenPhim.length > 17 ? <span>{phim.tenPhim.slice(0, 17)}...</span> : <span>{phim.tenPhim}</span>}</Card.Title>
-                            <p style={{ color: 'white' }} className="px-2">{phim.moTa.length > 40 ? <span>{phim.moTa.slice(0, 40)}...</span> : <span>{phim.moTa}</span>}</p>
-                            <div className='d-flex flex-column flex-md-row justify-content-between card-body-text py-2 fw-bold'>
-                                <Card.Text>
-                                    Ngày Chiếu:
-                                </Card.Text>
-                                <Card.Text>
-                                    <span style={{ color: '#a0d911' }}> {moment(phim.ngayKhoiChieu).format("DD-MM-yyyy")} </span>
-
-                                </Card.Text>
-                            </div>
-
+                            <Card.Title className='text-center card-movie_name  mt-2'>{phim.tenPhim}</Card.Title>
+                            <p style={{ color: 'white' }} className="px-2 card-movie_decrip">{phim.moTa}</p>
                             <div className="overlay1"></div>
                             <div className="overlay2"></div>
-                            <AiFillPlayCircle className="btn-play-icon" onClick={() => { setModalShow(true) }} />
-                            <Modal
-                                show={modalShow}
-                                onHide={() => setModalShow(false)}
-                                size="lg"
-                                aria-labelledby="contained-modal-title-vcenter"
-                                centered
-                            >
-                                <Modal.Body>
-                                    <AiOutlineCloseCircle className='trailer-icon__close' onClick={() => { setModalShow(false) }} />
-                                    <iframe src={phim.trailer}
-                                        allowFullScreen
-                                        frameBorder="0"
-                                        allow="autoplay"
-                                        title="trailer "></iframe>
-                                </Modal.Body>
-                            </Modal>
+                            <AiFillPlayCircle className="btn-play-icon" onClick={() => { setModalShow(true); setUrl(phim.trailer) }} />
 
                         </Card.Body>
                     </Card>
@@ -74,7 +43,22 @@ export default function TabsTwo() {
     return (
         <Row>
             {renderPhim()}
+            <Modal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+                size="lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Body>
+                    <AiOutlineCloseCircle className='trailer-icon__close' onClick={() => { setModalShow(false) }} />
+                    <iframe src={url}
+                        allowFullScreen
+                        frameBorder="0"
+                        allow="autoplay"
+                        title="trailer "></iframe>
+                </Modal.Body>
+            </Modal>
         </Row>
-
     )
 }

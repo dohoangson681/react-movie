@@ -1,5 +1,12 @@
 .detail-tabs{
     background-color: #18191a;
+    border: 1px solid white;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+}
+.detail-tabs .title-detail{
+    color: white;
 }
 @media (max-width:600px) {
     .detail-tabs{

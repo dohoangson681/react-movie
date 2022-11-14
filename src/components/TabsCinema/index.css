@@ -1,16 +1,19 @@
-.container-tabs__cinema{
+.container-tabs__cinema {
     width: 100%;
     overflow-x: hidden;
 }
-.tabs-cinema{
+
+.tabs-cinema {
     width: 90%;
     margin: 0 auto;
 }
-.bd-cinema{
+
+.bd-cinema {
     border: 2px solid white;
     border-radius: 12px;
 }
-.empty-area{
+
+.empty-area {
     height: 120px;
     margin: auto;
     width: 100%;
@@ -18,6 +21,7 @@
     background-position: 50% 50%;
     background-size: cover;
 }
+
 .title-cinema,
 .title-movie {
     padding-left: 8px;
@@ -52,13 +56,16 @@
     border-right: 4px solid #7fae06;
     border-radius: 0;
 }
-.title-movie h6{
+
+.title-movie h6 {
     color: #a0d911;
 }
+
 .title-movie p {
     color: white;
 }
-.title-movie .rating{
+
+.title-movie .rating {
     color: #c2c0c0;
 }
 
@@ -66,12 +73,15 @@
     color: white;
     font-weight: bold;
 }
-.movie-list__time{
+
+.movie-list__time {
     font-weight: 400;
 }
-.movie-list__time:hover{
+
+.movie-list__time:hover {
     color: #7fae06;
 }
+
 .tab-content .btn-hour {
     display: block;
     padding: 0 12px;
@@ -86,6 +96,12 @@
     color: #bae637;
     border-color: transparent;
     transition: color .12s ease-in-out;
+}
+
+.tab-cinema__title {
+    border-left: 4px solid #7fae06;
+    padding-left: 8px;
+    color: white;
 }
 
 .scroll-y-tabs {
@@ -114,13 +130,14 @@
 
 
 @media (min-width: 1024px) {
-    .tabs-cinema{
+    .tabs-cinema {
         width: 75%;
         margin: 0 auto;
     }
 }
+
 @media (min-width: 1200px) {
-    .tabs-cinema{
+    .tabs-cinema {
         width: 67%;
         margin: 0 auto;
     }

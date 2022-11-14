@@ -1,93 +1,69 @@
-import React from 'react'
-import Tab from 'react-bootstrap/Tab';
-import Col from 'react-bootstrap/Col';
-import Nav from 'react-bootstrap/Nav';
-import Row from 'react-bootstrap/Row';
+
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { layChiTietPhim } from '../../../redux/action/rapAction/QuanLyRapAction';
 import "./index.css"
-export default function TabsDetailCinema() {
+import { Tabs } from 'antd';
+import { history } from '../../../App';
+
+
+export default function TabsDetailCinema(props) {
+    const moment = require("moment");
+    const maPhim = props.maPhim
+    // console.log(maPhim);
+    const { phimDetail } = useSelector(state => state.quanLyPhimReducer)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        const action = layChiTietPhim(maPhim)
+        dispatch(action)
+    }, [])
+    // console.log(phimDetail)
+
+    let renderRapp = () => {
+        if (phimDetail.heThongRapChieu?.length > 0) {
+            return <Tabs
+                tabPosition={'left'}
+                items={phimDetail.heThongRapChieu?.map((htr, i) => {
+                    console.log("ha", htr)
+                    const id = String(i + 1);
+                    return {
+                        label: <img src={htr.logo} alt="" width='50' />,
+                        key: id,
+                        children: <div>
+                            {htr.cumRapChieu?.map((cumRap, index) => {
+                                return <div key={index}>
+                                    <div className='d-flex flex-row mt-3'>
+                                        <img src={cumRap.hinhAnh} style={{ width: 70, height: 70 }} alt="" />
+                                        <div className='mx-2'>
+                                            <h6 className='title-detail fw-bold'>{cumRap.tenCumRap}</h6>
+                                            <p className='title-detail'>{cumRap.diaChi}</p>
+                                        </div>
+                                    </div>
+                                    <div className='d-flex'>
+                                        {cumRap.lichChieuPhim?.map((lichChieu, index) => {
+                                            return <div key={index} className='my-2 me-3'>
+                                                <button className='btn-detail' onClick={() => {
+                                                    history.push(`/ticketroom/${lichChieu.maLichChieu}`)
+                                                }}> {moment(lichChieu.ngayChieuGioChieu).format("DD-MM-yyyy")}</button>
+                                            </div>
+                                        })}
+                                    </div>
+                                </div>
+                            })}
+                        </div>,
+                    };
+                })}
+            />
+        }
+        else {
+            return <div className='text-center' style={{ backgroundColor: 'white' }}><h4 style={{ color: '#a0d911' }}>Phim Chưa Có Lịch Chiếu</h4></div>
+        }
+
+    }
+
     return (
         <div className="detail-tabs">
-            <Tab.Container id="left-tabs-example" defaultActiveKey="first" >
-                <Row className='bd-cinema py-3'>
-                    <Col xs={12}>
-                        <Nav variant="pills" className="flex-row">
-                            <Nav.Item>
-                                <Nav.Link eventKey="first"><img style={{ width: "50px", height: '50px' }} src="https://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" alt="" /></Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link eventKey="second"><img style={{ width: "50px", height: '50px' }} src="https://movie0706.cybersoft.edu.vn/hinhanh/cgv.png" alt="" /></Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link eventKey="ba"><img style={{ width: "50px", height: '50px' }} src="https://movie0706.cybersoft.edu.vn/hinhanh/bhd-star-cineplex.png" alt="" /></Nav.Link>
-                            </Nav.Item>
-                            <Nav.Item>
-                                <Nav.Link eventKey="bon"><img style={{ width: "50px", height: '50px' }} src="https://movie0706.cybersoft.edu.vn/hinhanh/cgv.png" alt="" /></Nav.Link>
-                            </Nav.Item>
-                        </Nav>
-                    </Col>
-                    <Col xs={12} >
-                        <Tab.Content>
-                        <Tab.Pane eventKey="first">
-                            <div className='movie-list'>
-                                <div className='d-flex py-2'>
-                                    <img style={{ width: "60px", height: "60px" }} src='https://movie0706.cybersoft.edu.vn/hinhanh/scoob-_gp09.jpg' alt="" />
-                                    <div className='title-movie'>
-                                        <h6 className='fw-bold' >Cá Mập Siêu Bạo Chúa</h6>
-                                        <p className='rating'>Rating Cao</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <span className='date-movie'>Ngày Chiếu:<span className='movie-list__time'> 20 tháng 11, 2022</span></span>
-                                        <button className='btn-hour'>
-                                            15:15
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="second">
-                            <div className='movie-list'>
-                                <div className='d-flex py-2'>
-                                    <img style={{ width: "60px", height: "60px" }} src='https://movie0706.cybersoft.edu.vn/hinhanh/scoob-_gp09.jpg' alt="" />
-                                    <div className='title-movie'>
-                                        <h6 className='fw-bold' >Cá Mập Siêu Bạo Chúa</h6>
-                                        <p className='rating'>Rating Cao</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <span className='date-movie'>Ngày Chiếu:<span className='movie-list__time'> 20 tháng 11, 2022</span></span>
-                                        <button className='btn-hour'>
-                                            15:15
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="ba">
-                            <div className='movie-list'>
-                                <div className='d-flex py-2'>
-                                    <img style={{ width: "60px", height: "60px" }} src='https://movie0706.cybersoft.edu.vn/hinhanh/scoob-_gp09.jpg' alt="" />
-                                    <div className='title-movie'>
-                                        <h6 className='fw-bold' >Cá Mập Siêu Bạo Chúa</h6>
-                                        <p className='rating'>Rating Cao</p>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div>
-                                        <span className='date-movie'>Ngày Chiếu:<span className='movie-list__time'> 20 tháng 11, 2022</span></span>
-                                        <button className='btn-hour'>
-                                            15:15
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </Tab.Pane>
-                        </Tab.Content>
-                    </Col>
-                </Row>
-            </Tab.Container >
+            {renderRapp()}
         </div>
     )
 }

@@ -162,7 +162,7 @@ export default function FormBooking() {
                         <div className="col-12 col-md-4 col-lg-4 ">
                             {gioChieu ? (
                                 <button onClick={() => {
-                                    history.push(`tickroom/${maLichChieu}`)
+                                    history.push(`ticketroom/${maLichChieu}`)
                                 }}
                                     className=" btn-book-ticket py-1 py-md-0 ">
                                     Đặt Vé

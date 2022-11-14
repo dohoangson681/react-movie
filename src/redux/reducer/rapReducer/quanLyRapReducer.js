@@ -3,7 +3,7 @@ import { LAY_DS_CUM_RAP } from "../../type/movie-type/RapTypes";
 const initialState = {
     mangCumRap: [
 
-    ],
+    ]
 
 }
 

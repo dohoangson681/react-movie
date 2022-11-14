@@ -18,6 +18,7 @@ export default class RapServices {
     layThongTinLichChieuPhim = (maPhim) => {
         return http.get(`/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`) ; 
     }
+
 }
 
 export const rapService = new RapServices();

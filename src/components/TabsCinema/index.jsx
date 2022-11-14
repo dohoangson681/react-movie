@@ -10,7 +10,6 @@ import { GP_ID } from '../../util/setting';
 import { history } from '../../App';
 
 
-
 export default function TabCinema() {
     var moment = require("moment");
     const { mangCumRap } = useSelector(state => state.quanLyRapReducer)
@@ -19,7 +18,6 @@ export default function TabCinema() {
         const action = layDsRapAction(GP_ID)
         dispatch(action)
     }, [])
-    console.log(mangCumRap)
 
     let renderDsCumRap = () => {
         return mangCumRap.map((heThongRap) => {
@@ -86,7 +84,6 @@ export default function TabCinema() {
                     </Row>
                 </Tab.Container>
             </Tab.Pane>
-
         })
     }
 
@@ -95,6 +92,7 @@ export default function TabCinema() {
             <div className='empty-area'>
             </div>
             <div className='tabs-cinema my-4'>
+                <h4 className='tab-cinema__title my-4'>Lịch Chiếu Phim</h4>
                 <Tab.Container id="left-tabs-example" defaultActiveKey="BHDStar" >
                     <Row className='bd-cinema py-3'>
                         <Col sm={2}>
