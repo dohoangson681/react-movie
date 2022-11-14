@@ -63,7 +63,7 @@ export default function DetailMovie(props) {
                                         <p className='description-movie my-1'>Hành Động</p>
                                     </div>
                                     <div className='detail-cast'>
-                                        <h5 >Ngày Chiếu:</h5>
+                                        <h5 >Ngày Chiếu Khởi Chiếu:</h5>
                                         <p className='description-movie my-1'>{moment(phimDetail.ngayKhoiChieu).format("DD-MM-yyyy")}</p>
                                     </div>
                                 </Col>

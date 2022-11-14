@@ -44,7 +44,7 @@ export default function TabsDetailCinema(props) {
                                             return <div key={index} className='my-2 me-3'>
                                                 <button className='btn-detail' onClick={() => {
                                                     history.push(`/ticketroom/${lichChieu.maLichChieu}`)
-                                                }}> {moment(lichChieu.ngayChieuGioChieu).format("DD-MM-yyyy")}</button>
+                                                }}> {moment(lichChieu.ngayChieuGioChieu).format("HH:mm ")}</button>
                                             </div>
                                         })}
                                     </div>
@@ -58,7 +58,6 @@ export default function TabsDetailCinema(props) {
         else {
             return <div className='text-center' style={{ backgroundColor: 'white' }}><h4 style={{ color: '#a0d911' }}>Phim Chưa Có Lịch Chiếu</h4></div>
         }
-
     }
 
     return (

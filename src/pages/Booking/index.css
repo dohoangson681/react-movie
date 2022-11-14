@@ -1,4 +1,149 @@
-.booking{
+.booking {
     margin-top: 80px;
     color: white;
+    width: 100%;
+}
+
+.scren {
+    width: 100%;
+    height: 80px;
+}
+
+.scren img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.chair {
+    background-color: white;
+    margin: 0 auto;
+}
+
+.chair svg {
+    font-size: 30px;
+}
+
+.ghe-content {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.ghe-content svg {
+    font-size: 30px;
+}
+
+.ghe {
+    width: 6.25%;
+    height: 6.25%;
+    margin: 10px 0px;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    color: rgb(141, 140, 140);
+    background-color: white;
+}
+.gheThuong{
+    color:rgb(141, 140, 140) ;
+}
+.gheVip {
+    color: rgb(255, 217, 0);
+
+}
+
+.gheDangChon {
+    color: chartreuse;
+}
+
+.gheDaDuocChon {
+    color: blue;
+    cursor: no-drop;
+}
+
+.form-ticket {
+    border: 1px solid white;
+    border-radius: 8px;
+    /* padding: 10px 8px; */
+}
+
+#root #show-susscer .modal-content {
+    background-color: red !important;
+    color: white;
+}
+
+.form-ticket__item {
+    border-bottom: 2px dashed gray;
+}
+
+.form-ticket .btn-booking {
+    width: 100%;
+    padding: 6px 0;
+    border-radius: 4px;
+    border: 2px solid #7fae06;
+    font-weight: bold;
+    color: #7fae06;
+}
+
+.form-ticket .btn-booking:hover {
+    background-color: #7fae06;
+    color: white;
+    transition: .2s ease-in;
+}
+
+.ticket-color {
+    color: #98cc15;
+    cursor: pointer;
+}
+
+
+
+@media (min-width: 1200px) {
+    .ghe-content {
+        width: 70%;
+
+    }
+}
+
+@media (max-width: 1024px) {
+    .ghe-content {
+        width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+   .chair svg {
+    font-size: 100%;
+}
+}
+
+@media (max-width: 600px) {
+    .ghe-content {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 400px) {
+    .ghe-content {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    /* .ghe {
+        width: 12px;
+        height: 10px;
+        margin: 10px 3px;
+        border-radius: 2px;
+    }
+
+    .chair svg {
+        font-size: 20px;
+    } */
 }

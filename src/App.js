@@ -22,8 +22,6 @@ export const history = createBrowserHistory()
 
 function App() {
   return (
-
-    <div>
       <Router history={history} >
         <Switch>
           <HomeTemplate exact path="/" component={HomePage}></HomeTemplate>
@@ -34,7 +32,6 @@ function App() {
           <UserTemplate exact path="/ticketroom/:maLichChieu" component={BookingPage}></UserTemplate>
         </Switch>
       </Router>
-    </div>
 
   );
 }
