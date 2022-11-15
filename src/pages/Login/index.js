@@ -64,7 +64,7 @@ export default function Login(props) {
                                             Đăng nhập
                                         </button>
                                     </div>
-                                    <h6 className='text-black'>Bạn Chưa Có Tài Khoản?  <button className='btn-dangky'>Đăng Ký</button></h6>
+                                    <h6 className='text-black'>Bạn Chưa Có Tài Khoản?  <button className='btn-dangky' type='button'>Đăng Ký</button></h6>
                                 </Form>
                             )}
                         </Formik>
