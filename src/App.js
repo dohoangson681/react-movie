@@ -13,6 +13,9 @@ import HomePage from './pages/Home';
 import { HomeTemplate } from './template/HomeTemplate';
 import UserTemplate from './template/UserTemplate';
 import BookingPage from './pages/Booking';
+import Login from './pages/Login';
+
+
 export const history = createBrowserHistory()
 
 
@@ -21,11 +24,13 @@ export const history = createBrowserHistory()
 // import {Provider} from 'react-redux' ; 
 
 function App() {
-  return (
+  return (  
       <Router history={history} >
         <Switch>
           <HomeTemplate exact path="/" component={HomePage}></HomeTemplate>
           <Route exact path="/admin" component={AdminPage}></Route>
+          <Route exact path="/login" component={Login}></Route>
+
           <HomeTemplate exact path="/home" component={HomePage}></HomeTemplate>
           {/* Detai và Đặt vé xài chung userTemplate */}
           <UserTemplate exact path="/detail/:maPhim" component={DetailMoviePage}></UserTemplate>
