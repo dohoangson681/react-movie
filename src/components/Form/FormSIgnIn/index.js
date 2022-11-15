@@ -17,8 +17,8 @@ export default function FormSignIn(props) {
       onSubmit={values => {
         // gia su dang nhap thanh cong => set isLogin về true => tắt popup
         console.log("values" , values) ; 
-        props.setLogin(true) ; 
-        props.setShowSignIn(false) ; 
+        // props.setLogin(true) ; 
+        // props.setShowSignIn(false) ; 
 
       }}
       
