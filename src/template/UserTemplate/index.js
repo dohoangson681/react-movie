@@ -4,6 +4,7 @@ import { Route } from 'react-router-dom'
 import ScrollToTop from '../../components/ScrollToTop'
 import HeaderDetail from '../../pages/DetailMovie/Header'
 
+
 export default function UserTemplate(props) {
     return <Route exact path={props.path} render={(propsRoute) => {
         return <Fragment >

@@ -9,8 +9,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { quanLyDatVeAction } from '../../redux/action/datVeAction/QuanLyDatVeAction';
 import { DAT_VE } from '../../redux/type/datVe-type/DatVeType';
 import './index.css'
+import { USER_LOGIN } from '../../util/setting';
+import { Redirect } from 'react-router-dom';
 
 export default function BookingPage(props) {
+
+
     let _ = require('lodash');
     const { chiTietPhongVe, danhSachGheDangDat } = useSelector(state => state.quanLyDatVeReducer)
     console.log('chiteit', chiTietPhongVe)
@@ -21,6 +25,9 @@ export default function BookingPage(props) {
         const action = quanLyDatVeAction(maLichChieu)
         dispatch(action)
     }, [])
+    if (!localStorage.getItem(USER_LOGIN)) {
+        return <Redirect to='/login' />
+    }
     const { thongTinPhim, danhSachGhe } = chiTietPhongVe
     const renderGhe = () => {
         return danhSachGhe?.map((ghe, index) => {
@@ -75,12 +82,12 @@ export default function BookingPage(props) {
                             <div className='d-flex justify-content-between py-3 form-ticket__item '>
                                 <h6>Ngày Giờ Chiếu:</h6>
                                 <div className='d-flex'>
-                                <h6 className='ticket-color'>{thongTinPhim?.gioChieu}</h6> <h6>-{thongTinPhim?.ngayChieu}</h6>
+                                    <h6 className='ticket-color'>{thongTinPhim?.gioChieu}</h6> <h6>-{thongTinPhim?.ngayChieu}</h6>
                                 </div>
                             </div>
                             <div className='d-flex justify-content-between py-3 form-ticket__item'>
                                 <h6>Cụm Rạp:</h6>
-                                <h6>{thongTinPhim?.tenCumRap}</h6>
+                                <h6 className='ticket-color'>{thongTinPhim?.tenCumRap}</h6>
                             </div>
                             <div className='d-flex justify-content-between py-3 form-ticket__item'>
                                 <h6>Địa Chỉ:</h6>
@@ -104,8 +111,8 @@ export default function BookingPage(props) {
                                     return total += ghe.giaVe
                                 }, 0).toLocaleString()} vnđ</h6>
                             </div>
-                            <div className='d-flex justify-content-between form-ticket__item'>
-                                <h6 className='py-1 text-danger'>Mã QR Vào Rạp Thay Thế Vé</h6>
+                            <div className='d-flex justify-content-between '>
+                                <h6 className='pt-2 text-danger'>Mã QR Vào Rạp Thay Thế Vé</h6>
                             </div>
                             <img src="https://images.viblo.asia/f96109f8-e2b2-4944-88ef-071ce79a50a8.png" alt="" />
                             <div>

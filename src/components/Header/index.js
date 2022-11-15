@@ -17,25 +17,31 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import FormSignUp from "../Form/FormSignUp";
 import FormSignIn from "../Form/FormSIgnIn";
+import { history } from "../../App";
+import { USER_LOGIN } from "../../util/setting";
 
 export default function Header() {
   // fake get api
   const[api , setApi] = useState(true) ; 
-  // userlogin
-  const [isLogin, setLogin] = useState(true);
-  // modal
-  const [showSignUp, setShowSignUp] = useState(false);
-  const [showSignIn, setShowSignIn] = useState(false);
+  // // userlogin
+  const [isLogin, setLogin] = useState(false);
+  if(localStorage.getItem(USER_LOGIN)){
+    console.log(1);
+    // setLogin(true)
+    // setLogin bằng true bị lỗi
+  }
+  // // modal
+  // const [showSignUp, setShowSignUp] = useState(false);
+  // const [showSignIn, setShowSignIn] = useState(false);
 
-  const handleCloseSignUp = () => setShowSignUp(false);
-  const handleShowSignUp = () => setShowSignUp(true);
-  const handleCloseSignIn = () => setShowSignIn(false);
-  const handleShowSignIn = () => setShowSignIn(true);
-  const user = false;
-
-  const loginSuccess = () => {
-    setLogin(true);
-  };
+  // const handleCloseSignUp = () => setShowSignUp(false);
+  // const handleShowSignUp = () => setShowSignUp(true);
+  // const handleCloseSignIn = () => setShowSignIn(false);
+  // const handleShowSignIn = () => setShowSignIn(true);
+  // const user = false;
+  // const loginSuccess = () => {
+  //   setLogin(true);
+  // };
   // useEffect(()=>{
   //   setTimeout(()=>{
   //     setApi(true) ; 
@@ -65,20 +71,23 @@ export default function Header() {
               <Nav className="d-flex flex-row justify-content-around align-items-center menu fw-bold">
                 <button className='d-flex align-items-center btn-header'><FaUserCircle className='mx-1 fs-4' />Hello User</button>
                 <div className='navbar__link-separator d-none d-md-block'></div>
-                <button onClick={()=>{
-                  setLogin(false) ;
-                }} className='d-flex align-items-center btn-header'>Đăng Xuất<AiOutlinePoweroff className='mx-1 fs-4 icon-header' /></button>
+                <button  className='d-flex align-items-center btn-header'>Đăng Xuất<AiOutlinePoweroff className='mx-1 fs-4 icon-header' /></button>
               </Nav>
               :
               <Nav className="d-flex flex-row justify-content-around align-items-center menu fw-bold">
                 <button
                 type='button'
-                onClick={handleShowSignIn}
+                onClick={
+                  () => { 
+                    history.push('/login')
+                   }
+                }
+
                 className='d-flex align-items-center btn-header'><BiUserCircle className='mx-1 fs-4' />Đăng Nhập</button>
                 <div className='navbar__link-separator d-none d-md-block'></div>
                 <button
                 type='button'
-                onClick={handleShowSignUp}
+   
                  className='d-flex align-items-center btn-header'><BiUserPlus className='mx-1 fs-4 icon-header' />Đăng Ký</button>
               </Nav>
             }
@@ -87,7 +96,7 @@ export default function Header() {
         
         </Navbar>
             {/* modal sign up */}
-        <Modal className="myModalSingUp" style={{backgroundImage : "url('https://i.pinimg.com/originals/7d/3d/3f/7d3d3f0e7d9d0cbb9b592a481dce2ef9.jpg')" , backgroundRepeat:"no-repeat" , backgroundSize : "100%"}}  size='lg' show={showSignUp} onHide={handleCloseSignUp}>
+        {/* <Modal className="myModalSingUp" style={{backgroundImage : "url('https://i.pinimg.com/originals/7d/3d/3f/7d3d3f0e7d9d0cbb9b592a481dce2ef9.jpg')" , backgroundRepeat:"no-repeat" , backgroundSize : "100%"}}  size='lg' show={showSignUp} onHide={handleCloseSignUp}>
   
           <Modal.Header className="myModalHeaderSingUp" closeButton>
             <Modal.Title >Đăng kí tài khoản</Modal.Title>
@@ -95,9 +104,9 @@ export default function Header() {
           <Modal.Body className="myModalBodySignUp" >
             <FormSignUp />
           </Modal.Body>
-          </Modal>
+          </Modal> */}
           {/* modal sign in  */}
-          <Modal style={{backgroundImage : "url('https://miro.medium.com/max/1200/1*jbfWuj3RSAAvmJeBwLWbsw.jpeg?fbclid=IwAR3EdV8lALX-lZ2GO7uv9SjOYFaGXB6z8bfTl5A6pO2OfdC57JmmC24Ujlo')"}}  size='lg' show={showSignIn} onHide={handleCloseSignIn}>
+          {/* <Modal style={{backgroundImage : "url('https://miro.medium.com/max/1200/1*jbfWuj3RSAAvmJeBwLWbsw.jpeg?fbclid=IwAR3EdV8lALX-lZ2GO7uv9SjOYFaGXB6z8bfTl5A6pO2OfdC57JmmC24Ujlo')"}}  size='lg' show={showSignIn} onHide={handleCloseSignIn}>
   
           <Modal.Header className="modalHeaderSignIn" closeButton>
             <Modal.Title >Đăng Nhập</Modal.Title>
@@ -105,7 +114,7 @@ export default function Header() {
           <Modal.Body className="modalBodySignIn" >
             <FormSignIn setShowSignIn = {setShowSignIn} isLogin = {isLogin} setLogin = {setLogin}  />
           </Modal.Body>
-          </Modal>
+          </Modal> */}
         </Fragment>
     )
   }else {

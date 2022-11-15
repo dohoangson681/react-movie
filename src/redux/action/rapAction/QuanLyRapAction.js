@@ -7,7 +7,7 @@ import { LAY_CHI_TIET_PHIM, LAY_DS_CUM_RAP } from "../../type/movie-type/RapType
 
 export const layDsRapAction = (maNhom) => {
     return (dispatch) => {
-        let promise = rapService.layThongTinLichChieuHeThongRap(maNhom)
+        let promise = rapService?.layThongTinLichChieuHeThongRap(maNhom)
         promise.then((res) => {
             let action = {
                 type: LAY_DS_CUM_RAP,

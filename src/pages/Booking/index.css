@@ -17,9 +17,11 @@
 }
 
 .chair {
-    background-color: white;
+    background-color: #18191a;
     margin: 0 auto;
     border-radius: 12px;
+    border: 2px solid white;
+    padding: 10px 4px;
 }
 
 .chair svg {
@@ -53,8 +55,9 @@
     cursor: pointer;
     border: none;
     border-radius: 10px;
+    background-color: #18191a;
     color: rgb(106, 105, 105);
-    background-color: white;
+
 }
 .gheThuong{
     color:rgb(106, 105, 105);
