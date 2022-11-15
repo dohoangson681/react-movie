@@ -16,10 +16,11 @@ export const quanLyNguoiDungReducer = (state = initialState, action) => {
     switch (action.type) {
         case DANG_NHAP:
             const { thongTinDangNhap } = action
+            console.log(action) ; 
             localStorage.setItem(USER_LOGIN, JSON.stringify(thongTinDangNhap))
-            localStorage.setItem(ACCESS_TOKEN,thongTinDangNhap.accessToken)
-            console.log(state);
-            return { ...state, userLogin:thongTinDangNhap }
+            localStorage.setItem(ACCESS_TOKEN,JSON.stringify(thongTinDangNhap.accessToken)) ; 
+            // console.log(state);
+            return { ...state }
         default:
             return state
     }

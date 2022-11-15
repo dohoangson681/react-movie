@@ -18,35 +18,32 @@ import Modal from "react-bootstrap/Modal";
 import FormSignUp from "../Form/FormSignUp";
 import FormSignIn from "../Form/FormSIgnIn";
 import { history } from "../../App";
-import { USER_LOGIN } from "../../util/setting";
+import { ACCESS_TOKEN, USER_LOGIN } from "../../util/setting";
 
 export default function Header() {
   // fake get api
   const[api , setApi] = useState(true) ; 
   // // userlogin
   const [isLogin, setLogin] = useState(false);
-  if(localStorage.getItem(USER_LOGIN)){
-    console.log(1);
-    // setLogin(true)
-    // setLogin bằng true bị lỗi
-  }
-  // // modal
-  // const [showSignUp, setShowSignUp] = useState(false);
-  // const [showSignIn, setShowSignIn] = useState(false);
+  // if(localStorage.getItem(USER_LOGIN)){
+  //   console.log(1);
+  //   setLogin(true)
+  //   // setLogin bằng true bị lỗi
+  // }
+  
 
-  // const handleCloseSignUp = () => setShowSignUp(false);
-  // const handleShowSignUp = () => setShowSignUp(true);
-  // const handleCloseSignIn = () => setShowSignIn(false);
-  // const handleShowSignIn = () => setShowSignIn(true);
-  // const user = false;
-  // const loginSuccess = () => {
-  //   setLogin(true);
-  // };
   // useEffect(()=>{
   //   setTimeout(()=>{
   //     setApi(true) ; 
   //   },2000)
   // } , [])
+
+  useEffect(()=>{
+      if(localStorage.getItem(ACCESS_TOKEN)) {
+        console.log('đã đăng nhập') ;
+        setLogin(true);
+      }else console.log('chưa đăng nhập')
+  } , [])
   if(api){
     return (
       <Fragment>
