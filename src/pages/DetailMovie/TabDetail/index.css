@@ -1,4 +1,13 @@
-
+.detail-tabs{
+    background-color: #18191a;
+    border: 1px solid white;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+}
+.detail-tabs .title-detail{
+    color: white;
+}
 @media (max-width:600px) {
     .detail-tabs{
         width:90%; 
@@ -7,7 +16,7 @@
 }
 @media (min-width:768px) {
     .detail-tabs{
-        width:70%;
+        width:60%;
         margin: 50px auto;
     }
 }

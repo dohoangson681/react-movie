@@ -95,12 +95,12 @@ export default function HeaderDetail() {
                     </Modal.Body>
                 </Modal>
                 {/* modal sign in  */}
-                <Modal style={{ backgroundImage: "url('https://i.pinimg.com/originals/7d/3d/3f/7d3d3f0e7d9d0cbb9b592a481dce2ef9.jpg')" }} size='lg' show={showSignIn} onHide={handleCloseSignIn}>
+                <Modal style={{ backgroundImage: "url('https://miro.medium.com/max/1200/1*jbfWuj3RSAAvmJeBwLWbsw.jpeg?fbclid=IwAR3EdV8lALX-lZ2GO7uv9SjOYFaGXB6z8bfTl5A6pO2OfdC57JmmC24Ujlo')" }} size='lg' show={showSignIn} onHide={handleCloseSignIn}>
 
-                    <Modal.Header closeButton>
+                    <Modal.Header className="modalHeaderSignIn"  closeButton>
                         <Modal.Title>Đăng Nhập</Modal.Title>
                     </Modal.Header>
-                    <Modal.Body>
+                    <Modal.Body className="modalBodySignIn" >
                         <FormSignIn setShowSignIn={setShowSignIn} isLogin={isLogin} setLogin={setLogin} />
                     </Modal.Body>
                 </Modal>

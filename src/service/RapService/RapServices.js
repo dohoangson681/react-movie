@@ -6,16 +6,19 @@ export default class RapServices {
     layThongTinHeThongRap = () => {
         return http.get('/api/QuanLyRap/LayThongTinHeThongRap') ; 
     }
-    
     layThongTinCumRapTheoHeThong = (maHeThongRap) => {
         return http.get(`/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maHeThongRap}`)
     }
-    layThongTinLichChieuHeThongRap = (maHeThongRap , maNhom) => {
-        return http.get(`/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}&maNhom=${maNhom}`) ; 
+    layThongTinLichChieuHeThongRap = ( maNhom) => {
+        return http.get(`/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${maNhom}`) ; 
     }
+    // layThongTinLichChieuHeThongRap = (maHeThongRap , maNhom) => {
+    //     return http.get(`/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}&maNhom=${maNhom}`) ; 
+    // }
     layThongTinLichChieuPhim = (maPhim) => {
         return http.get(`/api/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}`) ; 
     }
+
 }
 
 export const rapService = new RapServices();

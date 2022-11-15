@@ -7,6 +7,10 @@
 .new-title{
    border-left: 4px solid #7fae06;
    padding-left: 8px;
+   color: white;
+}
+.new-title-movie{
+    color: white;
 }
 .news-content {
     padding: 15px 0;
@@ -27,6 +31,8 @@
 
 .new-eye {
     padding: 0 4px;
+    background-color: white;
+    color: black;
 }
 
 .new-star svg {
