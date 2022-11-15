@@ -18,4 +18,16 @@ export const quanLyDatVeAction = (maLichChieu) => {
         })
     }
 }
+export const datVeAction = (thongTinDatVe) => {
+    return (dispatch) => {
+        let promise = datVeService.datVe(thongTinDatVe)
+        console.log('thong tin ở action',thongTinDatVe)
+        promise.then((res) => {
+            console.log('datveaction',res.data.content);
+        })
+        promise.catch((err) => {
+            console.log('err', err);
+        })
+    }
+}
 

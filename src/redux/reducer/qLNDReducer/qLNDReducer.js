@@ -1,5 +1,5 @@
 import { ACCESS_TOKEN, USER_LOGIN } from "../../../util/setting"
-import { DANG_NHAP } from "../../type/nguoiDung-type/NDType"
+import { DANG_NHAP, DANG_XUAT } from "../../type/nguoiDung-type/NDType"
 
 
 let user = {}
@@ -16,10 +16,16 @@ export const quanLyNguoiDungReducer = (state = initialState, action) => {
     switch (action.type) {
         case DANG_NHAP:
             const { thongTinDangNhap } = action
-            console.log(action) ; 
+            console.log(action);
             localStorage.setItem(USER_LOGIN, JSON.stringify(thongTinDangNhap))
-            localStorage.setItem(ACCESS_TOKEN,JSON.stringify(thongTinDangNhap.accessToken)) ; 
-            // console.log(state);
+
+            localStorage.setItem(ACCESS_TOKEN, thongTinDangNhap.accessToken);
+            console.log(thongTinDangNhap.accessToken)
+            state.userLogin = thongTinDangNhap
+            return { ...state }
+        case DANG_XUAT:
+            localStorage.removeItem(USER_LOGIN)
+            localStorage.removeItem(ACCESS_TOKEN)
             return { ...state }
         default:
             return state

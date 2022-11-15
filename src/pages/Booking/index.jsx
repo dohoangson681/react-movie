@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { MdChair } from "react-icons/md";
 import { useDispatch, useSelector } from 'react-redux';
-import { quanLyDatVeAction } from '../../redux/action/datVeAction/QuanLyDatVeAction';
+import { datVeAction, quanLyDatVeAction } from '../../redux/action/datVeAction/QuanLyDatVeAction';
 import { DAT_VE } from '../../redux/type/datVe-type/DatVeType';
 import './index.css'
 import { USER_LOGIN } from '../../util/setting';
@@ -25,6 +25,7 @@ export default function BookingPage(props) {
         const action = quanLyDatVeAction(maLichChieu)
         dispatch(action)
     }, [])
+    const { userLogin } = useSelector(state => state.quanLyNguoiDungReducer)
     if (!localStorage.getItem(USER_LOGIN)) {
         return <Redirect to='/login' />
     }
@@ -111,12 +112,27 @@ export default function BookingPage(props) {
                                     return total += ghe.giaVe
                                 }, 0).toLocaleString()} vnđ</h6>
                             </div>
+                            <div className='d-flex justify-content-between py-3 form-ticket__item'>
+                                <h6>Email:</h6>
+                                <h6 className='ticket-color'>{userLogin.email}</h6>
+                            </div>
                             <div className='d-flex justify-content-between '>
                                 <h6 className='pt-2 text-danger'>Mã QR Vào Rạp Thay Thế Vé</h6>
                             </div>
                             <img src="https://images.viblo.asia/f96109f8-e2b2-4944-88ef-071ce79a50a8.png" alt="" />
                             <div>
-                                <button className='btn-booking' onClick={notify}>BOOKING TICKET</button>
+                                <button className='btn-booking' onClick={
+                                  () => { 
+                                    const thongTinDatVe = {
+                                        maLichChieu: maLichChieu,
+                                        danhSachVe: danhSachGheDangDat
+                                    }
+                                    console.log('thongtin',thongTinDatVe);
+                                    const action = datVeAction(thongTinDatVe)
+                       
+                                    dispatch(action)
+                                   }
+                                }>BOOKING TICKET</button>
                                 <ToastContainer />
                             </div>
                         </div>
