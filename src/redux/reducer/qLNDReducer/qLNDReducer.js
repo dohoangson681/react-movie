@@ -1,6 +1,6 @@
 import { history } from "../../../App"
 import { ACCESS_TOKEN, USER_LOGIN } from "../../../util/setting"
-import { DANG_NHAP, DANG_XUAT, LAY_TT_NGUOI_DUNG } from "../../type/nguoiDung-type/NDType"
+import { DANG_NHAP, DANG_XUAT, LAY_TT_CHI_TIET_NGUOI_DUNG, LAY_TT_TAI_KHOAN } from "../../type/nguoiDung-type/NDType"
 
 let user = {}
 if (localStorage.getItem(USER_LOGIN)) {
@@ -10,7 +10,7 @@ if (localStorage.getItem(USER_LOGIN)) {
 const initialState = {
     userLogin: user,
     thongTinNguoiDung: {
-    }
+    },
 }
 
 export const quanLyNguoiDungReducer = (state = initialState, action) => {
@@ -18,6 +18,7 @@ export const quanLyNguoiDungReducer = (state = initialState, action) => {
         case DANG_NHAP:
             localStorage.setItem(USER_LOGIN, JSON.stringify(action.thongTinDangNhap))
             localStorage.setItem(ACCESS_TOKEN, action.thongTinDangNhap.accessToken);
+            console.log(ACCESS_TOKEN, action.thongTinDangNhap.accessToken);
             state.userLogin = action.thongTinDangNhap
             return { ...state }
         case DANG_XUAT:
@@ -25,8 +26,9 @@ export const quanLyNguoiDungReducer = (state = initialState, action) => {
             state.userLogin = ''
             history.push('/login')
             return { ...state }
-        case LAY_TT_NGUOI_DUNG:
+        case LAY_TT_TAI_KHOAN:
             state.thongTinNguoiDung = action.thongTinNguoiDung
+            console.log('thongtin',state.thongTinNguoiDung)
             return { ...state }
         default:
             return state

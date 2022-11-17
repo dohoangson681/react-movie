@@ -3,24 +3,21 @@ import Form from "react-bootstrap/Form";
 import "./index.css";
 import { phimService, rapService } from "../../../service";
 import { history } from "../../../App";
+import { useDispatch, useSelector } from "react-redux";
+import { layDsPhimAction } from "../../../redux/action/movieAction/QuanLyPhimAction";
 
 export default function FormBooking() {
     let moment = require("moment");
-    const [danhSachPhim, setDanhSachPhim] = useState([]);
+    const {mangPhim} = useSelector(state =>state.quanLyPhimReducer)
     let [maPhim, setMaPhim] = useState(0);
     let [danhSachRap, setDanhSachRap] = useState([]);
     let [maHeThongRap, setMaHeThongRap] = useState('');
     let [maLichChieu, setMaLichChieu] = useState('')
     let [gioChieu, setGioChieu] = useState(false)
-
+   let dispatch = useDispatch()
     useEffect(() => {
-        let promise = phimService.layDanhSachPhim();
-        promise.then(res => {
-            // console.log('res', res.data.content);
-            setDanhSachPhim(res.data.content);
-        }).catch(err => {
-            console.log('fail');
-        })
+        const action = layDsPhimAction()
+        dispatch(action)
     }, []);
 
     useEffect(() => {
@@ -53,7 +50,7 @@ export default function FormBooking() {
     }
 
     let renderDSPhim = () => {
-        return danhSachPhim.map((phim, index) => {
+        return mangPhim?.map((phim, index) => {
             // console.log(phim);
             if (phim.dangChieu) {
                 return (

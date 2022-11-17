@@ -1,25 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
 import { AiFillPlayCircle } from "react-icons/ai";
 import { AiOutlineCloseCircle } from "react-icons/ai";
-import { useDispatch, useSelector } from 'react-redux';
-import { layDsPhimAction } from '../../../redux/action/movieAction/QuanLyPhimAction';
+import { useSelector } from 'react-redux';
 import { history } from "../../../App";
 
 export default function TabsOne() {
     const [url, setUrl] = useState('')
     const [modalShow, setModalShow] = useState(false);
     const { mangPhim } = useSelector(state => state.quanLyPhimReducer)
-    const dispatch = useDispatch()
-    useEffect(() => {
-        const action = layDsPhimAction()
-        dispatch(action)
-    }, [])
+
     let renderPhim = () => {
-        return mangPhim.map((phim, index) => {
+        return mangPhim?.map((phim, index) => {
             if (phim.dangChieu) {
                 return <Col xs={6} md={4} lg={3} className='pb-4' key={index}>
                     <Card className='card-movie'>

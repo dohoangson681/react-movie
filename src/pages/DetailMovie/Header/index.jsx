@@ -11,11 +11,11 @@ import { AiOutlineHome } from "react-icons/ai";
 import { AiOutlinePoweroff } from "react-icons/ai";
 import "./index.css";
 // modal
-
 import { useDispatch, useSelector } from "react-redux";
 import { ACCESS_TOKEN } from "../../../util/setting";
 import { history } from "../../../App";
 import { DANG_XUAT } from "../../../redux/type/nguoiDung-type/NDType";
+
 export default function HeaderDetail() {
     // fake get api
     const [api, setApi] = useState(false);
@@ -25,7 +25,7 @@ export default function HeaderDetail() {
     useEffect(() => {
         setTimeout(() => {
             setApi(true);
-        }, 2000)
+        }, 1000)
     }, [])
     useEffect(() => {
         if (localStorage.getItem(ACCESS_TOKEN)) {
@@ -39,7 +39,7 @@ export default function HeaderDetail() {
     if (api) {
         return (
             <Fragment>
-                <Navbar expand="md" fixed="top"  >
+                <Navbar expand="md"  >
                     <Container fluid >
                         <Navbar.Brand href="/" className='img-logo px'>
                             <img className="img-fluid" src="https://cdn.theatertoolkit.com/cdn/wwwroot/themes/custom/smittyscinema/images/CinemaSafe_Logo_horizontal_reverse.png" alt="" />
