@@ -14,6 +14,7 @@ import { HomeTemplate } from './template/HomeTemplate';
 import UserTemplate from './template/UserTemplate';
 import BookingPage from './pages/Booking';
 import Login from './pages/Login';
+import UserProfile from './pages/UserProfile';
 
 
 export const history = createBrowserHistory()
@@ -29,11 +30,11 @@ function App() {
         <Switch>
           <HomeTemplate exact path="/" component={HomePage}></HomeTemplate>
           <Route exact path="/admin" component={AdminPage}></Route>
-          <Route exact path="/login" component={Login}></Route>
-
           <HomeTemplate exact path="/home" component={HomePage}></HomeTemplate>
           {/* Detai và Đặt vé xài chung userTemplate */}
           <UserTemplate exact path="/detail/:maPhim" component={DetailMoviePage}></UserTemplate>
+          <UserTemplate exact path="/profile" component={UserProfile}></UserTemplate>
+          <UserTemplate exact path="/login" component={Login}></UserTemplate>
           <UserTemplate exact path="/ticketroom/:maLichChieu" component={BookingPage}></UserTemplate>
         </Switch>
       </Router>

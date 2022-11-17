@@ -5,28 +5,23 @@ import Navbar from "react-bootstrap/Navbar";
 import {
     BiUserCircle,
     BiUserPlus,
-    BiMoviePlay,
-    BiCameraMovie,
 } from "react-icons/bi";
 import { FaUserCircle } from "react-icons/fa";
 import { AiOutlineHome } from "react-icons/ai";
 import { AiOutlinePoweroff } from "react-icons/ai";
 import "./index.css";
 // modal
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import FormSignUp from "../../../components/Form/FormSignUp";
-import FormSignIn from "../../../components/Form/FormSignUp";
-import { useSelector } from "react-redux";
+
+import { useDispatch, useSelector } from "react-redux";
 import { ACCESS_TOKEN } from "../../../util/setting";
 import { history } from "../../../App";
+import { DANG_XUAT } from "../../../redux/type/nguoiDung-type/NDType";
 export default function HeaderDetail() {
     // fake get api
     const [api, setApi] = useState(false);
-    // userlogin
     const [isLogin, setLogin] = useState(false);
-    // modal
-
+    const [user, setUser] = useState('')
+    const dispatch = useDispatch()
     useEffect(() => {
         setTimeout(() => {
             setApi(true);
@@ -34,9 +29,11 @@ export default function HeaderDetail() {
     }, [])
     useEffect(() => {
         if (localStorage.getItem(ACCESS_TOKEN)) {
-            console.log('đã đăng nhập');
             setLogin(true);
-        } else console.log('chưa đăng nhập')
+            setUser(userLogin)
+        } else {
+            setLogin(false)
+        }
     }, [])
     const { userLogin } = useSelector(state => state.quanLyNguoiDungReducer)
     if (api) {
@@ -59,9 +56,18 @@ export default function HeaderDetail() {
                             </Nav>
                             {isLogin ?
                                 <Nav className="d-flex flex-row justify-content-around align-items-center menu fw-bold">
-                                    <button className='d-flex align-items-center btn-header'><FaUserCircle className='mx-1 fs-4' />{userLogin.hoTen}</button>
+                                    <button
+                                        onClick={() => { history.push('/profile') }}
+                                        className='d-flex align-items-center btn-header'><FaUserCircle className='mx-1 fs-4' />{user?.hoTen}</button>
                                     <div className='navbar__link-separator d-none d-md-block'></div>
-                                    <button className='d-flex align-items-center btn-header'>Đăng Xuất<AiOutlinePoweroff className='mx-1 fs-4 icon-header' /></button>
+                                    <button onClick={() => {
+                                        const action = {
+                                            type: DANG_XUAT
+                                        }
+                                        dispatch(action)
+
+                                    }}
+                                        className='d-flex align-items-center btn-header'>Đăng Xuất<AiOutlinePoweroff className='mx-1 fs-4 icon-header' /></button>
                                 </Nav>
                                 :
                                 <Nav className="d-flex flex-row justify-content-around align-items-center menu fw-bold">
@@ -76,7 +82,7 @@ export default function HeaderDetail() {
                                     <div className='navbar__link-separator d-none d-md-block'></div>
                                     <button
                                         type='button'
-                                 
+
                                         className='d-flex align-items-center btn-header'><BiUserPlus className='mx-1 fs-4 icon-header' />Đăng Ký</button>
                                 </Nav>
                             }

@@ -21,7 +21,7 @@
     margin: 0 auto;
     border-radius: 12px;
     border: 2px solid white;
-    padding: 10px 4px;
+    padding: 0px 4px 10px;
 }
 
 .chair svg {
@@ -32,13 +32,11 @@
     border-radius: 12px;
     background-color: white;
     box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+    padding: 8px 0;
 }
 .ghe-content {
-    display: flex;
-    justify-content: space-between;
     width: 60%;
     margin: 0 auto;
-    padding: 10px 0;
 }
 .ghe-content h6{
     font-weight: bold;
@@ -71,20 +69,27 @@
 }
 
 .gheDaDuocChon {
+    color: rgb(255, 0, 0);
+    cursor: no-drop;
+}
+.gheUserDat{
     color: blue;
+}
+.gheKHDangChon{
+    color: rgb(255, 128, 0);
     cursor: no-drop;
 }
 
 .form-ticket {
     border-radius: 8px;
     background-color: white;
-    box-shadow: rgba(255, 251, 254, 0.4) 5px 5px, rgba(255, 255, 255, 0.3) 10px 10px, rgba(236, 247, 240, 0.2) 15px 15px, rgba(231, 237, 233, 0.1) 20px 20px, rgba(2, 19, 8, 0.05) 25px 25px;
+   
 }
 .form-ticket__item {
     border-bottom: 2px dashed gray;
 }
 
-.form-ticket .btn-booking {
+.btn-booking {
     width: 100%;
     padding: 6px 0;
     border-radius: 4px;
@@ -93,8 +98,8 @@
     font-weight: bold;
     color: #abe31c;
 }
-
-.form-ticket .btn-booking:hover {
+/* .form-ticket  */
+.btn-booking:hover {
     background-color: #abe31c;
     color: white;
     transition: .2s ease-in;
@@ -104,7 +109,25 @@
     color: #abe31c;
     cursor: pointer;
 }
+.ct-ticket{
+    min-height: 75vh;
+}
+.ticket-booking{
+    margin-top: 50px;
+    border: 2px solid white;
+    border-radius: 6px;
+}
+.booking .nav-item button{
+    color: white;
+    font-weight: bold;
+}
+.img-ticket{
+    width: 100%;
 
+}
+.img-ticket img{
+    width: 100%;
+}
 
 @media (min-width: 1200px) {
     .ghe-content {
@@ -129,16 +152,16 @@
     .ghe-content {
         display: flex;
         flex-direction: column;
-        width: 60%;
+        width: 70%;
         margin: 0 auto;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 375px) {
     .ghe-content {
         display: flex;
         flex-direction: column;
-        width: 70%;
+        width:80%;
         margin: 0 auto;
     }
 }

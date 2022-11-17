@@ -12,23 +12,17 @@ import { FaNewspaper, FaUserCircle } from "react-icons/fa";
 import { FiSmartphone } from "react-icons/fi";
 import { AiOutlinePoweroff } from "react-icons/ai";
 import "./index.css";
-// modal
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
-import FormSignUp from "../Form/FormSignUp";
-import FormSignIn from "../Form/FormSIgnIn";
 import { history } from "../../App";
 import { ACCESS_TOKEN } from "../../util/setting";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { DANG_XUAT } from "../../redux/type/nguoiDung-type/NDType";
 
 export default function Header() {
   // fake get api
   const [api, setApi] = useState(true);
-  // // userlogin
   const [isLogin, setLogin] = useState(false);
   const [user, setUser] = useState('')
-
+  const dispatch = useDispatch()
   useEffect(() => {
     setTimeout(() => {
       setApi(true);
@@ -37,12 +31,14 @@ export default function Header() {
 
   useEffect(() => {
     if (localStorage.getItem(ACCESS_TOKEN)) {
-      console.log('đã đăng nhập');
       setLogin(true);
       setUser(userLogin)
-    } else console.log('chưa đăng nhập')
+    } else {
+      setLogin(false)
+    }
   }, [])
   const { userLogin } = useSelector(state => state.quanLyNguoiDungReducer)
+
   if (api) {
     return (
       <Fragment>
@@ -65,21 +61,26 @@ export default function Header() {
               </Nav>
               {isLogin ?
                 <Nav className="d-flex flex-row justify-content-around align-items-center menu fw-bold">
-                  <button className='d-flex align-items-center btn-header'><FaUserCircle className='mx-1 fs-4' />{user?.hoTen}</button>
+                  <button
+                    onClick={() => { history.push('/profile') }}
+                    className='d-flex align-items-center btn-header'><FaUserCircle className='mx-1 fs-4' />{user?.hoTen}</button>
                   <div className='navbar__link-separator d-none d-md-block'></div>
-                  <button 
-                  className='d-flex align-items-center btn-header'>Đăng Xuất<AiOutlinePoweroff className='mx-1 fs-4 icon-header' /></button>
+                  <button onClick={() => {
+                    const action = {
+                      type: DANG_XUAT
+                    }
+                    dispatch(action)
+                  }}
+                    className='d-flex align-items-center btn-header'>Đăng Xuất<AiOutlinePoweroff className='mx-1 fs-4 icon-header' /></button>
                 </Nav>
                 :
                 <Nav className="d-flex flex-row justify-content-around align-items-center menu fw-bold">
                   <button
                     type='button'
-                    onClick={
-                      () => {
-                        history.push('/login')
-                      }
+                    onClick={() => {
+                      history.push('/login')
                     }
-
+                    }
                     className='d-flex align-items-center btn-header'><BiUserCircle className='mx-1 fs-4' />Đăng Nhập</button>
                   <div className='navbar__link-separator d-none d-md-block'></div>
                   <button
