@@ -5,4 +5,7 @@ export default class DatVeService {
     layChiTietPhongVe = (maLichChieu) => {
         return http.get(`/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`)
     };
+    datVe = (thongTinDatVe) =>{
+        return http.post(`/api/QuanLyDatVe/DatVe`,thongTinDatVe)
+    }
 }

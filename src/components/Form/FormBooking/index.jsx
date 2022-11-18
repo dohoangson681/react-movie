@@ -1,60 +1,55 @@
 import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import "./index.css";
-import { phimService, rapService } from "../../../service";
+import { rapService } from "../../../service";
 import { history } from "../../../App";
+import { useDispatch, useSelector } from "react-redux";
+import { layDsPhimAction } from "../../../redux/action/movieAction/QuanLyPhimAction";
+
 
 export default function FormBooking() {
     let moment = require("moment");
-    const [danhSachPhim, setDanhSachPhim] = useState([]);
+    const { mangPhim } = useSelector(state => state.quanLyPhimReducer);
     let [maPhim, setMaPhim] = useState(0);
     let [danhSachRap, setDanhSachRap] = useState([]);
     let [maHeThongRap, setMaHeThongRap] = useState('');
-    let [maLichChieu, setMaLichChieu] = useState('')
-    let [gioChieu, setGioChieu] = useState(false)
-
+    let [maLichChieu, setMaLichChieu] = useState('');
+    let [gioChieu, setGioChieu] = useState(false);
+    let dispatch = useDispatch();
     useEffect(() => {
-        let promise = phimService.layDanhSachPhim();
-        promise.then(res => {
-            // console.log('res', res.data.content);
-            setDanhSachPhim(res.data.content);
-        }).catch(err => {
-            console.log('fail');
-        })
+        const action = layDsPhimAction();
+        dispatch(action);
     }, []);
 
     useEffect(() => {
-        // console.log('ma phim update');
         if (maPhim !== 0) {
             let promise = rapService.layThongTinLichChieuPhim(maPhim);
             promise.then(res => {
-                // console.log(res.data.content.heThongRapChieu);
                 setDanhSachRap(res.data.content.heThongRapChieu);
             }).catch(err => {
                 console.log(err);
-            })
+            });
         }
     }, [maPhim]);
     let handleSelectPhim = (e) => {
         let maPhim = Number(e.target.value);
         setMaPhim(maPhim);
-        setDanhSachRap([])
+        setDanhSachRap([]);
     };
     let handleSelectRap = (e) => {
-        setMaHeThongRap(e.target.value)
-    }
+        setMaHeThongRap(e.target.value);
+    };
     let handleSelectNgay = (e) => {
-        setMaLichChieu(e.target.value)
-    }
+        setMaLichChieu(e.target.value);
+    };
     let handleSelectGio = (e) => {
         if (e.target.value) {
-            setGioChieu(true)
+            setGioChieu(true);
         }
-    }
+    };
 
     let renderDSPhim = () => {
-        return danhSachPhim.map((phim, index) => {
-            // console.log(phim);
+        return mangPhim?.map((phim, index) => {
             if (phim.dangChieu) {
                 return (
                     <option key={index} value={phim.maPhim}>
@@ -62,7 +57,7 @@ export default function FormBooking() {
                     </option>
                 );
             }
-            return null
+            return null;
         });
     };
 
@@ -82,12 +77,12 @@ export default function FormBooking() {
                     return rap.lichChieuPhim.map((lichChieu, index) => {
                         return <option key={index} value={lichChieu.maLichChieu}>
                             {moment(lichChieu.ngayChieuGioChieu).format("DD-MM-yyyy")}
-                        </option>
-                    })
-                })
+                        </option>;
+                    });
+                });
             }
-            return null
-        })
+            return null;
+        });
     };
     let renderGioChieu = () => {
         return danhSachRap.map((cumRap) => {
@@ -97,14 +92,14 @@ export default function FormBooking() {
                         if (maLichChieu === lichChieu.maLichChieu) {
                             return <option key={index} value={lichChieu.ngayChieuGioChieu}>
                                 {moment(lichChieu.ngayChieuGioChieu).format("HH:mm ")}
-                            </option>
+                            </option>;
                         }
-                        return null
-                    })
-                })
+                        return null;
+                    });
+                });
             }
-            return null
-        })
+            return null;
+        });
     };
     return (
         <div className="form-booking pt-4">
@@ -162,7 +157,7 @@ export default function FormBooking() {
                         <div className="col-12 col-md-4 col-lg-4 ">
                             {gioChieu ? (
                                 <button onClick={() => {
-                                    history.push(`ticketroom/${maLichChieu}`)
+                                    history.push(`ticketroom/${maLichChieu}`);
                                 }}
                                     className=" btn-book-ticket py-1 py-md-0 ">
                                     Đặt Vé
@@ -177,7 +172,5 @@ export default function FormBooking() {
                 </div>
             </div>
         </div>
-
-
     );
 }

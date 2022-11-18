@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Row from 'react-bootstrap/Row';
 import Tab from 'react-bootstrap/Tab';
-import "./index.css"
+import "./index.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { layDsRapAction } from '../../redux/action/rapAction/QuanLyRapAction';
 import { GP_ID } from '../../util/setting';
@@ -12,20 +12,21 @@ import { history } from '../../App';
 
 export default function TabCinema() {
     var moment = require("moment");
-    const { mangCumRap } = useSelector(state => state.quanLyRapReducer)
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     useEffect(() => {
-        const action = layDsRapAction(GP_ID)
-        dispatch(action)
-    }, [])
+        const action = layDsRapAction(GP_ID);
+        dispatch(action);
+    }, []);
+    const { mangCumRap } = useSelector(state => state.quanLyRapReducer);
+    console.log(mangCumRap);
 
     let renderDsCumRap = () => {
-        return mangCumRap.map((heThongRap) => {
+        return mangCumRap?.map((heThongRap) => {
             return <Nav.Item key={heThongRap.maHeThongRap} >
                 <Nav.Link eventKey={heThongRap.maHeThongRap} ><img style={{ width: "50px", height: '50px' }} src={heThongRap.logo} alt="" /></Nav.Link>
-            </Nav.Item>
-        })
-    }
+            </Nav.Item>;
+        });
+    };
     let renderDsCumRapTheoRap = () => {
         return mangCumRap.map((heThongRap, index) => {
             return <Tab.Pane eventKey={heThongRap.maHeThongRap} key={index}>
@@ -44,7 +45,7 @@ export default function TabCinema() {
                                                 </div>
                                             </div>
                                         </Nav.Link>
-                                    </Nav.Item>
+                                    </Nav.Item>;
                                 })}
                             </Nav>
                         </Col>
@@ -67,25 +68,25 @@ export default function TabCinema() {
                                                         return <div key={index}>
                                                             <span className='date-movie'>Suất Chiếu: <span className='movie-list__time'>{moment(lichChieu.ngayChieuGioChieu).format("DD-MM-yyyy")}</span> </span>
                                                             <button onClick={() => {
-                                                                history.push(`ticketroom/${lichChieu.maLichChieu}`)
+                                                                history.push(`ticketroom/${lichChieu.maLichChieu}`);
                                                             }} className='btn-hour'>
                                                                 {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
                                                             </button>
-                                                        </div>
+                                                        </div>;
                                                     })}
                                                 </div>
 
-                                            </div>
+                                            </div>;
                                         })}
-                                    </Tab.Pane>
+                                    </Tab.Pane>;
                                 })}
                             </Tab.Content>
                         </Col>
                     </Row>
                 </Tab.Container>
-            </Tab.Pane>
-        })
-    }
+            </Tab.Pane>;
+        });
+    };
 
     return (
         <div className='container-tabs__cinema' id='theater'>
@@ -109,6 +110,6 @@ export default function TabCinema() {
                 </Tab.Container >
             </div>
         </div>
-    )
+    );
 }
 
