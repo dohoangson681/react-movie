@@ -8,13 +8,13 @@ import { history } from '../../../App';
 
 export default function TabsDetailCinema(props) {
     const moment = require("moment");
-    const maPhim = props.maPhim;
+    // const maPhim = props.maPhim;
     const { phimDetail } = useSelector(state => state.quanLyPhimReducer);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        const action = layChiTietPhim(maPhim);
-        dispatch(action);
-    }, []);
+    // const dispatch = useDispatch();
+    // useEffect(() => {
+    //     const action = layChiTietPhim(maPhim);
+    //     dispatch(action);
+    // }, []);
 
     let renderRapp = () => {
         if (phimDetail.heThongRapChieu?.length > 0) {

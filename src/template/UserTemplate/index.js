@@ -1,5 +1,4 @@
 import React from 'react'
-import { useEffect } from 'react'
 import { Fragment } from 'react'
 import { Route } from 'react-router-dom'
 import ScrollToTop from '../../components/ScrollToTop'

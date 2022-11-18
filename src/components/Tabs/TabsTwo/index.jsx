@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
@@ -44,7 +44,8 @@ export default function TabsTwo() {
                 centered
             >
                 <Modal.Body>
-                    <AiOutlineCloseCircle className='trailer-icon__close' onClick={() => { setModalShow(false); }} />
+                    <AiOutlineCloseCircle className='trailer-icon__close'
+                        onClick={() => { setModalShow(false); }} />
                     <iframe src={url}
                         allowFullScreen
                         frameBorder="0"

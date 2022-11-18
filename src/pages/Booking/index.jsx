@@ -18,14 +18,14 @@ import './index.css';
 
 export default function BookingPage(props) {
 
-    const { chiTietPhongVe, danhSachGheDangDat, tabActive } = useSelector(state => state.quanLyDatVeReducer);
-    const [open, setOpen] = useState(false);
-    const dispatch = useDispatch();
-    const maLichChieu = props.match.params.maLichChieu;
     useEffect(() => {
         const action = quanLyDatVeAction(maLichChieu);
         dispatch(action);
     }, []);
+    const { chiTietPhongVe, danhSachGheDangDat, tabActive } = useSelector(state => state.quanLyDatVeReducer);
+    const [open, setOpen] = useState(false);
+    const dispatch = useDispatch();
+    const maLichChieu = props.match.params.maLichChieu;
     const { userLogin } = useSelector(state => state.quanLyNguoiDungReducer);
     if (!localStorage.getItem(USER_LOGIN)) {
         return <Redirect to='/login' />;

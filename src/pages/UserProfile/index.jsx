@@ -16,19 +16,14 @@ import { layThongTinNguoiDungAction } from '../../redux/action/qLNDAction/qLNDAc
 import { ThongTinUser } from './dataUseTam';
 
 export default function UserProfile() {
-    const dispatch = useDispatch();
-    const { thongTinNguoiDung } = useSelector(state => state.quanLyNguoiDungReducer);
-    useEffect(() => {
-        const action = layThongTinNguoiDungAction();
-        dispatch(action);
-    }, []);
-    console.log(thongTinNguoiDung);
-
-
-
-
-
-
+    // API lỗi
+    // const dispatch = useDispatch();
+    // const { thongTinNguoiDung } = useSelector(state => state.quanLyNguoiDungReducer);
+    // useEffect(() => {
+    //     const action = layThongTinNguoiDungAction();
+    //     dispatch(action);
+    // }, []);
+    // console.log(thongTinNguoiDung);
 
     if (!localStorage.getItem(USER_LOGIN)) {
         return <Redirect to='/login' />;

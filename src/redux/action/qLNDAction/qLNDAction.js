@@ -2,6 +2,7 @@ import { history } from "../../../App";
 import { qLNDService } from "../../../service";
 import { DANG_KY, DANG_NHAP, LAY_TT_TAI_KHOAN } from "../../type/nguoiDung-type/NDType";
 import { toast } from 'react-toastify';
+import { disPlayLoadingAction, hidenLoadingAction } from "../loadingAction/loading";
 
 const notifyDN = (err) => toast(err, {
     position: toast.POSITION.TOP_RIGHT
@@ -12,8 +13,10 @@ const notifyDK = (err) => toast(err, {
 
 export const dangNhapAction = (thongTinDangNhap) => {
     return (dispatch) => {
+    
         let promise = qLNDService.dangNhap(thongTinDangNhap);
         promise.then((res) => {
+            dispatch(disPlayLoadingAction);
             // "taiKhoan": "dhs12@gmail.com",
             // "matKhau": "123456",
             let action = {
@@ -21,6 +24,7 @@ export const dangNhapAction = (thongTinDangNhap) => {
                 thongTinDangNhap: res.data.content
             };
             dispatch(action);
+            dispatch(hidenLoadingAction)
             history.push("/home");
         });
         promise.catch((err) => {

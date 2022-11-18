@@ -18,23 +18,15 @@ import { DANG_XUAT } from "../../redux/type/nguoiDung-type/NDType";
 import "./index.css";
 
 export default function Header() {
-    // fake get api
-    const [api, setApi] = useState(true);
     const [isLogin, setLogin] = useState(false);
     const dispatch = useDispatch();
-    useEffect(() => {
-        setTimeout(() => {
-            setApi(true);
-        }, 2000);
-    }, []);
-
     useEffect(() => {
         if (localStorage.getItem(ACCESS_TOKEN)) {
             setLogin(true);
         }
     }, []);
     const { userLogin } = useSelector(state => state.quanLyNguoiDungReducer);
-    if (api) {
+
         return (
             <Fragment>
                 <Navbar expand="md" fixed="top"  >
@@ -110,18 +102,5 @@ export default function Header() {
                 </Navbar>
             </Fragment>
         );
-    } else {
-        return (
-            <div
-                style={{ height: "100vh" }}
-                className="spinner-cua-tao d-flex justify-content-center align-items-center "
-            >
-                <div className="spinner-grow text-danger" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </div>
-            </div>
-        );
-    }
-
-
+   
 }
