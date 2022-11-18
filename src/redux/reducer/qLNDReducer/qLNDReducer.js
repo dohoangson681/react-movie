@@ -1,6 +1,6 @@
 import { history } from "../../../App"
 import { ACCESS_TOKEN, USER_LOGIN } from "../../../util/setting"
-import { DANG_NHAP, DANG_XUAT, LAY_TT_CHI_TIET_NGUOI_DUNG, LAY_TT_TAI_KHOAN } from "../../type/nguoiDung-type/NDType"
+import { DANG_NHAP, DANG_XUAT, LAY_TT_TAI_KHOAN } from "../../type/nguoiDung-type/NDType"
 
 let user = {}
 if (localStorage.getItem(USER_LOGIN)) {
@@ -23,7 +23,6 @@ export const quanLyNguoiDungReducer = (state = initialState, action) => {
             return { ...state }
         case DANG_XUAT:
             localStorage.clear();
-            state.userLogin = ''
             history.push('/login')
             return { ...state }
         case LAY_TT_TAI_KHOAN:

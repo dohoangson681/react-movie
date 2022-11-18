@@ -98,7 +98,7 @@ export default function BookingPage(props) {
                                     </div>
                                     {renderGhe()}
                                 </div>
-                                <div className='type-ghe mt-4'>
+                                <div className='type-ghe my-4'>
                                     <div className='ghe-content'>
                                         <div className='d-flex justify-content-center flex-column flex-md-row'>
                                             <h6 className='px-3'> <MdChair className=' gheThuong' /> Ghế Thường</h6>

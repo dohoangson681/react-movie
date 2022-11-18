@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
@@ -9,9 +9,9 @@ import { useSelector } from 'react-redux';
 import { history } from "../../../App";
 
 export default function TabsOne() {
-    const [url, setUrl] = useState('')
+    const [url, setUrl] = useState('');
     const [modalShow, setModalShow] = useState(false);
-    const { mangPhim } = useSelector(state => state.quanLyPhimReducer)
+    const { mangPhim } = useSelector(state => state.quanLyPhimReducer);
 
     let renderPhim = () => {
         return mangPhim?.map((phim, index) => {
@@ -26,18 +26,19 @@ export default function TabsOne() {
                             <p style={{ color: 'white' }} className="px-2 card-movie_decrip">{phim.moTa}</p>
                             <div className="overlay1"></div>
                             <div className="overlay2"></div>
-                            <AiFillPlayCircle className="btn-play-icon" onClick={() => { setUrl(phim.trailer); setModalShow(true) }} />
+                            <AiFillPlayCircle className="btn-play-icon" onClick={() => { setUrl(phim.trailer); setModalShow(true); }} />
                             <button onClick={() => {
-                                history.push(`detail/${phim.maPhim}`)
+                                history.push(`detail/${phim.maPhim}`);
                             }}
                                 className='btn-tabs-booking' >Chi Tiết Phim</button>
                         </Card.Body>
                     </Card>
-                </Col>
+                </Col>;
             }
-            return null
-        })
-    }
+            return null;
+        });
+    };
+
     return (
         <Row>
             {renderPhim()}
@@ -49,7 +50,8 @@ export default function TabsOne() {
                 centered
             >
                 <Modal.Body>
-                    <AiOutlineCloseCircle className='trailer-icon__close' onClick={() => { setModalShow(false) }} />
+                    <AiOutlineCloseCircle className='trailer-icon__close'
+                        onClick={() => { setModalShow(false); }} />
                     <iframe src={url}
                         allowFullScreen
                         frameBorder="0"
@@ -59,5 +61,5 @@ export default function TabsOne() {
             </Modal>
         </Row>
 
-    )
+    );
 }

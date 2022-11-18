@@ -20,14 +20,11 @@ export const dangNhapAction = (thongTinDangNhap) => {
                 thongTinDangNhap: res.data.content
             };
             dispatch(action);
-            // history.goBack()  : go back là trở lại trang trước đấy , nhưng trang
-            // trước đấy là gì ??? đẩy luôn về home r xử lý ở header tại home
             history.push("/home");
         });
         promise.catch((err) => {
             notify();
             console.log('err', err);
-
         });
     };
 };
@@ -36,11 +33,11 @@ export const layThongTinNguoiDungAction = () => {
         let promise = qLNDService.layTTTaiKhoan();
         promise.then((res) => {
             console.log(res);
-            // let action = {
-            //     type: LAY_TT_TAI_KHOAN,
-            //     thongTinNguoiDung: res.data.content
-            // };
-            // dispatch(action);
+            let action = {
+                type: LAY_TT_TAI_KHOAN,
+                thongTinNguoiDung: res.data.content
+            };
+            dispatch(action);
         });
         promise.catch((err) => {
             console.log('err', err);

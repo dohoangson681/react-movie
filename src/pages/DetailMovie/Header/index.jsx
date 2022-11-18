@@ -20,22 +20,19 @@ export default function HeaderDetail() {
     // fake get api
     const [api, setApi] = useState(false);
     const [isLogin, setLogin] = useState(false);
-    const [user, setUser] = useState('')
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     useEffect(() => {
         setTimeout(() => {
             setApi(true);
-        }, 1000)
-    }, [])
+        }, 1000);
+    }, []);
     useEffect(() => {
         if (localStorage.getItem(ACCESS_TOKEN)) {
             setLogin(true);
-            setUser(userLogin)
-        } else {
-            setLogin(false)
         }
-    }, [])
-    const { userLogin } = useSelector(state => state.quanLyNguoiDungReducer)
+    }, []);
+    const { userLogin } = useSelector(state => state.quanLyNguoiDungReducer);
+
     if (api) {
         return (
             <Fragment>
@@ -51,39 +48,49 @@ export default function HeaderDetail() {
                                 style={{ maxHeight: '260px' }}
                                 navbarScroll
                             >
-                                <Nav.Link href="/" className='d-flex flex-md-column align-items-center px-lg-3 '><AiOutlineHome />Home</Nav.Link>
+                                <Nav.Link href="/" className='d-flex flex-md-column align-items-center px-lg-3 '>
+                                    <AiOutlineHome />
+                                    Home
+                                </Nav.Link>
 
                             </Nav>
                             {isLogin ?
                                 <Nav className="d-flex flex-row justify-content-around align-items-center menu fw-bold">
                                     <button
-                                        onClick={() => { history.push('/profile') }}
-                                        className='d-flex align-items-center btn-header'><FaUserCircle className='mx-1 fs-4' />{user?.hoTen}</button>
+                                        onClick={() => { history.push('/profile'); }}
+                                        className='d-flex align-items-center btn-header'>
+                                        <FaUserCircle className='mx-1 fs-4' />
+                                        {userLogin?.hoTen}
+                                    </button>
                                     <div className='navbar__link-separator d-none d-md-block'></div>
                                     <button onClick={() => {
-                                        const action = {
-                                            type: DANG_XUAT
-                                        }
-                                        dispatch(action)
-
+                                        setLogin(false);
+                                        const action = { type: DANG_XUAT };
+                                        dispatch(action);
                                     }}
-                                        className='d-flex align-items-center btn-header'>Đăng Xuất<AiOutlinePoweroff className='mx-1 fs-4 icon-header' /></button>
+                                        className='d-flex align-items-center btn-header'>
+                                        Đăng Xuất<AiOutlinePoweroff className='mx-1 fs-4 icon-header' />
+                                    </button>
                                 </Nav>
                                 :
                                 <Nav className="d-flex flex-row justify-content-around align-items-center menu fw-bold">
                                     <button
                                         type='button'
-                                        onClick={
-                                            () => {
-                                                history.push('/login')
-                                            }
+                                        onClick={() => {
+                                            history.push('/login');
                                         }
-                                        className='d-flex align-items-center btn-header'><BiUserCircle className='mx-1 fs-4' />Đăng Nhập</button>
+                                        }
+                                        className='d-flex align-items-center btn-header'>
+                                        <BiUserCircle className='mx-1 fs-4' />
+                                        Đăng Nhập
+                                    </button>
                                     <div className='navbar__link-separator d-none d-md-block'></div>
                                     <button
                                         type='button'
-
-                                        className='d-flex align-items-center btn-header'><BiUserPlus className='mx-1 fs-4 icon-header' />Đăng Ký</button>
+                                        className='d-flex align-items-center btn-header'>
+                                        <BiUserPlus className='mx-1 fs-4 icon-header' />
+                                        Đăng Ký
+                                    </button>
                                 </Nav>
                             }
                         </Navbar.Collapse>
@@ -111,7 +118,7 @@ export default function HeaderDetail() {
                     </Modal.Body>
                 </Modal> */}
             </Fragment>
-        )
+        );
     } else {
         return (
             <div
