@@ -1,7 +1,12 @@
-/* .register-page {
-    box-shadow: hsla(0,0%,100%,0.2) 0px 0px 0px 0.5px inset,rgba(23,0,102,0.3) 0px 40px 80px;
-    height: 300px;
-    width: 400px;
-    overflow: hidden;
-    scroll-behavior: smooth;
-} */
+.register-page {
+
+    background: url(https://miro.medium.com/max/1200/1*jbfWuj3RSAAvmJeBwLWbsw.jpeg?fbclid=IwAR3EdV8lALX-lZ2GO7uv9SjOYFaGXB6z8bfTl5A6pO2OfdC57JmmC24Ujlo);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+
+}
+.row-form__register{
+    transform: translateY(40px);
+}

@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
 import { AiFillPlayCircle, AiOutlineCloseCircle } from "react-icons/ai";
-import "./index.css"
+import "./index.css";
 
 export default function TabsTwo() {
-    const [url, setUrl] = useState('')
+    const [url, setUrl] = useState('');
     const [modalShow, setModalShow] = useState(false);
-    const { mangPhim } = useSelector(state => state.quanLyPhimReducer)
+    const { mangPhim } = useSelector(state => state.quanLyPhimReducer);
 
     let renderPhim = () => {
         return mangPhim?.map((phim, index) => {
@@ -25,15 +25,14 @@ export default function TabsTwo() {
                             <p style={{ color: 'white' }} className="px-2 card-movie_decrip">{phim.moTa}</p>
                             <div className="overlay1"></div>
                             <div className="overlay2"></div>
-                            <AiFillPlayCircle className="btn-play-icon" onClick={() => { setModalShow(true); setUrl(phim.trailer) }} />
-
+                            <AiFillPlayCircle className="btn-play-icon" onClick={() => { setModalShow(true); setUrl(phim.trailer); }} />
                         </Card.Body>
                     </Card>
-                </Col>
+                </Col>;
             }
-            return null
-        })
-    }
+            return null;
+        });
+    };
     return (
         <Row>
             {renderPhim()}
@@ -45,7 +44,7 @@ export default function TabsTwo() {
                 centered
             >
                 <Modal.Body>
-                    <AiOutlineCloseCircle className='trailer-icon__close' onClick={() => { setModalShow(false) }} />
+                    <AiOutlineCloseCircle className='trailer-icon__close' onClick={() => { setModalShow(false); }} />
                     <iframe src={url}
                         allowFullScreen
                         frameBorder="0"
@@ -54,5 +53,5 @@ export default function TabsTwo() {
                 </Modal.Body>
             </Modal>
         </Row>
-    )
+    );
 }

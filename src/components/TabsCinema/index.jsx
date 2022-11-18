@@ -18,8 +18,6 @@ export default function TabCinema() {
         dispatch(action);
     }, []);
     const { mangCumRap } = useSelector(state => state.quanLyRapReducer);
-    console.log(mangCumRap);
-
     let renderDsCumRap = () => {
         return mangCumRap?.map((heThongRap) => {
             return <Nav.Item key={heThongRap.maHeThongRap} >
@@ -70,12 +68,12 @@ export default function TabCinema() {
                                                             <button onClick={() => {
                                                                 history.push(`ticketroom/${lichChieu.maLichChieu}`);
                                                             }} className='btn-hour'>
-                                                                {moment(lichChieu.ngayChieuGioChieu).format("hh:mm A")}
+                                                                {moment(lichChieu.ngayChieuGioChieu).format("LT")}
+                                                                ~ {moment(lichChieu.ngayChieuGioChieu).add(120, 'minute').format("LT")}
                                                             </button>
                                                         </div>;
                                                     })}
                                                 </div>
-
                                             </div>;
                                         })}
                                     </Tab.Pane>;

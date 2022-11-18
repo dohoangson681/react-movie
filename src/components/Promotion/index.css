@@ -19,11 +19,11 @@
 }
 
 .promotion-img img {
-    transition: 1.90s;
-    -webkit-transition: 1.90s;
-    -moz-transition: 1.90s;
-    -ms-transition: 1.90s;
-    -o-transition: 1.90s;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
     display: block;
     margin-right: auto;
     margin-left: auto;
@@ -31,11 +31,11 @@
 }
 
 .promotion-img:hover img {
-    transition: 1.90s;
-    -webkit-transition: 1.90s;
-    -moz-transition: 1.90s;
-    -ms-transition: 1.90s;
-    -o-transition: 1.90s;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -moz-transition: .5s;
+    -ms-transition: .5s;
+    -o-transition: .5s;
     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -o-transform: scale(1.1);

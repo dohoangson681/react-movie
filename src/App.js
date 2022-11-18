@@ -15,6 +15,7 @@ import UserTemplate from './template/UserTemplate';
 import BookingPage from './pages/Booking';
 import Login from './pages/Login';
 import UserProfile from './pages/UserProfile';
+import RegisterPage from './pages/Register';
 
 
 export const history = createBrowserHistory()
@@ -35,6 +36,8 @@ function App() {
           <UserTemplate exact path="/detail/:maPhim" component={DetailMoviePage}></UserTemplate>
           <UserTemplate exact path="/profile" component={UserProfile}></UserTemplate>
           <UserTemplate exact path="/login" component={Login}></UserTemplate>
+          <UserTemplate exact path="/register" component={RegisterPage}></UserTemplate>
+
           <UserTemplate exact path="/ticketroom/:maLichChieu" component={BookingPage}></UserTemplate>
         </Switch>
       </Router>

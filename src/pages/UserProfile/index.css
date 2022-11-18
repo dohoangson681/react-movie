@@ -1,13 +1,4 @@
-.img-profile{
-    width: 100%;
-}
-.img-profile img{
-    width: 100%;
-    border-radius: 50%;
-
-}
-
-.profile{
+.profile {
     background-color: #18191a;
     height: 92vh;
 }
@@ -16,6 +7,26 @@
     color: white;
     font-weight: bold;
 }
-.profile th,td{
+
+.profile th,
+td {
     color: white;
+}
+
+.img-profile__QR {
+    width: 100%;
+}
+
+.img-profile__QR img {
+    width: 50%;
+    border-radius: 50%;
+}
+
+.img-profile {
+    width: 100%;
+}
+
+.img-profile img {
+    width: 100%;
+    border-radius: 50%;
 }
