@@ -2,12 +2,11 @@
     background: url(https://miro.medium.com/max/1200/1*jbfWuj3RSAAvmJeBwLWbsw.jpeg?fbclid=IwAR3EdV8lALX-lZ2GO7uv9SjOYFaGXB6z8bfTl5A6pO2OfdC57JmmC24Ujlo);
     background-repeat: no-repeat;
     background-size: cover;
-
     height: 100vh;
-    /* width: 100%; */
     display: flex;
 }
 .btnSignIn {
+    width: 100%;
     background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
     transition: all 1s;
 }
@@ -15,9 +14,13 @@
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
 }
 .btn-dangky{
-    color: chartreuse;
+    color: rgb(90, 160, 20);
     background-color: transparent;
     border: none;
+    font-weight: bold;
+}
+.btn-dangky:hover{
+    color: rgb(56, 106, 6);
 }
 .col-form{
     border:  2px solid white;

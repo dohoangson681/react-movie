@@ -20,7 +20,7 @@ export default function Promotion() {
     }
     return (
         <div className='promotion pt-5' id='promotion'>
-            <h4 className='promotion-title'>PROMOTION NEWS</h4>
+            <h4 className='promotion-title'>Tin Khuyến Mãi</h4>
             <Row className='py-4'>
                {renderImg()}
             </Row>

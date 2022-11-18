@@ -4,16 +4,14 @@ import * as Yup from "yup";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { ToastContainer, toast } from 'react-toastify';
-
-import "./index.css";
-import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer } from 'react-toastify';
+import { useDispatch } from "react-redux";
 import { dangNhapAction } from "../../redux/action/qLNDAction/qLNDAction";
+import { history } from "../../App";
+import "./index.css";
+
 export default function Login(props) {
     const dispatch = useDispatch();
-    const { userLogin } = useSelector((state) => state.quanLyNguoiDungReducer);
-  
-    console.log("userLogin", userLogin);
     return (
         <div className="form-login">
             <Container>
@@ -92,8 +90,10 @@ export default function Login(props) {
                                         </button>
                                     </div>
                                     <h6 className="text-black">
-                                        Bạn Chưa Có Tài Khoản?{" "}
-                                        <button className="btn-dangky" type="button">
+                                        Bạn Chưa Có Tài Khoản?
+                                        <button
+                                            onClick={() => { history.push('/register'); }}
+                                            className="btn-dangky mx-2" type="button">
                                             Đăng Ký
                                         </button>
                                     </h6>

@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { Container } from 'react-bootstrap'
-import { Modal} from 'antd';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { history } from '../../App';
+import { Container } from 'react-bootstrap';
+import { Modal } from 'antd';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { ToastContainer, toast } from 'react-toastify';
@@ -8,64 +11,61 @@ import 'react-toastify/dist/ReactToastify.css';
 import { MdChair } from "react-icons/md";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import { useDispatch, useSelector } from 'react-redux';
 import { datVeAction, quanLyDatVeAction } from '../../redux/action/datVeAction/QuanLyDatVeAction';
 import { CHANGE_TAB_ACTIVE, DAT_VE, DAT_VE_THANH_CONG } from '../../redux/type/datVe-type/DatVeType';
 import { USER_LOGIN } from '../../util/setting';
-import { Redirect } from 'react-router-dom';
-import { history } from '../../App';
-import './index.css'
+import './index.css';
 
 export default function BookingPage(props) {
-    let _ = require('lodash');
-    const { chiTietPhongVe, danhSachGheDangDat, tabActive } = useSelector(state => state.quanLyDatVeReducer)
-    const [open, setOpen] = useState(false);
-    const dispatch = useDispatch()
-    const maLichChieu = props.match.params.maLichChieu
+
     useEffect(() => {
-        const action = quanLyDatVeAction(maLichChieu)
-        dispatch(action)
-    }, [])
+        const action = quanLyDatVeAction(maLichChieu);
+        dispatch(action);
+    }, []);
+    const { chiTietPhongVe, danhSachGheDangDat, tabActive } = useSelector(state => state.quanLyDatVeReducer);
+    const [open, setOpen] = useState(false);
+    const dispatch = useDispatch();
+    const maLichChieu = props.match.params.maLichChieu;
     const { userLogin } = useSelector(state => state.quanLyNguoiDungReducer);
-    console.log(userLogin);
     if (!localStorage.getItem(USER_LOGIN)) {
-        return <Redirect to='/login' />
+        return <Redirect to='/login' />;
     }
-    const { thongTinPhim, danhSachGhe } = chiTietPhongVe
+    const { thongTinPhim, danhSachGhe } = chiTietPhongVe;
     const renderGhe = () => {
         return danhSachGhe?.map((ghe, index) => {
             let classGheVip = ghe.loaiGhe === 'Vip' ? 'gheVip' : '';
             let classGheDaDat = ghe.daDat === true ? 'gheDaDuocChon' : '';
             let classGheDangDat = '';
-            let indexGheDangDat = danhSachGheDangDat.findIndex(gheDangDat => gheDangDat.maGhe === ghe.maGhe)
+            let indexGheDangDat = danhSachGheDangDat.findIndex(gheDangDat => gheDangDat.maGhe === ghe.maGhe);
             let classGheUserDat = '';
             if (userLogin.taiKhoan === ghe.taiKhoanNguoiDat) {
-                classGheUserDat = 'gheUserDat'
+                classGheUserDat = 'gheUserDat';
             }
             if (indexGheDangDat !== -1) {
-                classGheDangDat = 'gheDangChon'
+                classGheDangDat = 'gheDangChon';
             }
             return <React.Fragment key={index}>
                 <button onClick={() => {
                     dispatch({
                         type: DAT_VE,
                         gheDangChon: ghe
-                    })
+                    });
                 }}
                     disabled={ghe.daDat} className='ghe' key={index}>
                     <MdChair className={`${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classGheUserDat}`} />
                 </button>
                 {(index + 1) % 16 === 0 ? <br /> : ''}
-            </React.Fragment>
-        })
-    }
+            </React.Fragment>;
+        });
+    };
+    const _ = require('lodash');
     const showModal = () => {
         setOpen(true);
     };
     const hideModal = () => {
         setOpen(false);
     };
-    console.log('loadtrang');
+
     const notifyFall = () => toast("Bạn Chưa Chọn Ghế !", {
         position: toast.POSITION.TOP_RIGHT
     });
@@ -139,25 +139,25 @@ export default function BookingPage(props) {
                                         <h6 className='justify-content-start'>Ghế Chọn:</h6>
                                         <div className='justify-content-end'>
                                             {_.sortBy(danhSachGheDangDat, ['stt']).map((gheDangDat, index) => {
-                                                return <span key={index} className='ticket-color fw-bold'>{gheDangDat.stt} </span>
+                                                return <span key={index} className='ticket-color fw-bold'>{gheDangDat.stt} </span>;
                                             })}
                                         </div>
                                     </div>
                                     <div className='d-flex justify-content-between py-2'>
                                         <h6>Tổng tiền:</h6>
                                         <h6 className='ticket-color'>{danhSachGheDangDat.reduce((total, ghe) => {
-                                            return total += ghe.giaVe
+                                            return total += ghe.giaVe;
                                         }, 0).toLocaleString()} vnđ</h6>
                                     </div>
                                     <div>{danhSachGheDangDat.length === 0 ?
-                                        <button onClick={() => { notifyFall() }}
+                                        <button onClick={() => { notifyFall(); }}
                                             className='btn-booking'>BOOKING TICKET</button>
                                         : <button className='btn-booking' onClick={
                                             () => {
                                                 const thongTinDatVe = {
                                                     maLichChieu: maLichChieu,
                                                     danhSachVe: danhSachGheDangDat
-                                                }
+                                                };
                                                 console.log('thongtin', thongTinDatVe);
                                                 const action = datVeAction(thongTinDatVe);
                                                 dispatch(action);
@@ -194,7 +194,7 @@ export default function BookingPage(props) {
                                         <div className='d-flex justify-content-between  py-2 '>
                                             <h6 className='text-white'>Ghế Đặt:</h6>
                                             {_.sortBy(danhSachGheDangDat, ['stt']).map((gheDangDat, index) => {
-                                                return <span key={index} className='fw-bold  text-danger'>{gheDangDat.stt} </span>
+                                                return <span key={index} className='fw-bold  text-danger'>{gheDangDat.stt} </span>;
                                             })}
                                         </div>
                                         <div className='d-flex justify-content-between py-2 '>
@@ -213,8 +213,8 @@ export default function BookingPage(props) {
                                         <p>* Mã QR Được Lưu Tại Thông Tin Khách Hàng</p>
                                         <button className='btn-booking' onClick={() => {
                                             // show 1 modal thành công rồi dẫn về home
-                                            showModal()
-                                            notify()
+                                            showModal();
+                                            notify();
                                         }}>Xác Nhận</button>
                                         <ToastContainer />
                                     </div>
@@ -235,9 +235,9 @@ export default function BookingPage(props) {
                                 <button key="submit"
                                     className='btn-booking'
                                     onClick={() => {
-                                        history.push('/')
-                                        const action = { type: DAT_VE_THANH_CONG }
-                                        dispatch(action)
+                                        history.push('/');
+                                        const action = { type: DAT_VE_THANH_CONG };
+                                        dispatch(action);
                                     }}
                                 >
                                     Đồng Ý
@@ -250,5 +250,5 @@ export default function BookingPage(props) {
                 </Tabs>
             </Container>
         </div >
-    )
+    );
 }
