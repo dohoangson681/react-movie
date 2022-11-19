@@ -1,6 +1,6 @@
 import { history } from "../../../App";
 import { qLNDService } from "../../../service";
-import { DANG_KY, DANG_NHAP, LAY_TT_TAI_KHOAN } from "../../type/nguoiDung-type/NDType";
+import { CAP_NHAT_USER, DANG_KY, DANG_NHAP, LAY_TT_TAI_KHOAN } from "../../type/nguoiDung-type/NDType";
 import { toast } from 'react-toastify';
 import { disPlayLoadingAction, hidenLoadingAction } from "../loadingAction/loading";
 
@@ -51,15 +51,38 @@ export const dangKyAction = (thongTinDangKy) => {
         });
     };
 };
+
+export const capNhatAction = (thongTinCapNhat) => {
+    console.log('thong tin action cập nhật', thongTinCapNhat);
+    return (dispatch) => {
+        let promise = qLNDService.capNhatUser(thongTinCapNhat);
+        promise.then((res) => {
+            let action = {
+                type: CAP_NHAT_USER,
+                thongTinCapNhat: res.data.content
+            };
+            dispatch(action);
+            // history.push('/login');
+        });
+        promise.catch((err) => {
+            notifyDK(err.response.data.content);
+            console.log('err', err);
+        });
+    };
+};
+
 export const layThongTinNguoiDungAction = () => {
     return (dispatch) => {
+        dispatch(disPlayLoadingAction)
         let promise = qLNDService.layTTTaiKhoan();
         promise.then((res) => {
+            console.log(res.data);
             let action = {
                 type: LAY_TT_TAI_KHOAN,
                 thongTinNguoiDung: res.data.content
             };
             dispatch(action);
+            dispatch(hidenLoadingAction)
         });
         promise.catch((err) => {
             console.log('err', err);

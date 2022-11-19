@@ -21,7 +21,7 @@ export default function DetailMovie(props) {
         dispatch(action)
     }, [])
     return (
-        <div className="detail" >
+        <div className="detail" data-aos="zoom-in" data-aos-duration="1000">
             <div className="detail-movies" >
                 <Container className='pt-3'>
                     <Row>

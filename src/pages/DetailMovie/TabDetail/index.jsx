@@ -8,20 +8,14 @@ import { history } from '../../../App';
 
 export default function TabsDetailCinema(props) {
     const moment = require("moment");
-    // const maPhim = props.maPhim;
     const { phimDetail } = useSelector(state => state.quanLyPhimReducer);
-    // const dispatch = useDispatch();
-    // useEffect(() => {
-    //     const action = layChiTietPhim(maPhim);
-    //     dispatch(action);
-    // }, []);
 
     let renderRapp = () => {
         if (phimDetail.heThongRapChieu?.length > 0) {
             return <Tabs
                 tabPosition={'left'}
+                className='d-flex flex-column flex-md-row'
                 items={phimDetail.heThongRapChieu?.map((htr, i) => {
-                    console.log("ha", htr);
                     const id = String(i + 1);
                     return {
                         label: <img src={htr.logo} alt="" width='50' />,
@@ -36,9 +30,9 @@ export default function TabsDetailCinema(props) {
                                             <p className='title-detail'>{cumRap.diaChi}</p>
                                         </div>
                                     </div>
-                                    <div className='d-flex'>
+                                    <div className='d-flex  flex-column flex-md-row'>
                                         {cumRap.lichChieuPhim?.map((lichChieu, index) => {
-                                            return <div key={index} className='my-2 me-3'>
+                                            return <div key={index} className='my-2 me-3 '>
                                                 <button className='btn-detail' onClick={() => {
                                                     history.push(`/ticketroom/${lichChieu.maLichChieu}`);
                                                 }}>
@@ -64,7 +58,7 @@ export default function TabsDetailCinema(props) {
     };
 
     return (
-        <div className="detail-tabs">
+        <div className="detail-tabs" data-aos="fade-right" data-aos-duration="3000">
             {renderRapp()}
         </div>
     );

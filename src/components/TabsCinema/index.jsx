@@ -87,13 +87,13 @@ export default function TabCinema() {
     };
 
     return (
-        <div className='container-tabs__cinema' id='theater'>
+        <div className='container-tabs__cinema' id='theater' >
             <div className='empty-area'>
             </div>
-            <div className='tabs-cinema my-4'>
-                <h4 className='tab-cinema__title my-4'>Lịch Chiếu Phim</h4>
-                <Tab.Container id="left-tabs-example" defaultActiveKey="BHDStar" >
-                    <Row className='bd-cinema py-3'>
+            <div className='tabs-cinema my-4' >
+                <h4 className='tab-cinema__title my-4' data-aos="fade-right" data-aos-duration="1000">Lịch Chiếu Phim</h4>
+                <Tab.Container id="left-tabs-example" defaultActiveKey="BHDStar">
+                    <Row className='bd-cinema py-3' data-aos="fade-right" data-aos-duration="1500">
                         <Col sm={2}>
                             <Nav variant="pills" className="flex-row flex-md-column">
                                 {renderDsCumRap()}

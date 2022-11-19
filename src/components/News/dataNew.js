@@ -56,7 +56,7 @@ export const dataBlog = [
         hinhAnh: "https://cdn.galaxycine.vn/media/2022/8/29/vi-cuu-the-flash--ezra-miller-hua-se-ngoan-4_1661790063741.jpg",
         tenPhim: "Vì Cứu The Flash, Ezra Miller Hứa Sẽ Ngoan!",
         like:'Thích 1,4k',
-        moTa: "“Chàng Barry hoang đàng” Ezra Miller có cuộc gặp gỡ xoa dịu tinh thần ban lãnh đạo cấp ...",
+        moTa: "“Chàng Barry hoang đàng” Ezra Miller có cuộc gặp gỡ xoa dịu tinh thần ban lãnh ...",
         maPhim: 3,
     },
     {

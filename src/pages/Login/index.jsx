@@ -13,11 +13,11 @@ import "./index.css";
 export default function Login(props) {
     const dispatch = useDispatch();
     return (
-        <div className="form-login">
+        <div className="form-login" >
             <Container>
                 <Row className="row-form">
                     <Col sm></Col>
-                    <Col sm className="col-form">
+                    <Col sm className="col-form" data-aos="zoom-in">
                         <Formik
                             initialValues={{
                                 taiKhoan: "",

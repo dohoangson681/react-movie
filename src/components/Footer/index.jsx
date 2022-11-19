@@ -15,7 +15,7 @@ export default function Footer() {
                         <img className='img-img-fluid' src="https://cdn.theatertoolkit.com/cdn/wwwroot/themes/custom/smittyscinema/images/CinemaSafe_Logo_horizontal_reverse.png" alt="" />
                     </div>
                     <div className="footer-contact">
-                        <p>Công Ty Cổ Phần Phim Ba Thành Viên, Tầng 3, Toà Nhà Số 1, 89 Võ Văn Tần, P. Võ Thị Sáu, Quận Hải Châu, Tp. Đà Nẵng</p>
+                        <p>Công Ty Cổ Phần Phim Sơn Hà, Tầng 3, Toà Nhà Số 1, 89 Võ Văn Tần, P. Võ Thị Sáu, Quận Hải Châu, Tp. Đà Nẵng</p>
                         <p className='pb-4 pb-lg-0'>Call us:
                             <span style={{ color: 'white', cursor: 'pointer' }}>
                                 (+84)39 999 1919

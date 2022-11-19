@@ -13,11 +13,11 @@ import { history } from '../../App';
 export default function RegisterPage() {
     let dispatch = useDispatch();
     return (
-        <div className='register-page d-flex align-item'>
+        <div className='register-page d-flex align-item' >
             <Container>
                 <Row className="row-form__register">
                     <Col sm></Col>
-                    <Col sm className="col-form">
+                    <Col sm className="col-form" data-aos="zoom-in">
                         <Formik
                             // gia tri khoi tao
                             initialValues={{
@@ -43,6 +43,7 @@ export default function RegisterPage() {
                         >
                             {(formikProps) => {
                                 return <Form className="row container mx-auto mt-4" onSubmit={formikProps.handleSubmit} >
+                                       <h2 className="text-black text-center">Đăng Ký</h2>
                                     {/* tai khoan  */}
                                     <div id="username-field" className="mb-3 col-12 ">
                                         <label htmlFor="taiKhoan" className="form-label fw-bold">

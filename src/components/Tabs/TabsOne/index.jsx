@@ -16,7 +16,7 @@ export default function TabsOne() {
     let renderPhim = () => {
         return mangPhim?.map((phim, index) => {
             if (phim.dangChieu) {
-                return <Col xs={6} md={4} lg={3} className='pb-4' key={index}>
+                return <Col xs={6} md={4} lg={3} className='pb-4' key={index} data-aos="flip-left">
                     <Card className='card-movie'>
                         <div className='tabs-img '>
                             <img src={phim.hinhAnh} alt="hinhAnh" />

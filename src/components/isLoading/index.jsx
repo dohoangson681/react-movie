@@ -4,9 +4,7 @@ import './index.css';
 
 
 export default function LoadingSpinner() {
-
     const { isLoading } = useSelector(state => state.LoadingReducer);
-    console.log(isLoading)
     return (
         <Fragment>
             {isLoading ?
@@ -32,7 +30,6 @@ export default function LoadingSpinner() {
                         </svg>
                     </div>
                 </div> : ''
-
             }
         </Fragment>
     );
