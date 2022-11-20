@@ -3,9 +3,12 @@ import { ACCESS_TOKEN, ADMIN_ACC, USER_LOGIN } from "../../../util/setting"
 import { ADMIN_LOGIN } from "../../type/admin-type/admin.type";
 import { DANG_NHAP, DANG_XUAT, LAY_TT_TAI_KHOAN } from "../../type/nguoiDung-type/NDType"
 
-let user = {}
+
+import { DANG_KY } from "../../type/nguoiDung-type/NDType";
+
+let user = {};
 if (localStorage.getItem(USER_LOGIN)) {
-    user = JSON.parse(localStorage.getItem(USER_LOGIN))
+    user = JSON.parse(localStorage.getItem(USER_LOGIN));
 }
 let admin = {} ;
 if (localStorage.getItem(ADMIN_ACC)) {
@@ -13,23 +16,27 @@ if (localStorage.getItem(ADMIN_ACC)) {
 }
 const initialState = {
     userLogin: user,
+    userRegister: {},
     thongTinNguoiDung: {
     },
     adminLogin : admin  
-}
+};
 
 export const quanLyNguoiDungReducer = (state = initialState, action) => {
     switch (action.type) {
         case DANG_NHAP:
-            localStorage.setItem(USER_LOGIN, JSON.stringify(action.thongTinDangNhap))
+            localStorage.setItem(USER_LOGIN, JSON.stringify(action.thongTinDangNhap));
             localStorage.setItem(ACCESS_TOKEN, action.thongTinDangNhap.accessToken);
             console.log(ACCESS_TOKEN, action.thongTinDangNhap.accessToken);
-            state.userLogin = action.thongTinDangNhap
-            return { ...state }
+            state.userLogin = action.thongTinDangNhap;
+            return { ...state };
         case DANG_XUAT:
             localStorage.clear();
-            history.push('/login')
-            return { ...state }
+            history.push('/login');
+            return { ...state };
+        case DANG_KY:
+            state.userRegister = action.thongTinDangKy;
+            return { ...state };
         case LAY_TT_TAI_KHOAN:
             state.thongTinNguoiDung = action.thongTinNguoiDung
             console.log('thongtin',state.thongTinNguoiDung)
@@ -41,7 +48,10 @@ export const quanLyNguoiDungReducer = (state = initialState, action) => {
             console.log(state.adminLogin) ; 
 
             return {...state} ;
+            state.thongTinNguoiDung = action.thongTinNguoiDung;
+            console.log('thongtin', state.thongTinNguoiDung);
+            return { ...state };
         default:
-            return state
+            return state;
     }
-}
+};

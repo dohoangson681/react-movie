@@ -50,7 +50,7 @@ export default function News() {
             <Container>
                 <Row>
                     <Col xs={12} md={12} lg={6} className='pt-3'>
-                        <h4 className='new-title'>Bình Luận Phim</h4>
+                        <h4 className='new-title'>Review Phim</h4>
                         {renderNew()}
                     </Col>
                     <Col xs={12} md={12} lg={6} className='pt-3'>

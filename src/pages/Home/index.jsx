@@ -6,6 +6,7 @@ import SliderComponent from '../../components/Slider'
 import TabsMovie from '../../components/Tabs'
 import TabCinema from '../../components/TabsCinema'
 import './index.css'
+
 export default function HomePage() {
   return (
     <div className='homepage'>
