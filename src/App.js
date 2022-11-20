@@ -14,6 +14,13 @@ import { HomeTemplate } from './template/HomeTemplate';
 import UserTemplate from './template/UserTemplate';
 import BookingPage from './pages/Booking';
 import Login from './pages/Login';
+import UserProfile from './pages/UserProfile';
+import { AdminTemplate } from './template/AdminTemplate';
+import AdminUser from './pages/admin/User';
+import ShowtimeAdmin from './pages/admin/Showtime';
+import AdminMovie from './pages/admin/Movie';
+import AdminLogin from './pages/admin/Login';
+import UpdateAccAdmin from './pages/admin/Update';
 
 
 export const history = createBrowserHistory()
@@ -28,12 +35,17 @@ function App() {
       <Router history={history} >
         <Switch>
           <HomeTemplate exact path="/" component={HomePage}></HomeTemplate>
-          <Route exact path="/admin" component={AdminPage}></Route>
-          <Route exact path="/login" component={Login}></Route>
-
+          <AdminTemplate exact path="/admin" component={AdminMovie}></AdminTemplate>
+          <AdminTemplate exact path="/admin/phim-admin" component={AdminMovie}></AdminTemplate>
+          <AdminTemplate exact path="/admin/user-admin" component={AdminUser}></AdminTemplate>
+          <AdminTemplate exact path="/admin/showtime-admin" component={ShowtimeAdmin}></AdminTemplate>
+          <AdminTemplate exact path="/admin/acc-update" component={UpdateAccAdmin}></AdminTemplate>
+          <Route exact path='/admin/login' component={AdminLogin} />
           <HomeTemplate exact path="/home" component={HomePage}></HomeTemplate>
           {/* Detai và Đặt vé xài chung userTemplate */}
           <UserTemplate exact path="/detail/:maPhim" component={DetailMoviePage}></UserTemplate>
+          <UserTemplate exact path="/profile" component={UserProfile}></UserTemplate>
+          <UserTemplate exact path="/login" component={Login}></UserTemplate>
           <UserTemplate exact path="/ticketroom/:maLichChieu" component={BookingPage}></UserTemplate>
         </Switch>
       </Router>

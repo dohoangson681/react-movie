@@ -1,6 +1,5 @@
 import React from 'react'
 import Modal from 'react-bootstrap/Modal';
-
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
 import { CLOSE_VIDEO } from '../../../redux/type/movie-type/SliderType';
@@ -13,7 +12,6 @@ export default function SliderTrailer(props) {
     const handleClose = () => {
         dispatch({ type: CLOSE_VIDEO, payload: { open: false } });
     };
-    // console.log(props);
     return (
         <Modal
             {...props}

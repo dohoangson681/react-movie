@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { AiOutlineLike, AiOutlineEye, AiFillStar } from "react-icons/ai";
 import { dataBlog, dataNew } from './dataNew';
-import './index.css'
+import './index.css';
 
 export default function News() {
     let renderNew = () => {
@@ -17,14 +17,16 @@ export default function News() {
                     <Col xs={7} md={8}>
                         <h5 className='new-title-movie'>{newMovie.tenPhim}</h5>
                         <div className='d-none d-md-flex justify-content-lg-between py-2'>
-                            <button className='btn-news__like'><AiOutlineLike />{newMovie.like}</button> <button className='new-eye'><AiOutlineEye />{newMovie.view}</button> <span className='new-star'><AiFillStar />{newMovie.rating}</span>
+                            <button className='btn-news__like'><AiOutlineLike />{newMovie.like}</button>
+                            <button className='new-eye'><AiOutlineEye />{newMovie.view}</button>
+                            <span className='new-star'><AiFillStar />{newMovie.rating}</span>
                         </div>
                         <p>{newMovie.moTa}</p>
                     </Col>
                 </Row>
-            </div>
-        })
-    }
+            </div>;
+        });
+    };
     let renderBlog = () => {
         return dataBlog.map((blog, index) => {
             return <div className='news-content' key={index}>
@@ -40,9 +42,9 @@ export default function News() {
                         <p>{blog.moTa}</p>
                     </Col>
                 </Row>
-            </div>
-        })
-    }
+            </div>;
+        });
+    };
     return (
         <div className='news' id='news'>
             <Container>
@@ -58,5 +60,5 @@ export default function News() {
                 </Row>
             </Container>
         </div>
-    )
+    );
 }

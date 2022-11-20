@@ -5,21 +5,15 @@ import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
 import { AiFillPlayCircle, AiOutlineCloseCircle } from "react-icons/ai";
-import { layDsPhimAction } from '../../../redux/action/movieAction/QuanLyPhimAction';
 import "./index.css"
 
 export default function TabsTwo() {
     const [url, setUrl] = useState('')
     const [modalShow, setModalShow] = useState(false);
     const { mangPhim } = useSelector(state => state.quanLyPhimReducer)
-    const dispatch = useDispatch()
-    useEffect(() => {
-        const action = layDsPhimAction()
-        dispatch(action)
-    }, [])
 
     let renderPhim = () => {
-        return mangPhim.map((phim, index) => {
+        return mangPhim?.map((phim, index) => {
             if (phim.sapChieu) {
                 return <Col xs={6} md={4} lg={3} className='pb-4' key={index}>
                     <Card className='card-movie'>

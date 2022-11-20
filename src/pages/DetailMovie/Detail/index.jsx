@@ -2,14 +2,11 @@ import React, { useState, useEffect } from 'react'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { GiTicket } from "react-icons/gi";
 import { AiOutlineCloseCircle, AiFillStar, AiOutlineStar, AiOutlinePlayCircle } from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
 import './index.css'
 import { layChiTietPhim } from '../../../redux/action/rapAction/QuanLyRapAction';
-
-
 
 
 export default function DetailMovie(props) {
@@ -30,7 +27,6 @@ export default function DetailMovie(props) {
                     <Row>
                         <Col xs={1} lg={2}>
                             <div className='baner-detail d-none d-lg-block'>
-                                <img src="https://media.lottecinemavn.com/Media/WebAdmin/3cf13edeab134619886185a3e582d951.jpg" alt="" />
                             </div>
                         </Col>
                         <Col xs={12} lg={8} key="index">
@@ -68,11 +64,9 @@ export default function DetailMovie(props) {
                                     </div>
                                 </Col>
                             </Row>
-
                         </Col>
                         <Col xs={1} lg={2}>
                             <div className='baner-detail d-none d-lg-block'>
-                                <img src="https://media.lottecinemavn.com/Media/WebAdmin/3cf13edeab134619886185a3e582d951.jpg" alt="" />
                             </div>
                         </Col>
                     </Row>
@@ -81,8 +75,7 @@ export default function DetailMovie(props) {
                         onHide={() => setModalShow(false)}
                         size="lg"
                         aria-labelledby="contained-modal-title-vcenter"
-                        centered
-                    >
+                        centered>
                         <Modal.Body>
                             <AiOutlineCloseCircle className='trailer-icon__close' onClick={() => { setModalShow(false) }} />
                             <iframe src={url}

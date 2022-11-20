@@ -7,6 +7,5 @@ import RapServices from './RapService/RapServices';
 
 export const rapService = new RapServices();
 export const phimService = new PhimServices();
-export const datVeService = new DatVeService();
-
 export const qLNDService = new QLNDService();
+export const datVeService = new DatVeService();

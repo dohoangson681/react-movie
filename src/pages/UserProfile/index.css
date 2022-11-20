@@ -1,0 +1,21 @@
+.img-profile{
+    width: 100%;
+}
+.img-profile img{
+    width: 100%;
+    border-radius: 50%;
+
+}
+
+.profile{
+    background-color: #18191a;
+    height: 92vh;
+}
+
+.profile .nav-item button {
+    color: white;
+    font-weight: bold;
+}
+.profile th,td{
+    color: white;
+}

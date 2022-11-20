@@ -1,4 +1,4 @@
-import { DAT_VE, LAY_CHI_TIET_PHONG_VE } from "../../type/datVe-type/DatVeType"
+import { CHANGE_TAB, CHANGE_TAB_ACTIVE, DAT_VE, DAT_VE_THANH_CONG, LAY_CHI_TIET_PHONG_VE } from "../../type/datVe-type/DatVeType"
 
 const initialState = {
     chiTietPhongVe: {
@@ -6,7 +6,8 @@ const initialState = {
     },
     danhSachGheDangDat: [
 
-    ]
+    ],
+    tabActive: '1',
 }
 
 export const quanLyDatVeReducer = (state = initialState, action) => {
@@ -25,6 +26,19 @@ export const quanLyDatVeReducer = (state = initialState, action) => {
                 danhSachGheCapNhat.push(action.gheDangChon)
             }
             return { ...state, danhSachGheDangDat: danhSachGheCapNhat }
+        case DAT_VE_THANH_CONG:
+            state.tabActive = '1';
+            state.danhSachGheDangDat = [];
+            return { ...state };
+        case CHANGE_TAB:
+            state.tabActive = action.number;
+            console.log(state.tabActive)
+            return { ...state };
+
+        case CHANGE_TAB_ACTIVE:
+            state.tabActive = action.number;
+            console.log(state.tabActive)
+            return { ...state };
 
         default:
             return { ...state }

@@ -1,7 +1,10 @@
-import {  GP_ID } from "../../util/setting";
+
 import { http } from '../../util/config';
 
 export default class QLNDService {
+    dangNhapAdmin = (values) => {
+        return http.post('/api/QuanLyNguoiDung/DangNhap' ,values ) ; 
+    }
     layDSLoaiND = () => {
         return http.get('/api/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung') ;
     }
@@ -14,10 +17,29 @@ export default class QLNDService {
     layInfoND = (taiKhoan) => {
         return http.post (`/api/QuanLyNguoiDung/LayThongTinNguoiDung?taiKhoan=${taiKhoan}`)
     }
+    themND = (nguoiDungMoi) => {
+        return http.post('/api/QuanLyNguoiDung/ThemNguoiDung' , nguoiDungMoi ) ; 
+    }
+    xoaND = (taiKhoan) => {
+        return http.delete(`/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`)
+    }
+    adminCapNhatThongTinND = (nguoiDungCapNhat) => {
+        return http.post('/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung' , nguoiDungCapNhat) ;
+    }  
+    
+
+
+
+
+
+
+
     dangNhap = (thongTinDangNhap) => {
-        return http.post(`/api/QuanLyNguoiDung/DangNhap`,thongTinDangNhap)
+        return http.post(`/api/QuanLyNguoiDung/DangNhap`, thongTinDangNhap);
     };
- 
+    layTTTaiKhoan = () => {// profile page
+        return http.post(`/api/QuanLyNguoiDung/ThongTinTaiKhoan`);
+    };
 
 
 }

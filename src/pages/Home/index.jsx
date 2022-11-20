@@ -1,6 +1,5 @@
 import React from 'react'
 import FormBooking from '../../components/Form/FormBooking'
-
 import News from '../../components/News'
 import Promotion from '../../components/Promotion'
 import SliderComponent from '../../components/Slider'
