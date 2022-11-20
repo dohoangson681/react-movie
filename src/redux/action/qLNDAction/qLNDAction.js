@@ -57,15 +57,16 @@ export const capNhatAction = (thongTinCapNhat) => {
     return (dispatch) => {
         let promise = qLNDService.capNhatUser(thongTinCapNhat);
         promise.then((res) => {
+
+            console.log(res.data.content);
             let action = {
                 type: CAP_NHAT_USER,
                 thongTinCapNhat: res.data.content
             };
             dispatch(action);
-            // history.push('/login');
+
         });
         promise.catch((err) => {
-            notifyDK(err.response.data.content);
             console.log('err', err);
         });
     };

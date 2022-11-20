@@ -9,7 +9,7 @@ export default class QLNDService {
         return http.post(`api/QuanLyNguoiDung/DangKy`,thongTinDangKy)
     }
     capNhatUser = (thongTinCapNhat)=>{
-        return http.post(`/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`, thongTinCapNhat)
+        return http.put(`/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`, thongTinCapNhat)
     }
     layTTTaiKhoan = () => {
         return http.post(`/api/QuanLyNguoiDung/ThongTinTaiKhoan`);

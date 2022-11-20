@@ -68,8 +68,8 @@ export default function TabCinema() {
                                                             <button onClick={() => {
                                                                 history.push(`ticketroom/${lichChieu.maLichChieu}`);
                                                             }} className='btn-hour'>
-                                                                {moment(lichChieu.ngayChieuGioChieu).format("LT")}
-                                                                ~ {moment(lichChieu.ngayChieuGioChieu).add(120, 'minute').format("LT")}
+                                                                {moment(lichChieu.ngayChieuGioChieu).format("k:mm")}
+                                                                ~ {moment(lichChieu.ngayChieuGioChieu).add(120, 'minute').format("k:mm")}
                                                             </button>
                                                         </div>;
                                                     })}

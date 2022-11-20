@@ -64,7 +64,7 @@ export default function BookingPage(props) {
     const hideModal = () => {
         setOpen(false);
     };
-
+    const moment = require("moment");
     const notifyFall = () => toast("Bạn Chưa Chọn Ghế !", {
         position: toast.POSITION.TOP_RIGHT
     });
