@@ -30,7 +30,6 @@ function App() {
           <UserTemplate exact path="/profile" component={UserProfile}></UserTemplate>
           <UserTemplate exact path="/login" component={Login}></UserTemplate>
           <UserTemplate exact path="/register" component={RegisterPage}></UserTemplate>
-
           <UserTemplate exact path="/ticketroom/:maLichChieu" component={BookingPage}></UserTemplate>
         </Switch>
       </Router>

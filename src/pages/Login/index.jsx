@@ -47,7 +47,7 @@ export default function Login() {
                             }}
                         >
                             {(formikProps) => (
-                                <Form onSubmit={formikProps.handleSubmit} className="formInput">
+                                <Form onSubmit={formikProps.handleSubmit} className="formInput mx-3">
                                     <h2 className="text-black text-center">Đăng Nhập</h2>
                                     {/* email  */}
                                     <div className="mb-3 col-12">
