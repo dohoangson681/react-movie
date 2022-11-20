@@ -2,8 +2,10 @@ export const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3AiOiJCb290Y
 
 export const URL_API = 'https://movienew.cybersoft.edu.vn';
 
-export const GP_ID = 'GP03';
+export const GP_ID = 'GP04';
 
 export const ACCESS_TOKEN = 'access_token';
 
 export const USER_LOGIN = 'userLogin'
+
+export const ADMIN_ACC = 'adminAcc'

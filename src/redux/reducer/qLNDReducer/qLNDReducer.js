@@ -1,19 +1,25 @@
 import { history } from "../../../App";
-import { ACCESS_TOKEN, USER_LOGIN } from "../../../util/setting";
 import { CAP_NHAT_USER, DANG_KY, DANG_NHAP, DANG_XUAT, LAY_TT_TAI_KHOAN } from "../../type/nguoiDung-type/NDType";
+import { ACCESS_TOKEN, ADMIN_ACC, USER_LOGIN } from "../../../util/setting"
+import { ADMIN_LOGIN } from "../../type/admin-type/admin.type";
+
 
 let user = {};
 if (localStorage.getItem(USER_LOGIN)) {
     user = JSON.parse(localStorage.getItem(USER_LOGIN));
 }
-
+let admin = {} ;
+if (localStorage.getItem(ADMIN_ACC)) {
+    admin = JSON.parse(localStorage.getItem(ADMIN_ACC))
+}
 const initialState = {
     userLogin: user,
     userRegister: {},
     thongTinNguoiDung: {
     },
     userUpdate:{
-    }
+    },
+    adminLogin : admin  
 };
 
 export const quanLyNguoiDungReducer = (state = initialState, action) => {
@@ -39,7 +45,17 @@ export const quanLyNguoiDungReducer = (state = initialState, action) => {
             state.userRegister = action.thongTinDangKy;
             return { ...state };
         case LAY_TT_TAI_KHOAN:
-            state.thongTinNguoiDung = action.thongTinNguoiDung;
+            state.thongTinNguoiDung = action.thongTinNguoiDung
+            console.log('thongtin',state.thongTinNguoiDung)
+            return { ...state }
+        case ADMIN_LOGIN : 
+        console.log("Admin login !") ; 
+        console.log(action.data) ; 
+            state.adminLogin = {...action.data}
+            console.log(state.adminLogin) ; 
+
+            // return {...state} ;
+            // state.thongTinNguoiDung = action.thongTinNguoiDung;
             console.log('thongtin', state.thongTinNguoiDung);
             return { ...state };
         default:

@@ -10,7 +10,7 @@ import { dangKyAction } from '../../redux/action/qLNDAction/qLNDAction';
 import { useDispatch } from 'react-redux';
 import { history } from '../../App';
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
-
+import { hidenLoadingAction } from '../../redux/action/loadingAction/loading';
 
 export default function RegisterPage() {
     let dispatch = useDispatch();
@@ -22,6 +22,7 @@ export default function RegisterPage() {
             settypePassword("password");
         }
     };
+    dispatch(hidenLoadingAction)
     const phoneReg = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
     return (
         <div className='register-page d-flex align-item' >

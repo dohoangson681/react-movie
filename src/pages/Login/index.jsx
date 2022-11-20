@@ -10,9 +10,11 @@ import { dangNhapAction } from "../../redux/action/qLNDAction/qLNDAction";
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { history } from "../../App";
 import "./index.css";
+import { hidenLoadingAction } from "../../redux/action/loadingAction/loading";
 
 
 export default function Login() {
+
     const dispatch = useDispatch();
     const [typePassword, settypePassword] = useState("password");
     const handleToggleHidePassword = () => {
@@ -22,8 +24,9 @@ export default function Login() {
             settypePassword("password");
         }
     };
+    dispatch(hidenLoadingAction)
     return (
-        <div className="form-login" >
+        <div className="form-login-user" >
             <Container>
                 <Row className="row-form">
                     <Col sm></Col>
