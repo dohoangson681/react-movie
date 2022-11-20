@@ -14,7 +14,7 @@ export const quanLyPhimReducer = (state = initialState, action) => {
     switch (action.type) {
         case LAY_DS_PHIM:
             state.mangPhim = action.mangPhim
-            // console.log(state);
+           
             return { ...state }
         case LAY_CHI_TIET_PHIM:
             state.phimDetail = action.phimDetail

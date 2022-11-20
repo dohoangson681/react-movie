@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
-export default function AdminPage() {
+export default function AdminUser() {
   return (
-    <div>AdminPage</div>
+    <div>AdminUser</div>
   )
 }
