@@ -8,7 +8,7 @@ import TabsTwo from './TabsTwo';
 
 export default function TabsMovie() {
     return (
-        <div className='container-tabs pt-5' id='movie'>
+        <div className='container-tabs pt-5' id='movie' >
             <div className="container">
                 <Tabs
                     defaultActiveKey="dangChieu"
@@ -17,7 +17,7 @@ export default function TabsMovie() {
                     className="mb-3"
                 >
                     <Tab eventKey="dangChieu" title="Phim Đang Chiếu">
-                        <TabsOne />
+                        <TabsOne  />
                     </Tab>
                     <Tab eventKey="sapChieu" title="Phim Sắp Chiếu">
                         <TabsTwo/>

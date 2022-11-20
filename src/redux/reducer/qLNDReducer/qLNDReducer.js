@@ -1,10 +1,8 @@
-import { history } from "../../../App"
+import { history } from "../../../App";
+import { CAP_NHAT_USER, DANG_KY, DANG_NHAP, DANG_XUAT, LAY_TT_TAI_KHOAN } from "../../type/nguoiDung-type/NDType";
 import { ACCESS_TOKEN, ADMIN_ACC, USER_LOGIN } from "../../../util/setting"
 import { ADMIN_LOGIN } from "../../type/admin-type/admin.type";
-import { DANG_NHAP, DANG_XUAT, LAY_TT_TAI_KHOAN } from "../../type/nguoiDung-type/NDType"
 
-
-import { DANG_KY } from "../../type/nguoiDung-type/NDType";
 
 let user = {};
 if (localStorage.getItem(USER_LOGIN)) {
@@ -18,6 +16,8 @@ const initialState = {
     userLogin: user,
     userRegister: {},
     thongTinNguoiDung: {
+    },
+    userUpdate:{
     },
     adminLogin : admin  
 };
@@ -34,6 +34,13 @@ export const quanLyNguoiDungReducer = (state = initialState, action) => {
             localStorage.clear();
             history.push('/login');
             return { ...state };
+        case CAP_NHAT_USER:
+            // lỗi API chưa test đc nên ko biết cập nhật thành công ko?
+            state.userUpdate = action.thongTinCapNhat
+            localStorage.removeItem(USER_LOGIN)
+            localStorage.setItem(USER_LOGIN, JSON.stringify(action.thongTinCapNhat));
+            history.push('/login')
+            return {...state}
         case DANG_KY:
             state.userRegister = action.thongTinDangKy;
             return { ...state };
@@ -47,8 +54,8 @@ export const quanLyNguoiDungReducer = (state = initialState, action) => {
             state.adminLogin = {...action.data}
             console.log(state.adminLogin) ; 
 
-            return {...state} ;
-            state.thongTinNguoiDung = action.thongTinNguoiDung;
+            // return {...state} ;
+            // state.thongTinNguoiDung = action.thongTinNguoiDung;
             console.log('thongtin', state.thongTinNguoiDung);
             return { ...state };
         default:

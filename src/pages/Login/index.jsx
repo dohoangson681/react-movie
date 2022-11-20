@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import * as Yup from "yup";
 import Container from "react-bootstrap/Container";
@@ -7,17 +7,30 @@ import Col from "react-bootstrap/Col";
 import { ToastContainer } from 'react-toastify';
 import { useDispatch } from "react-redux";
 import { dangNhapAction } from "../../redux/action/qLNDAction/qLNDAction";
+import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { history } from "../../App";
 import "./index.css";
+import { hidenLoadingAction } from "../../redux/action/loadingAction/loading";
 
-export default function Login(props) {
+
+export default function Login() {
+
     const dispatch = useDispatch();
+    const [typePassword, settypePassword] = useState("password");
+    const handleToggleHidePassword = () => {
+        if (typePassword === "password") {
+            settypePassword("text");
+        } else {
+            settypePassword("password");
+        }
+    };
+    dispatch(hidenLoadingAction)
     return (
-        <div className="form-login">
+        <div className="form-login-user" >
             <Container>
                 <Row className="row-form">
                     <Col sm></Col>
-                    <Col sm className="col-form">
+                    <Col sm className="col-form" data-aos="zoom-in">
                         <Formik
                             initialValues={{
                                 taiKhoan: "",
@@ -37,7 +50,7 @@ export default function Login(props) {
                             }}
                         >
                             {(formikProps) => (
-                                <Form onSubmit={formikProps.handleSubmit} className="formInput">
+                                <Form onSubmit={formikProps.handleSubmit} className="formInput mx-3">
                                     <h2 className="text-black text-center">Đăng Nhập</h2>
                                     {/* email  */}
                                     <div className="mb-3 col-12">
@@ -53,12 +66,15 @@ export default function Login(props) {
                                             id="taiKhoan"
                                             name="taiKhoan"
                                         />
-                                        {formikProps.errors.taiKhoan ||
-                                            formikProps.touched.taiKhoan ? (
-                                            <ErrorMessage name="taiKhoan" />
-                                        ) : (
-                                            ""
-                                        )}
+
+                                        <div className='text-danger'>
+                                            {formikProps.errors.taiKhoan ||
+                                                formikProps.touched.taiKhoan ? (
+                                                <ErrorMessage name="taiKhoan" />
+                                            ) : (
+                                                ""
+                                            )}
+                                        </div>
                                     </div>
                                     {/* password  */}
                                     <div className="mb-3 col-12">
@@ -69,17 +85,29 @@ export default function Login(props) {
                                             Mật khẩu
                                         </label>
                                         <Field
-                                            type="password"
+                                            type={typePassword}
                                             className="form-control"
                                             id="matKhau"
                                             name="matKhau"
                                         />
-                                        {formikProps.errors.matKhau ||
-                                            formikProps.touched.matKhau ? (
-                                            <ErrorMessage name="matKhau" />
-                                        ) : (
-                                            ""
-                                        )}
+                                        <div
+                                            onClick={handleToggleHidePassword}
+                                        >   Hiện Mật Khẩu
+                                            {typePassword !== "password" ? (
+                                                <BsFillEyeSlashFill className='mx-2' style={{ cursor: 'pointer' }} />
+                                            ) : (
+                                                <BsFillEyeFill className='mx-2 ' style={{ cursor: 'pointer' }} />
+                                            )}
+                                        </div>
+                                        <div className='text-danger'>
+                                            {formikProps.errors.matKhau ||
+                                                formikProps.touched.matKhau ? (
+                                                <ErrorMessage name="matKhau" />
+                                            ) : (
+                                                ""
+                                            )}
+
+                                        </div>
                                     </div>
                                     <div className="mb-3 text-center col-12">
                                         <button
