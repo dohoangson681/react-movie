@@ -16,8 +16,8 @@ export const layDsPhimAction = (group_id) => {
             dispatch(action);
             dispatch(hidenLoadingAction);
         });
-        promise.catch(() => {
-            history.push("/*")
+        promise.catch((err) => {
+            console.log(err)
         });
     };
 }
