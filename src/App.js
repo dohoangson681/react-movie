@@ -29,7 +29,7 @@ export const history = createBrowserHistory()
 function App() {
   return (  
       <Router history={history} >
-        <LoadingSpinner/>
+        {/* <LoadingSpinner/> */}
         <Switch>
           <HomeTemplate exact path="/" component={HomePage}></HomeTemplate>
           <AdminTemplate exact path="/admin" component={AdminMovie}></AdminTemplate>
@@ -55,6 +55,4 @@ function App() {
 
 export default App;
 
-/**
- * axios , redux , redux-thunk , formik , yup , react-router-dom , react-boostrap , react-icon , history
- */
+
