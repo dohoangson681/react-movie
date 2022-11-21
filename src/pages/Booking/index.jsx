@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { history } from '../../App';
-import { Container } from 'react-bootstrap';
-import { Modal } from 'antd';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Modal } from 'antd';
+import { Container } from 'react-bootstrap';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import { MdChair } from "react-icons/md";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
@@ -16,10 +16,13 @@ import { CHANGE_TAB_ACTIVE, DAT_VE, DAT_VE_THANH_CONG } from '../../redux/type/d
 import { USER_LOGIN } from '../../util/setting';
 import './index.css';
 
+
 export default function BookingPage(props) {
     useEffect(() => {
+  
         const action = quanLyDatVeAction(maLichChieu);
         dispatch(action);
+
     }, []);
     const { chiTietPhongVe, danhSachGheDangDat, tabActive } = useSelector(state => state.quanLyDatVeReducer);
     const [open, setOpen] = useState(false);

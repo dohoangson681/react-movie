@@ -29,7 +29,7 @@ export const history = createBrowserHistory()
 function App() {
   return (  
       <Router history={history} >
-        {/* <LoadingSpinner/> */}
+        <LoadingSpinner/>
         <Switch>
           <HomeTemplate exact path="/" component={HomePage}></HomeTemplate>
           <AdminTemplate exact path="/admin" component={AdminMovie}></AdminTemplate>
