@@ -18,6 +18,7 @@ import UpdateAccAdmin from './pages/admin/Update';
 
 import RegisterPage from './pages/Register';
 import LoadingSpinner from './components/isLoading';
+import ThemPhimAdmin from './pages/admin/ThemPhim';
 import NotFound from './pages/NotFound';
 
 export const history = createBrowserHistory()
@@ -28,7 +29,7 @@ export const history = createBrowserHistory()
 function App() {
   return (  
       <Router history={history} >
-        <LoadingSpinner/>
+        {/* <LoadingSpinner/> */}
         <Switch>
           <HomeTemplate exact path="/" component={HomePage}></HomeTemplate>
           <AdminTemplate exact path="/admin" component={AdminMovie}></AdminTemplate>
@@ -36,6 +37,7 @@ function App() {
           <AdminTemplate exact path="/admin/user-admin" component={AdminUser}></AdminTemplate>
           <AdminTemplate exact path="/admin/showtime-admin" component={ShowtimeAdmin}></AdminTemplate>
           <AdminTemplate exact path="/admin/acc-update" component={UpdateAccAdmin}></AdminTemplate>
+          <AdminTemplate exact path="/admin/themphim" component={ThemPhimAdmin}></AdminTemplate>
           <Route exact path='/admin/login' component={AdminLogin} />
           <HomeTemplate exact path="/home" component={HomePage}></HomeTemplate>
           {/* Detai và Đặt vé xài chung userTemplate */}
@@ -53,6 +55,4 @@ function App() {
 
 export default App;
 
-/**
- * axios , redux , redux-thunk , formik , yup , react-router-dom , react-boostrap , react-icon , history
- */
+

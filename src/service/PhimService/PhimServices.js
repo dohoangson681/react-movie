@@ -18,6 +18,9 @@ export default class PhimServices {
     xoaPhim = (maPhim) => {
         return http.delete(`/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`) ; 
     }
+    themPhimUploadhinh = (formData) => {
+        return http.post('/api/QuanLyPhim/ThemPhimUploadHinh' , formData) ; 
+    }
 
 }
 

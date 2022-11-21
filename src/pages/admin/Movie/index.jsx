@@ -4,7 +4,7 @@ import { Select } from 'antd';
 import moment from "moment/moment";
 import "./index.css";
 import { useDispatch, useSelector } from "react-redux";
-import { layDsPhimAction } from "../../../redux/action/movieAction/QuanLyPhimAction";
+import { layDsPhimAction, layDsPhimAdmin } from "../../../redux/action/movieAction/QuanLyPhimAction";
 import { AiFillEdit , AiFillDelete } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 const columns = [
@@ -73,13 +73,14 @@ export default function AdminMovie() {
   }; 
 
   useEffect(()=>{
-    let action =  layDsPhimAction(GROUP_ID) ; 
+    let action =  layDsPhimAdmin(GROUP_ID) ; 
     dispatch(action) ;
   } , [])
 
   useEffect(()=>{
-    let action =  layDsPhimAction(GROUP_ID) ; 
-    console.log('action' , action) ; 
+    let action =  layDsPhimAdmin(GROUP_ID) ; 
+    console.log(GROUP_ID) ; 
+    // console.log('action' , action) ; 
     dispatch(action) ;
   } , [GROUP_ID])
   
@@ -87,7 +88,7 @@ export default function AdminMovie() {
     <>
       <h3 className="text-primary">Quản lý phim</h3>
       <Button type="ghost">
-        <NavLink to = '/home'>Thêm phim mới</NavLink>
+        <NavLink to = '/admin/themphim'>Thêm phim mới</NavLink>
       </Button>
       <p>Chọn mã nhóm</p>
       <Select
