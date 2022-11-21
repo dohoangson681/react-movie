@@ -12,11 +12,17 @@ import { history } from "../../App";
 import { useSelector } from "react-redux";
 import { Tooltip, Modal, Dropdown } from "antd";
 import { GrUserAdmin } from "react-icons/gr";
+import { ADMIN_LOGIN } from "../../redux/type/admin-type/admin.type";
 const { Header, Sider, Content } = Layout;
 const isAdminLogin = () => {
   if (!localStorage.getItem(ACCESS_TOKEN)) {
     history.push("./admin/login");
   }
+  if(localStorage.getItem(ADMIN_ACC)) {
+    let {maLoaiNguoiDung} = JSON.parse(localStorage.getItem(ADMIN_ACC)) ; 
+    console.log('maLoaiNguoiDung' , maLoaiNguoiDung) ; 
+    if(maLoaiNguoiDung === 'KhachHang') history.push("./admin/login");
+  }else history.push("./admin/login");
 };
 const items = [
   
