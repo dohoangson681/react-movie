@@ -3,7 +3,6 @@ import { CAP_NHAT_USER, DANG_KY, DANG_NHAP, DANG_XUAT, LAY_TT_TAI_KHOAN } from "
 import { ACCESS_TOKEN, ADMIN_ACC, USER_LOGIN } from "../../../util/setting"
 import { ADMIN_LOGIN } from "../../type/admin-type/admin.type";
 
-
 let user = {};
 if (localStorage.getItem(USER_LOGIN)) {
     user = JSON.parse(localStorage.getItem(USER_LOGIN));
@@ -25,7 +24,6 @@ export const quanLyNguoiDungReducer = (state = initialState, action) => {
         case DANG_NHAP:
             localStorage.setItem(USER_LOGIN, JSON.stringify(action.thongTinDangNhap));
             localStorage.setItem(ACCESS_TOKEN, action.thongTinDangNhap.accessToken);
-            console.log(ACCESS_TOKEN, action.thongTinDangNhap.accessToken);
             state.userLogin = action.thongTinDangNhap;
             return { ...state };
         case DANG_XUAT:
@@ -42,7 +40,6 @@ export const quanLyNguoiDungReducer = (state = initialState, action) => {
             return { ...state };
         case LAY_TT_TAI_KHOAN:
             state.thongTinNguoiDung = action.thongTinNguoiDung
-            console.log('thongtin',state.thongTinNguoiDung)
             return { ...state }
         case ADMIN_LOGIN : 
         console.log("Admin login !") ; 

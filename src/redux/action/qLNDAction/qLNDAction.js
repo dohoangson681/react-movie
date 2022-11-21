@@ -97,9 +97,6 @@ export const adminDangNhapAction = (values, resetForm) => {
       .catch((err) => console.log(err));
   };
 }
-// import { DANG_KY, DANG_NHAP, LAY_TT_TAI_KHOAN } from "../../type/nguoiDung-type/NDType";
-// import { toast } from 'react-toastify';
-
 
 const notifyDN = (err) => toast(err, {
     position: toast.POSITION.TOP_RIGHT
@@ -149,7 +146,6 @@ export const capNhatAction = (thongTinCapNhat) => {
     return (dispatch) => {
         let promise = qLNDService.capNhatUser(thongTinCapNhat);
         promise.then((res) => {
-            console.log(res.data.content);
             let action = {
                 type: CAP_NHAT_USER,
                 thongTinCapNhat: res.data.content
@@ -168,7 +164,6 @@ export const layThongTinNguoiDungAction = () => {
         let promise = qLNDService.layTTTaiKhoan();
         promise.then((res) => {
             dispatch(disPlayLoadingAction)
-            console.log(res.data);
             let action = {
                 type: LAY_TT_TAI_KHOAN,
                 thongTinNguoiDung: res.data.content
