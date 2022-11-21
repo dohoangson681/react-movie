@@ -6,9 +6,9 @@ import { disPlayLoadingAction, hidenLoadingAction } from "../loadingAction/loadi
 
 export const quanLyDatVeAction = (maLichChieu) => {
     return (dispatch) => {
-        dispatch(disPlayLoadingAction);
         let promise = datVeService.layChiTietPhongVe(maLichChieu);
         promise.then((res) => {
+            dispatch(disPlayLoadingAction);
             let action = {
                 type: LAY_CHI_TIET_PHONG_VE,
                 chiTietPhongVe: res.data.content
@@ -23,9 +23,9 @@ export const quanLyDatVeAction = (maLichChieu) => {
 };
 export const datVeAction = (thongTinDatVe) => {
     return (dispatch) => {
-        dispatch(disPlayLoadingAction);
         let promise = datVeService.datVe(thongTinDatVe);
         promise.then((res) => {
+            dispatch(disPlayLoadingAction);
             let action = {
                 type: CHANGE_TAB,
                 number: '2',

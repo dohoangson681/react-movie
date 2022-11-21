@@ -8,10 +8,9 @@ export const layDsPhimAction = (group_id) => {
     
     return (dispatch) => {
         let promise = phimService?.layDanhSachPhim(group_id)
-        dispatch(disPlayLoadingAction);
         let promise2 = phimService?.layDanhSachPhim();
         promise2.then((res) => {
-           
+            dispatch(disPlayLoadingAction);
             let action = {
                 type: LAY_DS_PHIM,
                 mangPhim: res.data.content
