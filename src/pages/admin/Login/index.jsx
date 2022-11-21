@@ -11,8 +11,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { adminDangNhapAction } from '../../../redux/action/qLNDAction/qLNDAction';
 import { useDispatch } from 'react-redux';
+import { hidenLoadingAction } from '../../../redux/action/loadingAction/loading';
 export default function AdminLogin(props) {
+
     const dispatch = useDispatch() ;
+    dispatch(hidenLoadingAction)
     const notify = () => toast.error('Yêu cầu tài khoản Admin !', {
         position: "top-center",
         autoClose: 2000,

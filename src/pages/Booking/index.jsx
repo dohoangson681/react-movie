@@ -16,10 +16,13 @@ import { CHANGE_TAB_ACTIVE, DAT_VE, DAT_VE_THANH_CONG } from '../../redux/type/d
 import { USER_LOGIN } from '../../util/setting';
 import './index.css';
 
+
 export default function BookingPage(props) {
     useEffect(() => {
+  
         const action = quanLyDatVeAction(maLichChieu);
         dispatch(action);
+
     }, []);
     const { chiTietPhongVe, danhSachGheDangDat, tabActive } = useSelector(state => state.quanLyDatVeReducer);
     const [open, setOpen] = useState(false);

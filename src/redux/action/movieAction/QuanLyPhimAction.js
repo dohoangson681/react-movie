@@ -6,9 +6,9 @@ import { disPlayLoadingAction, hidenLoadingAction } from "../loadingAction/loadi
 export const layDsPhimAction = (group_id) => {
 
     return (dispatch) => {
+        dispatch(disPlayLoadingAction);
         let promise = phimService?.layDanhSachPhim(group_id);
         promise.then((res) => {
-            dispatch(disPlayLoadingAction);
             let action = {
                 type: LAY_DS_PHIM,
                 mangPhim: res.data.content
