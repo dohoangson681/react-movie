@@ -23,4 +23,32 @@ export const layDsPhimAction = (group_id) => {
         });
     };
 }
+export const layDsPhimAdmin = (group_id) => {
+    return (dispatch) => {
+        let promise = phimService.layDanhSachPhim(group_id)
+        promise
+        .then (res => {
+            console.log('res admin' , res) ;
+            let action = {
+                type: LAY_DS_PHIM,
+                mangPhim: res.data.content
+            };
+            dispatch(action);
+        })
+        .catch((err) => {
+            console.log('err', err);
+        });
+    };
+}
+
+export const themPhimAdmin = (formData) => {
+  return dispatch => {
+    let promise = phimService.themPhimUploadhinh(formData)
+    promise.then ( res => {
+     history.push('/admin') ; 
+     alert('Thêm phim thành công !') ; 
+
+    }).catch(err => console.log(err)) ; 
+  }
+}
 
