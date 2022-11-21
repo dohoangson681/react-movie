@@ -16,7 +16,7 @@ export default function FormBooking() {
     let [danhSachRap, setDanhSachRap] = useState([]);
     let [maHeThongRap, setMaHeThongRap] = useState('');
     let [maLichChieu, setMaLichChieu] = useState('');
-    let [gioChieu, setGioChieu] = useState(false);
+    let [gioChieu, setGioChieu] = useState('default');
     let dispatch = useDispatch();
     useEffect(() => {
         setIsLoading(true);
@@ -39,16 +39,22 @@ export default function FormBooking() {
         let maPhim = Number(e.target.value);
         setMaPhim(maPhim);
         setDanhSachRap([]);
+        setGioChieu('default')
     };
     let handleSelectRap = (e) => {
         setMaHeThongRap(e.target.value);
+        setGioChieu('default')
     };
     let handleSelectNgay = (e) => {
         setMaLichChieu(e.target.value);
+        setGioChieu('default')
     };
     let handleSelectGio = (e) => {
-        if (e.target.value) {
-            setGioChieu(true);
+        if (e.target.value !== 'default') {
+            setGioChieu(e.target.value);
+        }
+        else{
+            setGioChieu('default')
         }
     };
 
@@ -164,7 +170,7 @@ export default function FormBooking() {
                                 </Form.Select>
                             </Form.Group>
                             <div className="col-12 col-md-4 col-lg-4 ">
-                                {gioChieu ? (
+                                {gioChieu !== 'default' ? (
                                     <button onClick={() => {
                                         history.push(`ticketroom/${maLichChieu}`);
                                     }}
