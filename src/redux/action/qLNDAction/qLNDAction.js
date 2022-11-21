@@ -63,6 +63,7 @@ export const adminDangNhapAction = (values, resetForm) => {
     let promise = qLNDService.dangNhapAdmin(values);
     promise
       .then((res) => {
+        dispatch(disPlayLoadingAction);
         console.log('res.data.content',res.data.content) ;
         let loaiND = res.data.content.maLoaiNguoiDung;
         // console.log('loaiND' , loaiND ) ; 
@@ -90,6 +91,7 @@ export const adminDangNhapAction = (values, resetForm) => {
           };
           localStorage.setItem(ADMIN_ACC, JSON.stringify(basicInfo));
           history.push("/admin");
+          dispatch(hidenLoadingAction)
         }
       })
       .catch((err) => console.log(err));
@@ -110,7 +112,6 @@ const notifyCNhat = () => toast('Thành Công'
 
 export const dangNhapAction = (thongTinDangNhap) => {
     return (dispatch) => {
-    
         let promise = qLNDService.dangNhap(thongTinDangNhap);
         promise.then((res) => {
             dispatch(disPlayLoadingAction);
@@ -131,7 +132,6 @@ export const dangNhapAction = (thongTinDangNhap) => {
     };
 };
 export const dangKyAction = (thongTinDangKy) => {
-    console.log('thong tin action', thongTinDangKy);
     return (dispatch) => {
         let promise = qLNDService.dangKy(thongTinDangKy);
         promise.then((res) => {
@@ -150,7 +150,6 @@ export const dangKyAction = (thongTinDangKy) => {
 };
 
 export const capNhatAction = (thongTinCapNhat) => {
-    console.log('thong tin action cập nhật', thongTinCapNhat);
     return (dispatch) => {
         let promise = qLNDService.capNhatUser(thongTinCapNhat);
         promise.then((res) => {
@@ -170,9 +169,9 @@ export const capNhatAction = (thongTinCapNhat) => {
 
 export const layThongTinNguoiDungAction = () => {
     return (dispatch) => {
-        dispatch(disPlayLoadingAction)
         let promise = qLNDService.layTTTaiKhoan();
         promise.then((res) => {
+            dispatch(disPlayLoadingAction)
             console.log(res.data);
             let action = {
                 type: LAY_TT_TAI_KHOAN,
