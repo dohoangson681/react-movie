@@ -63,6 +63,7 @@ export const adminDangNhapAction = (values, resetForm) => {
         let promise = qLNDService.dangNhapAdmin(values);
         promise
             .then((res) => {
+                dispatch(disPlayLoadingAction);
                 console.log('res.data.content', res.data.content);
                 let loaiND = res.data.content.maLoaiNguoiDung;
                 // console.log('loaiND' , loaiND ) ; 
@@ -76,7 +77,6 @@ export const adminDangNhapAction = (values, resetForm) => {
                         type: ADMIN_LOGIN,
                         data: res.data.content,
                     };
-                    dispatch(disPlayLoadingAction);
                     dispatch(action);
                     console.log(' res.data.content.accessToken', res.data.content.accessToken);
                     localStorage.setItem(ACCESS_TOKEN, res.data.content.accessToken);
@@ -109,7 +109,7 @@ const notifyCNhat = () => toast('Thành Công'
 
 export const dangNhapAction = (thongTinDangNhap) => {
     return (dispatch) => {
-        dispatch(disPlayLoadingAction);
+
         let promise = qLNDService.dangNhap(thongTinDangNhap);
         promise.then((res) => {
             let action = {
@@ -117,10 +117,11 @@ export const dangNhapAction = (thongTinDangNhap) => {
                 thongTinDangNhap: res.data.content
             };
             dispatch(action);
-            dispatch(hidenLoadingAction);
+
             history.push("/home");
         });
         promise.catch((err) => {
+            dispatch(hidenLoadingAction)
             notifyDN(err.response.data.content);
         });
     };

@@ -14,6 +14,7 @@ import { hidenLoadingAction } from "../../redux/action/loadingAction/loading";
 
 export default function Login() {
     const dispatch = useDispatch();
+    // dispatch(hidenLoadingAction)
     window.onload = () => { dispatch(hidenLoadingAction); };
     const [typePassword, settypePassword] = useState("password");
     const handleToggleHidePassword = () => {

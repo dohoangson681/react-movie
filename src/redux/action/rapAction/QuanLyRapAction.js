@@ -1,4 +1,4 @@
-import { history } from "../../../App";
+
 import { rapService } from "../../../service";
 import { LAY_CHI_TIET_PHIM, LAY_DS_CUM_RAP } from "../../type/movie-type/RapTypes";
 import { disPlayLoadingAction, hidenLoadingAction } from "../loadingAction/loading";
@@ -15,8 +15,8 @@ export const layDsRapAction = (maNhom) => {
             dispatch(action);
             dispatch(hidenLoadingAction);
         });
-        promise.catch(() => {
-            history.push("/*");
+        promise.catch((err) => {
+            console.log(err)
         });
     };
 };
@@ -32,8 +32,8 @@ export const layChiTietPhim = (maPhim) => {
             dispatch(action);
             dispatch(hidenLoadingAction);
         });
-        promise.catch(() => {
-            history.push("/*");
+        promise.catch((err) => {
+            console.log(err);
         });
     };
 };
