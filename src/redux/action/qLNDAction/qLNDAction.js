@@ -105,6 +105,8 @@ const notifyDN = (err) => toast(err, {
 const notifyDK = (err) => toast(err, {
     position: toast.POSITION.TOP_RIGHT
 });
+const notifyCNhat = () => toast('Thành Công'
+);
 
 export const dangNhapAction = (thongTinDangNhap) => {
     return (dispatch) => {
@@ -158,7 +160,7 @@ export const capNhatAction = (thongTinCapNhat) => {
                 thongTinCapNhat: res.data.content
             };
             dispatch(action);
-
+            notifyCNhat()
         });
         promise.catch((err) => {
             console.log('err', err);

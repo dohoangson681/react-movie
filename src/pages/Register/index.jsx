@@ -5,12 +5,12 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { ToastContainer } from 'react-toastify';
-import './index.css';
 import { dangKyAction } from '../../redux/action/qLNDAction/qLNDAction';
 import { useDispatch } from 'react-redux';
 import { history } from '../../App';
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { hidenLoadingAction } from '../../redux/action/loadingAction/loading';
+import './index.css';
 
 export default function RegisterPage() {
     let dispatch = useDispatch();
@@ -38,6 +38,7 @@ export default function RegisterPage() {
                                 email: "",
                                 soDt: "",
                                 maNhom: "GP03",
+                                maLoaiNguoiDung: "KhachHang",
                                 hoTen: ""
                             }}
                             validationSchema={Yup.object().shape({
@@ -56,7 +57,6 @@ export default function RegisterPage() {
                             {(formikProps) => {
                                 return <Form className="row container mx-auto mt-4" onSubmit={formikProps.handleSubmit} >
                                     <h2 className="text-black text-center">Đăng Ký</h2>
-                                    {/* tai khoan  */}
                                     <div id="username-field" className="mb-3 col-12 ">
                                         <label htmlFor="taiKhoan" className="form-label fw-bold">
                                             Tài khoản
@@ -67,12 +67,10 @@ export default function RegisterPage() {
                                             id="taiKhoan"
                                             name="taiKhoan"
                                         />
-                                        {/* {formikProps.errors.taiKhoan || formikProps.touched.taiKhoan ? <ErrorMessage name="taiKhoan" /> : ''} */}
                                         <div className='text-danger'>
                                             {formikProps.errors.taiKhoan || formikProps.touched.taiKhoan ? <ErrorMessage name="taiKhoan" /> : ''}
                                         </div>
                                     </div>
-                                    {/* mat khau  */}
                                     <div id="password-field" className="mb-3 col-12 ">
                                         <label htmlFor="matKhau" className="form-label fw-bold">
                                             Mật khẩu
@@ -96,7 +94,6 @@ export default function RegisterPage() {
                                             {formikProps.errors.matKhau || formikProps.touched.matKhau ? <ErrorMessage name="matKhau" /> : ''}
                                         </div>
                                     </div>
-                                    {/* email  */}
                                     <div id="email-field" className="mb-3 col-12 ">
                                         <label htmlFor="email" className="form-label fw-bold ">
                                             Email
@@ -111,7 +108,6 @@ export default function RegisterPage() {
                                             {formikProps.errors.email || formikProps.touched.email ? <ErrorMessage name="email" /> : ''}
                                         </div>
                                     </div>
-                                    {/* so dien thoai  */}
                                     <div id="phone-field" className="mb-3 col-12 ">
                                         <label htmlFor="soDt" className="form-label fw-bold ">
                                             Số điện thoại
@@ -126,7 +122,6 @@ export default function RegisterPage() {
                                             {formikProps.errors.soDt || formikProps.touched.soDt ? <ErrorMessage name="soDt" /> : ''}
                                         </div>
                                     </div>
-                                    {/* ho ten  */}
                                     <div id="name-field" className="mb-3 col-12 ">
                                         <label htmlFor="hoTen" className="form-label fw-bold">
                                             Họ tên
@@ -162,7 +157,6 @@ export default function RegisterPage() {
                 </Row>
                 <ToastContainer />
             </Container>
-
         </div>
     );
 }

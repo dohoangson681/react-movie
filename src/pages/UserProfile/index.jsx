@@ -14,7 +14,7 @@ import { useEffect } from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { capNhatAction, layThongTinNguoiDungAction } from '../../redux/action/qLNDAction/qLNDAction';
 import * as Yup from 'yup';
-
+import { ToastContainer } from 'react-toastify';
 
 export default function UserProfile() {
     const moment = require("moment");
@@ -28,7 +28,7 @@ export default function UserProfile() {
     if (!localStorage.getItem(USER_LOGIN)) {
         return <Redirect to='/login' />;
     }
-    let renderTTVe = () => {
+    const renderTTVe = () => {
         return thongTinNguoiDung.thongTinDatVe?.map((ticket, index) => {
             const seats = _.first(ticket.danhSachGhe);
             return <tr key={index}>
@@ -84,16 +84,18 @@ export default function UserProfile() {
                                                 initialValues={{
                                                     taiKhoan: thongTinNguoiDung.taiKhoan ?? "",
                                                     matKhau: thongTinNguoiDung.matKhau ?? "",
-                                                    hoTen: thongTinNguoiDung.hoTen ?? "",
                                                     email: thongTinNguoiDung.email ?? "",
-                                                    soDT: thongTinNguoiDung.soDT ?? "",
+                                                    soDt: thongTinNguoiDung.soDT ?? "",
+                                                    maNhom: "GP03",
+                                                    maLoaiNguoiDung: "KhachHang",
+                                                    hoTen: thongTinNguoiDung.hoTen ?? "",
                                                 }}
                                                 validationSchema={Yup.object().shape({
                                                     taiKhoan: Yup.string().required('*Tài khoản không được để trống !'),
                                                     matKhau: Yup.string().required('*Mật khẩu không được để trống !').max(10, 'Tối Đa 10 Ký Tự'),
-                                                    hoTen: Yup.string().required('*Tên không được để trống !').matches(/^[A-Z a-z]+$/, 'Tên Không Được Chứa Ký Tự Đặt Biệt '),
                                                     email: Yup.string().required('*Email không được để trống !').email('*Email không hợp lệ !'),
                                                     soDt: Yup.string().required('*Số điện thoại không được để trống !').matches(phoneReg, "Số ĐT Không Hợp Lệ"),
+                                                    hoTen: Yup.string().required('*Tên không được để trống !').matches(/^[A-Z a-z]+$/, 'Tên Không Được Chứa Ký Tự Đặt Biệt '),
                                                 })}
                                                 onSubmit={(values) => {
                                                     console.log(values);
@@ -139,7 +141,6 @@ export default function UserProfile() {
                                                             </div>
                                                             {formikProps.errors.matKhau || formikProps.touched.matKhau ? <ErrorMessage name="matKhau" /> : ''}
                                                         </div>
-
                                                         <div id="name-field" className="mb-2 col-12 ">
                                                             <label htmlFor="hoTen" className="form-label fw-bold">
                                                                 Họ tên
@@ -168,7 +169,6 @@ export default function UserProfile() {
                                                                 {formikProps.errors.email || formikProps.touched.email ? <ErrorMessage name="email" /> : ''}
                                                             </div>
                                                         </div>
-
                                                         <div id="phone-field" className="mb-3 col-12 ">
                                                             <label htmlFor="soDt" className="form-label fw-bold ">
                                                                 Số điện thoại
@@ -176,11 +176,11 @@ export default function UserProfile() {
                                                             <Field
                                                                 type="text"
                                                                 className="form-control"
-                                                                id="soDT"
-                                                                name="soDT"
+                                                                id="soDt"
+                                                                name="soDt"
                                                             />
                                                             <div className='text-danger'>
-                                                                {formikProps.errors.soDt || formikProps.touched.soDt ? <ErrorMessage name="soDT" /> : ''}
+                                                                {formikProps.errors.soDt || formikProps.touched.soDt ? <ErrorMessage name="soDt" /> : ''}
                                                             </div>
                                                         </div>
                                                         <div className="text-center col-12 ">
@@ -192,8 +192,8 @@ export default function UserProfile() {
                                                 }}
                                             </Formik>
                                         </Col>
-
                                     </Row>
+                                    <ToastContainer />
                                 </Container>
                             </Tab>
                             <Tab eventKey="profile" title="Lịch Sử Đặt Vé">
@@ -211,14 +211,11 @@ export default function UserProfile() {
                                     </thead>
                                     <tbody>
                                         {renderTTVe()}
-
                                     </tbody>
                                 </Table>
                             </Tab>
-
                         </Tabs>
                     </Col>
-
                 </Row>
             </Container>
         </div>
