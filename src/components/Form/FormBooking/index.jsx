@@ -110,7 +110,8 @@ export default function FormBooking() {
     }
     else {
         return (
-            <div className="form-booking pt-4">
+            <div className="form-booking pt-4" data-aos="fade-down" data-aos-easing="linear"
+                data-aos-duration="1500">
                 <div className="booking-movie d-flex flex-column flex-lg-row">
                     <div className="col-12 col-md-12 col-lg-6 ">
                         <Form className="d-flex flex-column flex-md-row  ">

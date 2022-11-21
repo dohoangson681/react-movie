@@ -17,7 +17,6 @@ import { USER_LOGIN } from '../../util/setting';
 import './index.css';
 
 export default function BookingPage(props) {
-
     useEffect(() => {
         const action = quanLyDatVeAction(maLichChieu);
         dispatch(action);
@@ -65,7 +64,7 @@ export default function BookingPage(props) {
     const hideModal = () => {
         setOpen(false);
     };
-
+    const moment = require("moment");
     const notifyFall = () => toast("Bạn Chưa Chọn Ghế !", {
         position: toast.POSITION.TOP_RIGHT
     });
@@ -74,7 +73,7 @@ export default function BookingPage(props) {
     });
 
     return (
-        <div className='booking'>
+        <div className='booking' >
             <Container>
                 <Tabs
                     defaultActiveKey='1'
@@ -98,7 +97,7 @@ export default function BookingPage(props) {
                                     </div>
                                     {renderGhe()}
                                 </div>
-                                <div className='type-ghe my-4'>
+                                <div className='type-ghe my-4' data-aos="zoom-in">
                                     <div className='ghe-content'>
                                         <div className='d-flex justify-content-center flex-column flex-md-row'>
                                             <h6 className='px-3'> <MdChair className=' gheThuong' /> Ghế Thường</h6>
@@ -158,7 +157,6 @@ export default function BookingPage(props) {
                                                     maLichChieu: maLichChieu,
                                                     danhSachVe: danhSachGheDangDat
                                                 };
-                                                console.log('thongtin', thongTinDatVe);
                                                 const action = datVeAction(thongTinDatVe);
                                                 dispatch(action);
                                             }
@@ -178,7 +176,7 @@ export default function BookingPage(props) {
                                     </div>
                                 </Col>
                                 <Col md="auto" lg="4">
-                                    <div className='d-flex flex-column ticket-booking px-4 py-2 mb-5'>
+                                    <div className='d-flex flex-column ticket-booking px-4 py-3 mb-5'>
                                         <div className='d-flex justify-content-between  py-2'>
                                             <h6 className='text-white'>Tên Khách Hàng:</h6>
                                             <h6 className='text-white'> {userLogin.hoTen}</h6>
@@ -211,11 +209,13 @@ export default function BookingPage(props) {
                                         </div>
                                         <h6 className='text-white py-3'>Vé Đã Được Đặt Không Thể Hủy, Vui Lòng Đến Đúng Giờ Để Tận Hưởng Trọn Vẹn Bộ Phim</h6>
                                         <p>* Mã QR Được Lưu Tại Thông Tin Khách Hàng</p>
-                                        <button className='btn-booking' onClick={() => {
-                                            // show 1 modal thành công rồi dẫn về home
-                                            showModal();
-                                            notify();
-                                        }}>Xác Nhận</button>
+                                        {danhSachGheDangDat.length === 0 ? <button onClick={() => { notifyFall(); }}
+                                            className='btn-booking'>Xác Nhận</button> :
+                                            <button className='btn-booking' onClick={() => {
+                                                showModal();
+                                                notify();
+                                            }}>Xác Nhận</button>
+                                        }
                                         <ToastContainer />
                                     </div>
                                 </Col>

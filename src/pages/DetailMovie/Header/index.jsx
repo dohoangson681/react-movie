@@ -30,7 +30,7 @@ export default function HeaderDetail() {
     return (
         <Fragment>
             <Navbar expand="md"  >
-                <Container fluid >
+                <Container fluid>
                     <Navbar.Brand href="/" className='img-logo px'>
                         <img className="img-fluid" src="https://cdn.theatertoolkit.com/cdn/wwwroot/themes/custom/smittyscinema/images/CinemaSafe_Logo_horizontal_reverse.png" alt="" />
                     </Navbar.Brand>

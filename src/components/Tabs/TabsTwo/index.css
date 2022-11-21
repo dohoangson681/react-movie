@@ -154,5 +154,6 @@
     .btn-tabs-booking {
         width: 70%;
         height: 10%;
+        margin-top: 6px;
     }
 }
