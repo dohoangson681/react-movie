@@ -87,7 +87,7 @@ export default function AdminMovie() {
     <>
       <h3 className="text-primary">Quản lý phim</h3>
       <Button type="ghost">
-        <NavLink to = '/home'>Thêm phim mới</NavLink>
+        <NavLink to = '/admin/themphim'>Thêm phim mới</NavLink>
       </Button>
       <p>Chọn mã nhóm</p>
       <Select
