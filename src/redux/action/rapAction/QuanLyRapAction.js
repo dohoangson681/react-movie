@@ -1,3 +1,4 @@
+import { history } from "../../../App";
 import { rapService } from "../../../service";
 import { LAY_CHI_TIET_PHIM, LAY_DS_CUM_RAP } from "../../type/movie-type/RapTypes";
 import { disPlayLoadingAction, hidenLoadingAction } from "../loadingAction/loading";
@@ -6,16 +7,16 @@ export const layDsRapAction = (maNhom) => {
     return (dispatch) => {
         let promise = rapService?.layThongTinLichChieuHeThongRap(maNhom);
         promise.then((res) => {
-            dispatch(disPlayLoadingAction)
+            dispatch(disPlayLoadingAction);
             let action = {
                 type: LAY_DS_CUM_RAP,
                 mangCumRap: res.data.content
             };
             dispatch(action);
-            dispatch(hidenLoadingAction)
+            dispatch(hidenLoadingAction);
         });
-        promise.catch((err) => {
-            console.log('err', err);
+        promise.catch(() => {
+            history.push("/*");
         });
     };
 };
@@ -31,8 +32,8 @@ export const layChiTietPhim = (maPhim) => {
             dispatch(action);
             dispatch(hidenLoadingAction);
         });
-        promise.catch((err) => {
-            console.log('err', err);
+        promise.catch(() => {
+            history.push("/*");
         });
     };
 };

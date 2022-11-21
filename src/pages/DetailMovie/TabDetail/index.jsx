@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { layChiTietPhim } from '../../../redux/action/rapAction/QuanLyRapAction';
 import "./index.css";
 import { Tabs } from 'antd';
 import { history } from '../../../App';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 
 export default function TabsDetailCinema(props) {
@@ -31,16 +33,18 @@ export default function TabsDetailCinema(props) {
                                         </div>
                                     </div>
                                     <div className='d-flex  flex-column flex-md-row'>
-                                        {cumRap.lichChieuPhim?.map((lichChieu, index) => {
-                                            return <div key={index} className='my-2 me-3 '>
-                                                <button className='btn-detail' onClick={() => {
-                                                    history.push(`/ticketroom/${lichChieu.maLichChieu}`);
-                                                }}>
-                                                    <span style={{ color: 'red' }}>{moment(lichChieu.ngayChieuGioChieu).format("k:mm")}</span> ~
-                                                    <span> {moment(lichChieu.ngayChieuGioChieu).add(`${lichChieu.thoiLuong}`, 'minute').format("k:mm")}</span>
-                                                </button>
-                                            </div>;
-                                        })}
+                                        <Row>
+                                            {cumRap.lichChieuPhim?.map((lichChieu, index) => {
+                                                return <Col xs={12} md={4} key={index}>
+                                                    <button className='btn-detail my-2 me-3' onClick={() => {
+                                                        history.push(`/ticketroom/${lichChieu.maLichChieu}`);
+                                                    }}>
+                                                        <span style={{ color: 'red' }}>{moment(lichChieu.ngayChieuGioChieu).format("k:mm")}</span>~
+                                                        <span> {moment(lichChieu.ngayChieuGioChieu).add(`${lichChieu.thoiLuong}`, 'minute').format("k:mm")}</span>
+                                                    </button>
+                                                </Col>;
+                                            })}
+                                        </Row>
                                     </div>
                                 </div>;
                             })}

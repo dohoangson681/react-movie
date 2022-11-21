@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { USER_LOGIN } from '../../util/setting';
+import { GP_ID, USER_LOGIN } from '../../util/setting';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -55,7 +55,7 @@ export default function UserProfile() {
     const phoneReg = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
     return (
         <div className='profile'>
-            <Container className='pt-5 profile'>
+            <Container className='py-5 profile'>
                 <Row>
                     <Col xs={12} md={3}>
                         <div className='img-profile'>
@@ -86,7 +86,7 @@ export default function UserProfile() {
                                                     matKhau: thongTinNguoiDung.matKhau ?? "",
                                                     email: thongTinNguoiDung.email ?? "",
                                                     soDt: thongTinNguoiDung.soDT ?? "",
-                                                    maNhom: "GP03",
+                                                    maNhom: GP_ID,
                                                     maLoaiNguoiDung: "KhachHang",
                                                     hoTen: thongTinNguoiDung.hoTen ?? "",
                                                 }}

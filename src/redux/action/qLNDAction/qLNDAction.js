@@ -115,8 +115,6 @@ export const dangNhapAction = (thongTinDangNhap) => {
         let promise = qLNDService.dangNhap(thongTinDangNhap);
         promise.then((res) => {
             dispatch(disPlayLoadingAction);
-            // "taiKhoan": "dhs12@gmail.com",
-            // "matKhau": "123456",
             let action = {
                 type: DANG_NHAP,
                 thongTinDangNhap: res.data.content
@@ -127,7 +125,6 @@ export const dangNhapAction = (thongTinDangNhap) => {
         });
         promise.catch((err) => {
             notifyDN(err.response.data.content);
-            console.log('err', err);
         });
     };
 };
@@ -144,7 +141,6 @@ export const dangKyAction = (thongTinDangKy) => {
         });
         promise.catch((err) => {
             notifyDK(err.response.data.content);
-            console.log('err', err);
         });
     };
 };
@@ -162,7 +158,7 @@ export const capNhatAction = (thongTinCapNhat) => {
             notifyCNhat()
         });
         promise.catch((err) => {
-            console.log('err', err);
+            history.push("/*")
         });
     };
 };
@@ -180,8 +176,8 @@ export const layThongTinNguoiDungAction = () => {
             dispatch(action);
             dispatch(hidenLoadingAction)
         });
-        promise.catch((err) => {
-            console.log('err', err);
+        promise.catch(() => {
+            history.push("/*")
         });
     };
 };
