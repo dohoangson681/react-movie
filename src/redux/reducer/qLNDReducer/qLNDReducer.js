@@ -17,8 +17,6 @@ const initialState = {
     userRegister: {},
     thongTinNguoiDung: {
     },
-    userUpdate:{
-    },
     adminLogin : admin  
 };
 
@@ -32,14 +30,12 @@ export const quanLyNguoiDungReducer = (state = initialState, action) => {
             return { ...state };
         case DANG_XUAT:
             localStorage.clear();
-            history.push('/login');
+            history.push('/');
             return { ...state };
         case CAP_NHAT_USER:
-            // lỗi API chưa test đc nên ko biết cập nhật thành công ko?
-            state.userUpdate = action.thongTinCapNhat
+            state.userLogin = action.thongTinCapNhat
             localStorage.removeItem(USER_LOGIN)
             localStorage.setItem(USER_LOGIN, JSON.stringify(action.thongTinCapNhat));
-            history.push('/login')
             return {...state}
         case DANG_KY:
             state.userRegister = action.thongTinDangKy;
