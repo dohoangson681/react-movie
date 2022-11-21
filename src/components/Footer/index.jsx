@@ -26,9 +26,9 @@ export default function Footer() {
                 <Col xs={6} md={4} lg={2}>
                     <h5 className='footer-title'>Chính Sách</h5>
                     <ul className='footer-list'>
-                        <li><a href="#!"><AiOutlineDoubleRight /> Tems of Use</a></li>
+                        <li><a href="#!"><AiOutlineDoubleRight /> Terms of Use</a></li>
                         <li><a href="#!"><AiOutlineDoubleRight /> Privacy Policy</a></li>
-                        <li><a href="#!"><AiOutlineDoubleRight /> Securety</a></li>
+                        <li><a href="#!"><AiOutlineDoubleRight /> Security </a></li>
                     </ul>
                 </Col>
                 <Col xs={6} md={4} lg={2}>
