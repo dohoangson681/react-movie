@@ -16,6 +16,7 @@ import { ACCESS_TOKEN } from "../../util/setting";
 import { useDispatch, useSelector } from "react-redux";
 import { DANG_XUAT } from "../../redux/type/nguoiDung-type/NDType";
 import "./index.css";
+import { hidenLoadingAction } from "../../redux/action/loadingAction/loading";
 
 export default function Header() {
     const [isLogin, setLogin] = useState(false);

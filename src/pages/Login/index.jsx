@@ -12,10 +12,9 @@ import { history } from "../../App";
 import "./index.css";
 import { hidenLoadingAction } from "../../redux/action/loadingAction/loading";
 
-
 export default function Login() {
-
     const dispatch = useDispatch();
+    window.onload = () => { dispatch(hidenLoadingAction); };
     const [typePassword, settypePassword] = useState("password");
     const handleToggleHidePassword = () => {
         if (typePassword === "password") {
@@ -24,7 +23,7 @@ export default function Login() {
             settypePassword("password");
         }
     };
-    dispatch(hidenLoadingAction)
+
     return (
         <div className="form-login-user" >
             <Container>
@@ -52,7 +51,6 @@ export default function Login() {
                             {(formikProps) => (
                                 <Form onSubmit={formikProps.handleSubmit} className="formInput mx-3">
                                     <h2 className="text-black text-center">Đăng Nhập</h2>
-                                    {/* email  */}
                                     <div className="mb-3 col-12">
                                         <label
                                             htmlFor="taiKhoan"
@@ -66,7 +64,6 @@ export default function Login() {
                                             id="taiKhoan"
                                             name="taiKhoan"
                                         />
-
                                         <div className='text-danger'>
                                             {formikProps.errors.taiKhoan ||
                                                 formikProps.touched.taiKhoan ? (
@@ -76,7 +73,6 @@ export default function Login() {
                                             )}
                                         </div>
                                     </div>
-                                    {/* password  */}
                                     <div className="mb-3 col-12">
                                         <label
                                             htmlFor="matKhau"
@@ -106,7 +102,6 @@ export default function Login() {
                                             ) : (
                                                 ""
                                             )}
-
                                         </div>
                                     </div>
                                     <div className="mb-3 text-center col-12">

@@ -1,8 +1,8 @@
 .form-login-user{
-    background: url(https://miro.medium.com/max/1200/1*jbfWuj3RSAAvmJeBwLWbsw.jpeg?fbclid=IwAR3EdV8lALX-lZ2GO7uv9SjOYFaGXB6z8bfTl5A6pO2OfdC57JmmC24Ujlo);
+    background: url('../../asset/img/wallpaperbetter.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 91vh;
     display: flex;
 }
 .btnSignIn {
@@ -22,12 +22,12 @@
 .btn-dangky:hover{
     color: rgb(56, 106, 6);
 }
-.col-form{
+.form-login-user .col-form{
     border:  2px solid white;
     border-radius: 8px;
     padding: 10px ;
     background-color: rgba(255, 255, 255, 0.916);
 }
-.row-form{
-    transform: translateY(50%);
+.form-login-user .row-form{
+    transform: translateY(40%);
 }

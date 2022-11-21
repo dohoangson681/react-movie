@@ -14,6 +14,7 @@ import { hidenLoadingAction } from '../../redux/action/loadingAction/loading';
 
 export default function RegisterPage() {
     let dispatch = useDispatch();
+    window.onload = () => { dispatch(hidenLoadingAction); };
     const [typePassword, settypePassword] = useState("password");
     const handleToggleHidePassword = () => {
         if (typePassword === "password") {
@@ -22,7 +23,7 @@ export default function RegisterPage() {
             settypePassword("password");
         }
     };
-    dispatch(hidenLoadingAction)
+
     const phoneReg = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
     return (
         <div className='register-page d-flex align-item' >
