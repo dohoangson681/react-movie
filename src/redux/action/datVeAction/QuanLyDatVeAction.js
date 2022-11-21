@@ -2,6 +2,7 @@ import { datVeService } from "../../../service";
 import { CHANGE_TAB, LAY_CHI_TIET_PHONG_VE } from "../../type/datVe-type/DatVeType";
 import 'react-toastify/dist/ReactToastify.css';
 import { disPlayLoadingAction, hidenLoadingAction } from "../loadingAction/loading";
+import { history } from "../../../App";
 
 
 export const quanLyDatVeAction = (maLichChieu) => {
@@ -16,8 +17,8 @@ export const quanLyDatVeAction = (maLichChieu) => {
             dispatch(action);
             dispatch(hidenLoadingAction);
         });
-        promise.catch((err) => {
-            console.log('err', err);
+        promise.catch(() => {
+            history.push("/*")
         });
     };
 };
@@ -33,8 +34,8 @@ export const datVeAction = (thongTinDatVe) => {
             dispatch(action);
             dispatch(hidenLoadingAction);
         });
-        promise.catch((err) => {
-            console.log('err', err);
+        promise.catch(() => {
+            history.push("/*")
         });
     };
 }

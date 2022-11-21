@@ -46,7 +46,7 @@ function App() {
           <UserTemplate exact path="/login" component={Login}></UserTemplate>
           <UserTemplate exact path="/register" component={RegisterPage}></UserTemplate>
           <UserTemplate exact path="/ticketroom/:maLichChieu" component={BookingPage}></UserTemplate>
-          <UserTemplate  component={NotFound}></UserTemplate>
+          <UserTemplate path="*" component={NotFound}></UserTemplate>
         </Switch>
       </Router>
 

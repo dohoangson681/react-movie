@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import { history } from '../../App';
 import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { hidenLoadingAction } from '../../redux/action/loadingAction/loading';
+import { GP_ID } from '../../util/setting';
 import './index.css';
 
 export default function RegisterPage() {
@@ -37,7 +38,7 @@ export default function RegisterPage() {
                                 matKhau: "",
                                 email: "",
                                 soDt: "",
-                                maNhom: "GP03",
+                                maNhom: GP_ID,
                                 maLoaiNguoiDung: "KhachHang",
                                 hoTen: ""
                             }}
