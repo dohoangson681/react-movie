@@ -1,7 +1,7 @@
 .not-found{
-    background: url(https://img.freepik.com/free-vector/error-404-concept-landing-page_52683-11840.jpg?w=2000);
+    background: url('../../asset/img/646.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 90vh;
+    height: 91vh;
 }

@@ -152,7 +152,6 @@ export const capNhatAction = (thongTinCapNhat) => {
     return (dispatch) => {
         let promise = qLNDService.capNhatUser(thongTinCapNhat);
         promise.then((res) => {
-
             console.log(res.data.content);
             let action = {
                 type: CAP_NHAT_USER,
