@@ -18,7 +18,7 @@ export const quanLyDatVeAction = (maLichChieu) => {
             dispatch(hidenLoadingAction);
         });
         promise.catch(() => {
-            history.push("/*")
+            history.push("/*");
         });
     };
 };
@@ -35,7 +35,7 @@ export const datVeAction = (thongTinDatVe) => {
             dispatch(hidenLoadingAction);
         });
         promise.catch(() => {
-            history.push("/*")
+            history.push("/*");
         });
     };
 }

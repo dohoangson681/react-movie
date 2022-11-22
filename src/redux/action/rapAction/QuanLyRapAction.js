@@ -5,9 +5,9 @@ import { disPlayLoadingAction, hidenLoadingAction } from "../loadingAction/loadi
 
 export const layDsRapAction = (maNhom) => {
     return (dispatch) => {
+        dispatch(disPlayLoadingAction);
         let promise = rapService?.layThongTinLichChieuHeThongRap(maNhom);
         promise.then((res) => {
-            dispatch(disPlayLoadingAction);
             let action = {
                 type: LAY_DS_CUM_RAP,
                 mangCumRap: res.data.content
@@ -16,15 +16,15 @@ export const layDsRapAction = (maNhom) => {
             dispatch(hidenLoadingAction);
         });
         promise.catch((err) => {
-            console.log(err)
+            console.log(err);
         });
     };
 };
 export const layChiTietPhim = (maPhim) => {
     return (dispatch) => {
+        dispatch(disPlayLoadingAction);
         let promise = rapService?.layThongTinLichChieuPhim(maPhim);
         promise.then((res) => {
-            dispatch(disPlayLoadingAction);
             let action = {
                 type: LAY_CHI_TIET_PHIM,
                 phimDetail: res.data.content

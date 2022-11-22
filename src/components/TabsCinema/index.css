@@ -89,6 +89,7 @@
     border: 2px solid black;
     font-weight: bolder;
     margin: 8px 0;
+    min-width: 114px;
 
 }
 
