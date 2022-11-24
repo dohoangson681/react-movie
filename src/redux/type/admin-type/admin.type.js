@@ -1,1 +1,2 @@
 export const ADMIN_LOGIN = 'ADMI_LOGIN' ;
+export const ADMIN_GET_MVDETAIL = "ADMIN_GET_MVDETAIL" ; 

@@ -4,15 +4,12 @@ import "./index.css";
 import moment from 'moment';
 import {
   Button,
-  Cascader,
   DatePicker,
   Form,
   Input,
   InputNumber,
-  Radio,
   Select,
   Switch,
-  TreeSelect,
 } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import { useDispatch } from "react-redux";
@@ -30,6 +27,7 @@ export default function ThemPhimAdmin() {
 
   const formik = useFormik({
     initialValues: {
+      maNhom : 'GP01',
      tenPhim : '',
      trailer : '',
      moTa : '' ,
@@ -41,14 +39,9 @@ export default function ThemPhimAdmin() {
      hinhAnh : {}
     },
     onSubmit: values => {
-      // console.log(values) ; 
-      // tao du lieu form data
-      let formData = new FormData() ; 
-      // formData.append('nameFiled' , value) ; 
+      console.log(values) ; 
+      let formData = new FormData() ;  
       formData.append('tenPhim' , formik.values.tenPhim ) ; 
-      // console.log('form data' , formData.get('tenPhim')) ; 
-      // doi voi file
-      // formData.append('File' , value , filename) 
       formData.append('File' , formik.values.hinhAnh , formik.values.hinhAnh.name ) ; 
       console.log('file'  , formData.get('File')) ; 
       for (const key in values) {
@@ -58,13 +51,6 @@ export default function ThemPhimAdmin() {
           formData.append(key , values[key]) ; 
         }
       }
-      // for(const key in values) {
-      //   if(key === 'hinhAnh') {
-      //     console.log('key ',formData.get('image file')) ; 
-      //   }else console.log('key ',formData.get(key)) ; 
-        
-      // }
-      // TODO goi api 
       let action = themPhimAdmin(formData) ;
       dispatch(action) ; 
     },
@@ -91,6 +77,10 @@ export default function ThemPhimAdmin() {
     }
   }
 
+  const handleChangeSelect = (value ) => {
+   formik.setFieldValue('maNhom' , value) ; 
+  }
+
   return (
     <Form
     onSubmitCapture={formik.handleSubmit}
@@ -112,6 +102,80 @@ export default function ThemPhimAdmin() {
     >
      
       <h2 className="text-center text-primary ">Thêm phim mới</h2>
+     
+     <Form.Item label="Chọn mã nhóm">
+     <Select
+      name = 'maNhom'
+      onChange={handleChangeSelect}
+      defaultValue="GP01"
+      style={{
+        width: 120,
+      }}
+     
+      options={[
+        {
+          value: 'GP01',
+          label: 'GP01',
+        },
+        {
+          value: 'GP02',
+          label: 'GP02',
+        },
+        {
+          value: 'GP03',
+          label: 'GP03',
+        },
+        {
+          value: 'GP04',
+          label: 'GP04',
+        },
+        {
+          value: 'GP05',
+          label: 'GP05',
+        },
+        {
+          value: 'GP06',
+          label: 'GP06',
+        },
+        {
+          value: 'GP07',
+          label: 'GP07',
+        },
+        {
+          value: 'GP08',
+          label: 'GP08',
+        },
+        {
+          value: 'GP09',
+          label: 'GP09',
+        },
+        {
+          value: 'GP10',
+          label: 'GP10',
+        },
+        {
+          value: 'GP11',
+          label: 'GP11',
+        },
+        {
+          value: 'GP12',
+          label: 'GP12',
+        },
+        {
+          value: 'GP13',
+          label: 'GP13',
+        },
+        {
+          value: 'GP14',
+          label: 'GP14',
+        },
+        {
+          value: 'GP15',
+          label: 'GP15',
+        },
+      ]}
+    />
+      </Form.Item>
       <Form.Item label="Tên phim">
         <Input  
         onChange={formik.handleChange}
