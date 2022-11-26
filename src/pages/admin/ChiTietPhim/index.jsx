@@ -12,7 +12,7 @@ import dayjs from 'dayjs';
 import "./index.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getDetailMovieAdmin } from "../../../redux/action/movieAction/QuanLyPhimAction";
+import { getDetailMovieAdmin, updateMovieAdmin } from "../../../redux/action/movieAction/QuanLyPhimAction";
 import { useFormik } from "formik";
 import moment from 'moment';
 
@@ -47,10 +47,24 @@ export default function DetailMovieAdmin(props) {
       sapChieu : phimDetailAdmin?.sapChieu,
       hot :phimDetailAdmin?.hot,
       danhGia : phimDetailAdmin?.danhGia,
-      hinhAnh : phimDetailAdmin?.hinhAnh,
+      hinhAnh : null,
     },
     onSubmit: values => {
       console.log(values) ; 
+      let formData = new FormData() ; 
+      for (const key in values) {
+        if(key === 'hinhAnh'  && values[key] !== null ) {
+          formData.append('image file' , values[key] , values[key].name) ; 
+        }else if (key === 'ngayKhoiChieu') {
+            let nkc = moment(values[key]).format('DD/MM/YYYY') ; 
+            // console.log('nkc' , nkc) ; 
+            formData.append(key , values[key]) ; 
+        }else {
+          formData.append(key , values[key]) ; 
+        }
+      }
+      let action = updateMovieAdmin(formData , maphim ) ; 
+      dispatch(action) ; 
     },
   });
   // console.log('formik value' , formik.values) ; 
@@ -68,17 +82,21 @@ export default function DetailMovieAdmin(props) {
   const handleSubmitFile = (e) => {
       let file = e.target.files[0] ; 
       console.log('file' , file) ; 
+      formik.setFieldValue('hinhAnh' , file) ; 
       let reader = new FileReader() ; 
       reader.readAsDataURL(file) ; 
       reader.onload = (e => {
         let url = e.target.result ; 
+        // console.log(e.target.result) ; 
         setSrcImage(url) ; 
       })
     }
      
 
   const handleChangeDate = (value) => {
-    // moment("2015-01-01", dateFormat) 
+    let nkc = moment(value).format('DD/MM/YYYY') ;
+    // console.log('nkc' , nkc) ; 
+    formik.setFieldValue('ngayKhoiChieu' , nkc) ; 
   }
 
   const day = moment(formik.values.ngayKhoiChieu).format('DD/MM/YYYY') ;
@@ -86,7 +104,6 @@ export default function DetailMovieAdmin(props) {
   
   return (
     <>
-    
       <Form
       onSubmitCapture={formik.handleSubmit}
         labelCol={{
@@ -186,7 +203,7 @@ export default function DetailMovieAdmin(props) {
         </Form.Item>
 
         <Form.Item label="Ngày khởi chiếu">
-          <DatePicker defaultValue={dayjs(moment(formik.values.ngayKhoiChieu).format('MM/DD/YYYY'), 'DD/MM/YYYY' )} format={'DD/MM/YYYY'} onChange = {handleChangeDate} />
+          <DatePicker defaultValue={dayjs('01/01/2015', 'DD/MM/YYYY')} format={'DD/MM/YYYY'} onChange = {handleChangeDate} />
         </Form.Item>
 
         <Form.Item label="Đang chiếu" valuePropName="checked">
@@ -213,7 +230,10 @@ export default function DetailMovieAdmin(props) {
         </Form.Item>
 
         <Form.Item label="Hình ảnh">
-          <input type="file" onChange={handleSubmitFile} accept = 'img/jpg , img/jpeg , img/png' />
+          <input 
+          accept="image/png, image/gif, image/jpeg"
+          type="file" 
+          onChange={handleSubmitFile} />
           <img style={{
             width : '200px',
             marginTop : '20px',

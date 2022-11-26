@@ -33,10 +33,16 @@ export default class QLNDService {
     dangKy = (thongTinDangKy) => {
         return http.post(`api/QuanLyNguoiDung/DangKy`, thongTinDangKy);
     };
+    layTTNguoiDung = (taiKhoan) => {
+        return http.post(`/api/QuanLyNguoiDung/LayThongTinNguoiDung?taiKhoan=${taiKhoan}`) ; 
+    }
     capNhatUser = (thongTinCapNhat) => {
         return http.put(`/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`, thongTinCapNhat);
     };
     layTTTaiKhoan = () => {
         return http.post(`/api/QuanLyNguoiDung/ThongTinTaiKhoan`);
     };
+    capNhatThongTinNguoiDung = (nguoiDungUpdate) => {
+        return http.post('/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung' , nguoiDungUpdate) ;
+    }
 }

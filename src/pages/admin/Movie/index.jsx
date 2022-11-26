@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Button, Space, Table , Tag , Modal  } from 'antd';
+import { Button, Space, Table , Tag , Modal, Tooltip  } from 'antd';
 import { Select } from 'antd';
 import moment from "moment/moment";
 import "./index.css";
 import { useDispatch, useSelector } from "react-redux";
 import { layDsPhimAction, layDsPhimAdmin, xoaPhimAdmin } from "../../../redux/action/movieAction/QuanLyPhimAction";
-import { AiFillEdit , AiFillDelete } from "react-icons/ai";
+import { AiFillEdit , AiFillDelete , AiFillCalendar} from "react-icons/ai";
 import { NavLink } from "react-router-dom";
+import { history } from "../../../App";
 
 
 
@@ -73,21 +74,35 @@ export default function AdminMovie(props) {
     {
       title: 'Action',
       dataIndex: 'maPhim',
-      render : (maPhim) => {
-        // console.log('maPhim' , maPhim) ; 
+      render : (_,values) => {
+        let {maPhim} = values ; 
         return (
           <>
            <Space>
-        <Button onClick={()=>{
+           <Tooltip title="Chi tiết phim">
+           <Button onClick={()=>{
             props.history.push(`/admin/detail-movie/${maPhim}`) ; 
-        }} type="primary"><AiFillEdit/></Button>
-        <Button onClick={()=>{
+              }} type="primary"><AiFillEdit/></Button>
+          </Tooltip>
+
+          <Tooltip title="Xóa phim">
+          <Button onClick={()=>{
           console.log(maPhim) ; 
           setMaPhimXoa(maPhim)
           showModalConfirmDelete() ; 
               // let action = xoaPhimAdmin(maPhim , GROUP_ID) ; 
               // dispatch(action) ; 
         }} type="danger" ><AiFillDelete/></Button>
+          </Tooltip>
+        
+
+          <Tooltip title="Tạo lịch chiếu">
+          <Button onClick={()=>{
+            history.push(`/admin/tao-lich-chieu/${maPhim}`) ; 
+          }} type="default"><AiFillCalendar/></Button>
+          </Tooltip>
+        
+        
         {/* modal confirm delete  */}
         <Modal
         open={open}

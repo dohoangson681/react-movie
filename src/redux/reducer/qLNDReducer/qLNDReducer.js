@@ -1,7 +1,7 @@
 import { history } from "../../../App";
 import { CAP_NHAT_USER, DANG_KY, DANG_NHAP, DANG_XUAT, LAY_TT_TAI_KHOAN } from "../../type/nguoiDung-type/NDType";
-import { ACCESS_TOKEN, ADMIN_ACC, USER_LOGIN } from "../../../util/setting"
-import { ADMIN_LOGIN } from "../../type/admin-type/admin.type";
+import { ACCESS_TOKEN, ADMIN_ACC, GET_LIST_USER_ADMIN, USER_LOGIN } from "../../../util/setting"
+import { ADMIN_GET_USERDETAIL, ADMIN_LOGIN } from "../../type/admin-type/admin.type";
 
 let user = {};
 if (localStorage.getItem(USER_LOGIN)) {
@@ -16,7 +16,9 @@ const initialState = {
     userRegister: {},
     thongTinNguoiDung: {
     },
-    adminLogin : admin  
+    adminLogin : admin  ,
+    dsndAdmin : [],
+    userDetailAdmin : {} 
 };
 
 export const quanLyNguoiDungReducer = (state = initialState, action) => {
@@ -51,7 +53,13 @@ export const quanLyNguoiDungReducer = (state = initialState, action) => {
             // state.thongTinNguoiDung = action.thongTinNguoiDung;
             console.log('thongtin', state.thongTinNguoiDung);
             return { ...state };
-        default:
+        case GET_LIST_USER_ADMIN : 
+            state.dsndAdmin = [...action.payload]
+            return {...state}
+        case ADMIN_GET_USERDETAIL : 
+            state.userDetailAdmin = {...action.payload} ; 
+            return {...state} ;     
+            default:
             return state;
     }
 };
