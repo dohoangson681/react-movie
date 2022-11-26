@@ -21,6 +21,12 @@ export default class PhimServices {
     themPhimUploadhinh = (formData) => {
         return http.post('/api/QuanLyPhim/ThemPhimUploadHinh' , formData) ; 
     }
+    getDetailAdmin = (maPhim) => {
+        return http.get(`/api/QuanLyPhim/LayThongTinPhim?MaPhim=${maPhim}`) ; 
+    }
+    capNhatPhimAdmin = (newFormData) => {
+        return http.post(`/api/QuanLyPhim/CapNhatPhimUpload`,newFormData) ; 
+    }
 
 }
 

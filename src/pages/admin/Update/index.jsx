@@ -10,7 +10,7 @@ import { adminDangNhapAction } from '../../../redux/action/qLNDAction/qLNDAction
 import { history } from '../../../App';
 export default function UpdateAccAdmin() {
     let {adminLogin} = useSelector(state => state.quanLyNguoiDungReducer) ;
-    const dispatch = useDispatch() ; 
+    const dispatch = useDispatch() ;  
    
     let {email , hoTen , maLoaiNguoiDung , soDT , taiKhoan } = adminLogin ; 
     const formik = useFormik({
@@ -36,25 +36,14 @@ export default function UpdateAccAdmin() {
             
             let promise = qLNDService.adminCapNhatThongTinND(values) ;
             promise.then(res => {
-                console.log(res) ; // khi cap nhat thanh cong thi thuc hien action dang nhap laij
-                // let action = adminDangNhapAction(values , () => {
-                //     console.log('update acc admin !') ; 
-                // }) ; 
-                // dispatch(action) ; 
                 history.push('/admin/login') ; 
             }).catch(err => {
                 console.log(err.response.data.content) ; 
             }) ; 
         },
       });
-    //   console.log('formik.values.email' , formik.values.email) ;
-    // "taiKhoan": "123456",
-    //   "hoTen": "Ho Tan Phat",
-    //   "email": "hotanphat@gmail.com",
-    //   "soDT": "0789476035",
-    //   "matKhau": "Admin124",
-    //   "maLoaiNguoiDung": "QuanTri" 
-       console.log('admin login' , adminLogin ) ;
+
+      
   return (
     
     <Row style={{height : '600px'}} className='container'>
@@ -69,8 +58,6 @@ export default function UpdateAccAdmin() {
                 matKhau :''
                }}
                onSubmitCapture = {formik.handleSubmit}
-    //   onFinish={onFinish}
-    //   onFinishFailed={onFinishFailed}
         
       autoComplete="off"
     >

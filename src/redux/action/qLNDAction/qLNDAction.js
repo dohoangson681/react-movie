@@ -2,14 +2,10 @@ import { history } from "../../../App";
 import { qLNDService } from "../../../service";
 import { CAP_NHAT_USER, DANG_KY, DANG_NHAP, LAY_TT_TAI_KHOAN } from "../../type/nguoiDung-type/NDType";
 import { toast } from "react-toastify";
-import { ADMIN_LOGIN } from "../../type/admin-type/admin.type";
-import { ACCESS_TOKEN, ADMIN_ACC } from "../../../util/setting";
+import { ADMIN_GET_USERDETAIL, ADMIN_LOGIN } from "../../type/admin-type/admin.type";
+import { ACCESS_TOKEN, ADMIN_ACC, GET_LIST_USER_ADMIN } from "../../../util/setting";
 import { disPlayLoadingAction, hidenLoadingAction } from "../loadingAction/loading";
 
-// const notify = () =>
-//   toast("Tài Khoản Hoặc Mật Khẩu Sai !", {
-//     position: toast.POSITION.TOP_RIGHT,
-//   });
 const notifyAdmin = () =>
     toast.error("Yêu cầu tài khoản Admin !", {
         position: "top-center",
@@ -22,52 +18,14 @@ const notifyAdmin = () =>
         theme: "light",
     });
 
-// export const dangNhapAction = (thongTinDangNhap) => {
-//   return (dispatch) => {
-//     let promise = qLNDService.dangNhap(thongTinDangNhap);
-//     promise.then((res) => {
-//       console.log(res);
-//       // "taiKhoan": "dhs12@gmail.com",
-//       // "matKhau": "123456",
-//       let action = {
-//         type: DANG_NHAP,
-//         thongTinDangNhap: res.data.content,
-//       };
-//       dispatch(action);
-//       history.push("/home");
-//     });
-//     promise.catch((err) => {
-//       notify();
-//       console.log("err", err);
-//     });
-//   };
-// };
-// export const layThongTinNguoiDungAction = () => {
-//   return (dispatch) => {
-//     let promise = qLNDService.layTTTaiKhoan();
-//     promise.then((res) => {
-//       console.log(res);
-//       let action = {
-//         type: LAY_TT_TAI_KHOAN,
-//         thongTinNguoiDung: res.data.content,
-//       };
-//       dispatch(action);
-//     });
-//     promise.catch((err) => {
-//       console.log("err", err);
-//     });
-//   };
-// };
 export const adminDangNhapAction = (values, resetForm) => {
     return (dispatch) => {
         let promise = qLNDService.dangNhapAdmin(values);
         promise
             .then((res) => {
                 dispatch(disPlayLoadingAction);
-                console.log('res.data.content', res.data.content);
+               
                 let loaiND = res.data.content.maLoaiNguoiDung;
-                // console.log('loaiND' , loaiND ) ; 
-                // abc123 - 123456111
                 if (loaiND === "KhachHang") {
                     notifyAdmin();
                     resetForm();
@@ -78,7 +36,7 @@ export const adminDangNhapAction = (values, resetForm) => {
                         data: res.data.content,
                     };
                     dispatch(action);
-                    console.log(' res.data.content.accessToken', res.data.content.accessToken);
+                    
                     localStorage.setItem(ACCESS_TOKEN, res.data.content.accessToken);
                     let basicInfo = {};
                     basicInfo = {
@@ -178,3 +136,82 @@ export const layThongTinNguoiDungAction = () => {
     };
 };
 
+export const layDSNDAdmin = (groupID) => {
+    return dispatcher => {
+        let promise = qLNDService.layDSND(groupID) ; 
+        promise.then(res => {
+            console.log(res) ; 
+            let action = {
+                type: GET_LIST_USER_ADMIN ,
+                payload : res.data.content 
+            }
+            dispatcher(action) ; 
+        }).catch(err => console.log(err)) ; 
+    }
+}
+
+export const themNDActionAdmin = (nguoiDung , handleCancel) => {
+    return dispatcher => {
+        let promise = qLNDService.themND(nguoiDung) ;
+        promise.then(res => {
+            // console.log(res) ; 
+            history.push('/admin/user-admin') ; 
+            handleCancel() ; 
+            // console.log('Thêm người dùng thành công !') ; 
+            alert('Thêm người dùng thành công !') ; 
+        }).catch (err => {
+            alert(err.response.data.content) ;  
+        }) ; 
+    }
+}
+
+export const xoaNDAction = (taiKhoan , groupID) => {
+    return dispatcher => {
+        let promise = qLNDService.xoaND(taiKhoan) ; 
+        promise.then(res => {
+            let action = layDSNDAdmin(groupID) ; 
+            dispatcher(action) ; 
+            // history.push('/admin/user-admin') ; 
+            // alert('Xóa người dùng thành công !') ;
+        }).catch(err => {
+            console.log(err) ; 
+            alert(err.response.data.content) ; 
+        })
+    }
+}
+
+
+export const layTTNguoiDungAdmin = (taiKhoan , setLoading ) => {
+    return dispatcher => {
+        console.log('taikhoan' , taiKhoan) ; 
+        let promise = qLNDService.layTTNguoiDung(taiKhoan) ;
+        promise.then(res => {
+            console.log(res); 
+            setLoading(true) ; 
+            const action = {
+                type : ADMIN_GET_USERDETAIL ,
+                payload : res.data.content
+            }
+            dispatcher(action) ; 
+        }).catch(err => {
+            if(err?.code === 'ECONNABORTED') history.push('/admin/error-econnaborted') ; 
+            else alert('Lỗi chưa xác định ! Vui lòng thử lại sau') ; 
+            
+        } ) ; 
+    }
+}
+
+export const capNhatUserAdmin = (nguoiDungUpdate, taiKhoan , notify ) => {
+    return dispatcher => {
+        let promise = qLNDService.capNhatThongTinNguoiDung(nguoiDungUpdate) ; 
+        promise.then(res => {
+            // console.log(res) ;
+            history.push(`/admin/update-user/${taiKhoan}`) ; 
+            notify() ; 
+            // alert('Cập nhật thành công !') ; 
+        }).catch(err =>{
+            if(err?.code === 'ECONNABORTED') history.push('/admin/error-econnaborted') ; 
+            else alert('Lỗi chưa xác định ! Vui lòng thử lại sau') ; 
+        }) ; 
+    }
+}

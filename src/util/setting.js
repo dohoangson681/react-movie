@@ -9,3 +9,5 @@ export const ACCESS_TOKEN = 'access_token';
 export const USER_LOGIN = 'userLogin'
 
 export const ADMIN_ACC = 'adminAcc'
+
+export const GET_LIST_USER_ADMIN = 'GET_LIST_USER_ADMIN';

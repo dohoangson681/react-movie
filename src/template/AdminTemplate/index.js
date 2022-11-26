@@ -78,11 +78,11 @@ export const AdminTemplate = (props) => {
                 <span>Quản lý người dùng</span>
                 <NavLink to="/admin/user-admin" />
               </Menu.Item>
-              <Menu.Item key="3">
+              {/* <Menu.Item key="3">
                 <CiCalendarDate />
                 <span>Quản lý lịch chiếu</span>
                 <NavLink to="/admin/showtime-admin" />
-              </Menu.Item>
+              </Menu.Item> */}
             </Menu>
           </Sider>
           <Layout className="site-layout">

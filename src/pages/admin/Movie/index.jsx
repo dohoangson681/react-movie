@@ -1,70 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Button, Space, Table , Tag } from 'antd';
+import { Button, Space, Table , Tag , Modal, Tooltip  } from 'antd';
 import { Select } from 'antd';
 import moment from "moment/moment";
 import "./index.css";
 import { useDispatch, useSelector } from "react-redux";
-import { layDsPhimAction, layDsPhimAdmin } from "../../../redux/action/movieAction/QuanLyPhimAction";
-import { AiFillEdit , AiFillDelete } from "react-icons/ai";
+import { layDsPhimAction, layDsPhimAdmin, xoaPhimAdmin } from "../../../redux/action/movieAction/QuanLyPhimAction";
+import { AiFillEdit , AiFillDelete , AiFillCalendar} from "react-icons/ai";
 import { NavLink } from "react-router-dom";
-const columns = [
-  {
-    title: 'Mã phim',
-    dataIndex: 'maPhim'
-  },
-  {
-    title: 'Tên phim',
-    dataIndex: 'tenPhim'
-  },
-  {
-    title: 'Hình ảnh',
-    dataIndex: 'hinhAnh',
-    render : (url) => {
-      return <img width={100} src={url} alt='Hinh Anh' />
-    }
-  },
-  {
-    title: 'Mô tả',
-    dataIndex: 'moTa',
-    render : (text) => {
-      return text.length > 30 ? text.substr(0,30) + '...' : text ; 
-    }
-  },
-  {
-    title: 'Ngày khởi chiếu',
-    dataIndex: 'ngayKhoiChieu',
-    render : (date) => {
-      return <Tag style = {{
-        fontSize : '16px'
-      }} >{moment(date).format("Do MMM YY") }</Tag>
-    }
-  },
-  {
-    title: 'Action',
-    dataIndex: 'action',
-    render : (action) => {
-      return (
-        <>
-         <Space>
-      <Button type="primary"><AiFillEdit/></Button>
-      <Button type="danger" ><AiFillDelete/></Button>
-    </Space>
-        </>
-      )
-    }
-  }
-
-];
+import { history } from "../../../App";
 
 
-export default function AdminMovie() {
+
+export default function AdminMovie(props) {
   // let [dataPhim , setDataPhim] = useState([]) ; 
   let [GROUP_ID , setGI] = useState('GP01') ; 
+  let [maPhimXoa , setMaPhimXoa] = useState(0) ; 
   let {mangPhim} = useSelector(state => state.quanLyPhimReducer) ; 
   for(let i = 0 ; i < mangPhim.length ; i++ ){
     mangPhim[i] = {...mangPhim[i] , key : i.toString() }
   }
-  // console.log('mangPhim' , mangPhim) ; 
+  console.log('mangPhim' , mangPhim) ; 
   
   let dispatch = useDispatch() ;
   const handleChangeSelect = (value) => {
@@ -83,7 +38,119 @@ export default function AdminMovie() {
     // console.log('action' , action) ; 
     dispatch(action) ;
   } , [GROUP_ID])
+
+  const columns = [
+    {
+      title: 'Mã phim',
+      dataIndex: 'maPhim'
+    },
+    {
+      title: 'Tên phim',
+      dataIndex: 'tenPhim'
+    },
+    {
+      title: 'Hình ảnh',
+      dataIndex: 'hinhAnh',
+      render : (url) => {
+        return <img width={100} src={url} alt='Hinh Anh' />
+      }
+    },
+    {
+      title: 'Mô tả',
+      dataIndex: 'moTa',
+      render : (text) => {
+        return text.length > 30 ? text.substr(0,30) + '...' : text ; 
+      }
+    },
+    {
+      title: 'Ngày khởi chiếu',
+      dataIndex: 'ngayKhoiChieu',
+      render : (date) => {
+        return <Tag style = {{
+          fontSize : '16px'
+        }} >{moment(date).format("Do MMM YY") }</Tag>
+      }
+    },
+    {
+      title: 'Action',
+      dataIndex: 'maPhim',
+      render : (_,values) => {
+        let {maPhim} = values ; 
+        return (
+          <>
+           <Space>
+           <Tooltip title="Chi tiết phim">
+           <Button onClick={()=>{
+            props.history.push(`/admin/detail-movie/${maPhim}`) ; 
+              }} type="primary"><AiFillEdit/></Button>
+          </Tooltip>
+
+          <Tooltip title="Xóa phim">
+          <Button onClick={()=>{
+          console.log(maPhim) ; 
+          setMaPhimXoa(maPhim)
+          showModalConfirmDelete() ; 
+              // let action = xoaPhimAdmin(maPhim , GROUP_ID) ; 
+              // dispatch(action) ; 
+        }} type="danger" ><AiFillDelete/></Button>
+          </Tooltip>
+        
+
+          <Tooltip title="Tạo lịch chiếu">
+          <Button onClick={()=>{
+            history.push(`/admin/tao-lich-chieu/${maPhim}`) ; 
+          }} type="default"><AiFillCalendar/></Button>
+          </Tooltip>
+        
+        
+        {/* modal confirm delete  */}
+        <Modal
+        open={open}
+        title="Title"
+        onOk={handleOk}
+        onCancel={handleCancel}
+        footer={[
+          <Button key="back" onClick={handleCancel}>
+            Return
+          </Button>,
+          <Button key="back2" type="primary"  onClick={()=>{
+            console.log('maPhim' , maPhimXoa) ; 
+              let action = xoaPhimAdmin(maPhimXoa , GROUP_ID , handleCancel) ; 
+              dispatch(action) ; 
+           
+          }}>
+            Xác nhận
+          </Button>,
+        ]}
+      >
+       <p>Bạn có chắc muốn xóa phim</p>
+      </Modal>
+      </Space>
+          </>
+        )
+      }
+    }
   
+  ];
+  
+
+  const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
+  const showModalConfirmDelete = () => {
+    setOpen(true);
+  };
+  const handleOk = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setOpen(false);
+    }, 1000);
+  };
+  const handleCancel = () => {
+    setOpen(false);
+  };
+
+
   return (
     <>
       <h3 className="text-primary">Quản lý phim</h3>
